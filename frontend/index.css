@@ -11,7 +11,7 @@
 }
 
 body {
-  background: linear-gradient(270deg, #1b2628 0%, #0d5365 100%);
+  background: linear-gradient(90deg, #008baa 0%, #004e68 100%);
 }
 
 .container {
@@ -79,7 +79,7 @@ body {
   padding: 8px 25px;
 
   border-radius: 10px;
-  background: linear-gradient(90deg, #2193b0 0%, #6dd5ed 100%);
+  background: linear-gradient(90deg, #00b4db 0%, #0083b0 100%);
   box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
 }
 
@@ -105,7 +105,7 @@ body {
 .showcase h2 {
   font-size: 72px;
   font-family: "Roboto", "Sans-Serif";
-  color: #6dd5ed;
+  color: #00b4db;
 }
 
 .showcase p {
@@ -128,7 +128,7 @@ body {
   padding: 15px 25px;
 
   border-radius: 10px;
-  background: linear-gradient(90deg, #2193b0 0%, #6dd5ed 100%);
+  background: linear-gradient(90deg, #00b4db 0%, #0083b0 100%);
   box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
 }
 
