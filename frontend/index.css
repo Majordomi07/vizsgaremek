@@ -22,6 +22,10 @@ body {
   padding-right: 30px;
 }
 
+.typed-cursor {
+  display: none;
+}
+
 /* -------------------------------------------------------------------------- */
 /*                                   Header                                   */
 /* -------------------------------------------------------------------------- */
@@ -95,11 +99,14 @@ body {
   flex-direction: column;
 }
 
-.showcase h1 {
+.showcase .typeWriter {
   font-size: 72px;
   font-family: "Roboto", "Sans-Serif";
   line-height: 1;
   color: white;
+  border-right: 2px white solid;
+  padding-right: 5px;
+  height: 80px;
 }
 
 .showcase h2 {
@@ -130,6 +137,21 @@ body {
   border-radius: 10px;
   background: linear-gradient(90deg, #00b4db 0%, #0083b0 100%);
   box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+}
+
+.showcase .blob1 {
+  height: 50%;
+  position: absolute;
+  top: 80px;
+  left: 15%;
+  z-index: -1;
+}
+
+.showcase .blob2 {
+  height: 50%;
+  position: absolute;
+  bottom: 0;
+  right: 15%;
 }
 
 /* -------------------------------------------------------------------------- */
@@ -164,7 +186,6 @@ body {
 
 .blog .cards {
   width: 100%;
-  outline: 1px red solid;
 
   display: flex;
   align-items: center;
@@ -175,8 +196,9 @@ body {
 
 .blog .cards .card {
   background: rgba(0, 0, 0, 0.4);
-  outline: 1px red solid;
   width: 400px;
+  margin-bottom: 40px;
+  border-radius: 10px;
 }
 
 .blog .cards .card img {
@@ -190,14 +212,21 @@ body {
   color: white;
   font-family: "Roboto", "Sans-Serif";
   font-size: 20px;
+  padding-left: 20px;
+  margin-top: 20px;
 }
 
 .blog .cards .card p {
   width: 90%;
   font-size: 15px;
+  padding-left: 20px;
 }
 
 .blog .cards .card a {
+  display: inline-block;
+  margin-top: 40px;
+  margin-bottom: 50px;
+  margin-left: 20px;
   color: white;
   font-family: "Inter", sans-serif;
   font-size: 15px;
@@ -211,13 +240,11 @@ body {
 
 .blog .cards .card .profile {
   display: flex;
-  border: 1px red solid;
   height: 80px;
+  padding-left: 20px;
 }
 
 .blog .cards .card .profile .img {
-  border: 1px blue solid;
-
   display: flex;
   align-items: center;
   justify-content: center;
@@ -230,21 +257,25 @@ body {
 }
 
 .blog .cards .card .profile .text {
-  outline: 1px green solid;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  margin-left: 10px;
 }
 
 .blog .cards .card .profile .text h4 {
   color: white;
   font-family: "Roboto", "Sans-Serif";
   font-size: 14px;
+  width: 100px;
 }
 
 .blog .cards .card .profile .text p {
   color: white;
   font-family: "Inter", "Sans-Serif";
   font-size: 13px;
+  width: 100px;
+  padding-left: 0;
+  margin-top: 0;
 }
