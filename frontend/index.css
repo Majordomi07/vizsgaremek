@@ -55,8 +55,10 @@ body::before {
   display: flex;
   align-items: center;
 
-  padding-top: 15px;
+  padding-top: 40px;
   height: 80px;
+
+  transition: 0.3s;
 }
 
 .desktop .brand {
@@ -69,6 +71,7 @@ body::before {
 
 .desktop .brand img {
   height: 70px;
+  transition: 0.3s;
 }
 
 .desktop nav {
@@ -80,6 +83,7 @@ body::before {
 }
 
 .desktop nav a {
+  box-sizing: content-box;
   color: white;
   font-family: "Inter", sans-serif;
   font-size: 17px;
@@ -104,6 +108,12 @@ body::before {
   border-radius: 10px;
   background: linear-gradient(90deg, #00b4db 0%, #0083b0 100%);
   box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+
+  transition: 0.2s all;
+}
+
+.desktop .cta a:hover {
+  transform: scale(1.1);
 }
 
 /* -------------------------------------------------------------------------- */
@@ -124,6 +134,7 @@ body::before {
   left: 0;
   width: 50vw;
   height: 100vh;
+  z-index: -1;
 
   display: flex;
   align-items: center;
@@ -133,7 +144,6 @@ body::before {
 .showcase .blob img {
   opacity: 0.2;
   animation: rotating 60s linear infinite;
-  z-index: -1;
 }
 
 @keyframes rotating {
@@ -183,6 +193,11 @@ body::before {
   border-radius: 10px;
   background: linear-gradient(90deg, #00b4db 0%, #0083b0 100%);
   box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+  transition: 0.2s all;
+}
+
+.showcase a:hover {
+  transform: scale(1.1);
 }
 
 /* -------------------------------------------------------------------------- */
