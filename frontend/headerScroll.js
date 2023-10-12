@@ -23,13 +23,3 @@ function scrollFunction() {
     document.querySelector(".desktop .brand img").style.height = "70px";
   }
 }
-
-/*
-.desktop .brand img
-
-background: rgba(255, 255, 255, 0.4);
-backdrop-filter: blur(10px);
-padding-top: 0;
-padding: 15px;
-border-radius: 10px;
-*/

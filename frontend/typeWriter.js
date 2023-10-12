@@ -1,9 +1,9 @@
 var typing = new Typed(".typeWriter", {
   strings: [
-    "Építsd a jövődet!",
-    "Fejlődj a munka útján!",
-    "Építsd a karrieredet!",
-    "Dolgozz a céljaidért!",
+    "Építsd a jövődet...",
+    "Ismerj meg új embereket...",
+    "Építsd a karrieredet...",
+    "Érd el a céljaidat...",
   ],
   typeSpeed: 100,
   backSpeed: 40,
