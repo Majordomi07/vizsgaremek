@@ -14,6 +14,25 @@ body {
   background: linear-gradient(90deg, #008baa 0%, #004e68 100%);
 }
 
+body::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  background: linear-gradient(90deg, #08758d 0%, #033a4d 100%);
+  opacity: 0;
+  animation: bg 3s ease-in-out 1s infinite alternate-reverse;
+  z-index: -1;
+}
+
+@keyframes bg {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
 .container {
   max-width: 1400px;
   margin: 0 auto;
@@ -99,6 +118,33 @@ body {
   flex-direction: column;
 }
 
+.showcase .blob {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 50vw;
+  height: 100vh;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.showcase .blob img {
+  opacity: 0.2;
+  animation: rotating 60s linear infinite;
+  z-index: -1;
+}
+
+@keyframes rotating {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
 .showcase .typeWriter {
   font-size: 72px;
   font-family: "Roboto", "Sans-Serif";
@@ -137,21 +183,6 @@ body {
   border-radius: 10px;
   background: linear-gradient(90deg, #00b4db 0%, #0083b0 100%);
   box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
-}
-
-.showcase .blob1 {
-  height: 50%;
-  position: absolute;
-  top: 80px;
-  left: 15%;
-  z-index: -1;
-}
-
-.showcase .blob2 {
-  height: 50%;
-  position: absolute;
-  bottom: 0;
-  right: 15%;
 }
 
 /* -------------------------------------------------------------------------- */
