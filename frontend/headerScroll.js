@@ -6,7 +6,7 @@ function scrollFunction() {
   if (document.body.scrollTop > 50 || document.documentElement.scrollTop > 50) {
     document.querySelector(".desktop").style.position = "sticky";
     document.querySelector(".desktop").style.top = "20px";
-    document.querySelector(".desktop").style.backgroundColor = "#ffffff66";
+    document.querySelector(".desktop").style.backgroundColor = "#ffffff40";
     document.querySelector(".desktop").style.backdropFilter = "blur(20px)";
     document.querySelector(".desktop").style.paddingTop = "0";
     document.querySelector(".desktop").style.padding = "15px";

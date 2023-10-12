@@ -70,6 +70,24 @@ body {
   font-family: "Inter", sans-serif;
   font-size: 17px;
   text-decoration: none;
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.desktop nav a::after {
+  content: "";
+  position: absolute;
+  width: 0%;
+  height: 3px;
+  display: block;
+  transition: all 0.3s ease;
+  top: 22px;
+}
+
+.desktop nav a:hover::after {
+  width: 100%;
+  background: linear-gradient(45deg, #3dc7e6 0%, #27c0f3 100%);
 }
 
 .desktop .cta {
@@ -113,6 +131,7 @@ body {
 
   z-index: -1;
   background: linear-gradient(90deg, #008baa 0%, #004e68 100%);
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
 }
 
 .background::before {
@@ -262,13 +281,13 @@ body {
   height: 10px;
 
   border-radius: 10px;
-  background: white;
+  background: black;
 }
 
 .blog h2 {
   font-size: 60px;
   font-family: "Roboto", "Sans-Serif";
-  color: white;
+  color: black;
 
   margin-top: 10px;
 }
@@ -276,7 +295,7 @@ body {
 .blog p {
   width: 40%;
   font-size: 17px;
-  color: white;
+  color: black;
   font-family: "Inter", sans-serif;
   font-weight: 400;
 
@@ -323,14 +342,16 @@ body {
 
 .blog .cards .card a {
   display: inline-block;
+
   margin-top: 40px;
   margin-bottom: 50px;
   margin-left: 20px;
+  padding: 5px 25px;
+
   color: white;
   font-family: "Inter", sans-serif;
   font-size: 15px;
   text-decoration: none;
-  padding: 5px 25px;
 
   border-radius: 10px;
   background: linear-gradient(90deg, #2193b0 0%, #6dd5ed 100%);
@@ -339,6 +360,7 @@ body {
 
 .blog .cards .card .profile {
   display: flex;
+
   height: 80px;
   padding-left: 20px;
 }
@@ -352,14 +374,16 @@ body {
 .blog .cards .card .profile .img img {
   width: 50px;
   height: 50px;
+
   border-radius: 100%;
 }
 
 .blog .cards .card .profile .text {
   display: flex;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
+
   margin-left: 10px;
 }
 
@@ -367,6 +391,7 @@ body {
   color: white;
   font-family: "Roboto", "Sans-Serif";
   font-size: 14px;
+
   width: 100px;
 }
 
@@ -374,6 +399,7 @@ body {
   color: white;
   font-family: "Inter", "Sans-Serif";
   font-size: 13px;
+
   width: 100px;
   padding-left: 0;
   margin-top: 0;
