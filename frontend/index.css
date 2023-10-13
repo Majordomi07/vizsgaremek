@@ -2,7 +2,7 @@
 /*                                   Global                                   */
 /* -------------------------------------------------------------------------- */
 
-@import url("https://fonts.googleapis.com/css2?family=Inter&family=Roboto:wght@700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter&family=Roboto:wght@500;700&display=swap");
 
 * {
   padding: 0;
@@ -197,6 +197,7 @@ body {
   border-right: 2px white solid;
   padding-right: 5px;
   height: 80px;
+  font-weight: 700;
 }
 
 .showcase h2 {
@@ -270,6 +271,186 @@ body {
 
 .showcase .arrow:hover {
   transform: scale(1.1);
+}
+
+/* -------------------------------------------------------------------------- */
+/*                                    Posts                                   */
+/* -------------------------------------------------------------------------- */
+
+.posts {
+  margin-top: 100px;
+  margin-bottom: 100px;
+}
+
+.posts h2 {
+  font-size: 60px;
+  font-family: "Roboto", "Sans-serif";
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.posts p {
+  font-size: 20px;
+  font-family: "Inter", "Sans-serif";
+  margin: 0 auto;
+  text-align: center;
+  width: 70%;
+  margin-bottom: 80px;
+}
+
+.posts .content {
+  display: flex;
+  gap: 30px;
+}
+
+.posts .content aside {
+  float: left;
+  width: 30%;
+  padding: 20px;
+
+  border-radius: 10px;
+  background: white;
+  box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.25);
+}
+
+.posts .content aside h3 {
+  font-size: 22px;
+  font-family: "Roboto", "Sans-serif";
+}
+
+.posts .content aside .location h4 {
+  font-size: 17px;
+  font-family: "Inter", "Sans-serif";
+  margin-top: 30px;
+  margin-bottom: 20px;
+}
+
+.posts .content aside .location p {
+  margin: 0;
+  text-align: left;
+  font-size: 15px;
+  margin-bottom: 10px;
+}
+
+.posts .content main {
+  width: 70%;
+}
+
+.posts .content main .topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 30px;
+}
+
+.posts .content main .topbar .search {
+  flex: 3;
+}
+
+.posts .content main .topbar .search input {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 10px;
+  box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.25);
+  font-size: 17px;
+  width: 100%;
+  transition: all 0.2s;
+}
+
+.posts .content main .topbar .search input:focus {
+  outline: none;
+  box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.4);
+}
+
+.posts .content main .topbar .category {
+  flex: 2;
+}
+
+.posts .content main .topbar .category select {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 10px;
+  box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.25);
+  font-size: 17px;
+  width: 100%;
+  border-right: 10px solid transparent;
+}
+
+.posts .content main .topbar .category select:focus {
+  outline: none;
+  box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.4);
+}
+
+.posts .content main .topbar .order {
+  flex: 2;
+}
+
+.posts .content main .topbar .order select {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 10px;
+  box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.25);
+  font-size: 17px;
+  width: 100%;
+  border-right: 10px solid transparent;
+}
+
+.posts .content main .topbar .order select:focus {
+  outline: none;
+  box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.4);
+}
+
+.posts .content main .topbar .submit {
+  flex: 1;
+}
+
+.posts .content main .topbar .submit button {
+  width: 100%;
+  display: inline-block;
+  border: none;
+  text-align: center;
+  background: linear-gradient(45deg, #00b4db 0%, #0083b0 100%);
+  padding: 10px 20px;
+  border-radius: 10px;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+
+  display: flex;
+  align-items: center;
+
+  transition: 0.2s all;
+}
+
+.posts .content main .topbar .submit button:hover {
+  transform: scale(1.1);
+}
+
+.posts .content main .topbar .submit button p {
+  margin: 0;
+  padding: 0;
+  color: white;
+  font-family: "Roboto", "Sans-serif";
+  font-size: 17px;
+  margin-right: 10px;
+}
+
+.posts .content main .topbar .submit button img {
+  height: 15px;
+}
+
+.posts .content main .result {
+  margin-top: 15px;
+  margin-bottom: 30px;
+}
+
+.posts .content main .result p {
+  text-align: left;
+  margin: 0;
+  font-size: 19px;
+  font-family: "Roboto", "Sans-serif";
+}
+
+.posts .content main .result p span {
+  color: #0083b0;
 }
 
 /* -------------------------------------------------------------------------- */

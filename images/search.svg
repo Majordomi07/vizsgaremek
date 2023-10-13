@@ -1,5 +1,11 @@
-<!-- https://feathericons.dev/?search=search&iconset=feather -->
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" class="main-grid-item-icon" fill="none" stroke="white" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
-  <circle cx="11" cy="11" r="8" />
-  <line x1="21" x2="16.65" y1="21" y2="16.65" />
+<svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g clip-path="url(#clip0_35_66)">
+<path d="M6.875 11.875C9.63642 11.875 11.875 9.63642 11.875 6.875C11.875 4.11358 9.63642 1.875 6.875 1.875C4.11358 1.875 1.875 4.11358 1.875 6.875C1.875 9.63642 4.11358 11.875 6.875 11.875Z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M16 16L11 11" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+</g>
+<defs>
+<clipPath id="clip0_35_66">
+<rect width="15" height="15" fill="white"/>
+</clipPath>
+</defs>
 </svg>
