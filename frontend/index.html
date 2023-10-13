@@ -6,7 +6,10 @@
     <title>újmeló | Álláskeresési platform</title>
     <link rel="stylesheet" href="index.css" />
     <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
-    <script src="https://kit.fontawesome.com/cf8fab1fb5.js" crossorigin="anonymous"></script>
+    <script
+      src="https://kit.fontawesome.com/cf8fab1fb5.js"
+      crossorigin="anonymous"
+    ></script>
   </head>
   <body>
     <div class="container">
@@ -21,7 +24,7 @@
           <img src="../images/logo-white.svg" alt="" />
         </div>
         <nav>
-          <a href="">Álláshírdetések</a>
+          <a href="#posts">Álláshírdetések</a>
           <a href="">Blog</a>
           <a href="">Kapcsolat</a>
         </nav>
@@ -42,10 +45,11 @@
         <div class="typeWriter"></div>
         <h2>#újmeló</h2>
         <p>
-          Fedezze fel az álmai munkáját a mi platformunkon! Kínáljuk a legfrissebb állásajánlatokat minden területen,
-          hogy segítsünk Önnek elindítani vagy felpörgetni karrierjét.
+          Fedezze fel az álmai munkáját a mi platformunkon! Kínáljuk a
+          legfrissebb állásajánlatokat minden területen, hogy segítsünk Önnek
+          elindítani vagy felpörgetni karrierjét.
         </p>
-        <a href="">Kezdj bele a keresésbe</a>
+        <a href="#posts">Kezdj bele a keresésbe</a>
         <div class="icons">
           <div class="check">
             <img src="../images/check.svg" alt="" />
@@ -56,7 +60,7 @@
             <p>Teljesen ingyenes állásfeltöltés</p>
           </div>
         </div>
-        <a href="" class="arrow">
+        <a href="#posts" class="arrow">
           <img src="../images/arrow.svg" />
         </a>
       </section>
@@ -65,12 +69,13 @@
       <!--                                  Posts                                  -->
       <!-- ----------------------------------------------------------------------- -->
 
-      <section class="posts">
+      <section class="posts" id="posts">
         <h2>Álláshírdetések</h2>
         <p>
-          Lépjen be a jövőjébe és böngéssze át a friss és sokszínű munkalehetőségeket, amelyeket vállalkozások és
-          szervezetek kínálnak, vagy hozza létre saját álláshirdetését a szakmai élet legkiválóbb tehetségeinek
-          eléréséhez.
+          Lépjen be a jövőjébe és böngéssze át a friss és sokszínű
+          munkalehetőségeket, amelyeket vállalkozások és szervezetek kínálnak,
+          vagy hozza létre saját álláshirdetését a szakmai élet legkiválóbb
+          tehetségeinek eléréséhez.
         </p>
         <div class="content">
           <aside>
@@ -79,15 +84,31 @@
               <h4>Lokáció</h4>
               <form>
                 <p>
-                  <input type="radio" id="test1" name="radio-group" class="radio" checked />
+                  <input
+                    type="radio"
+                    id="test1"
+                    name="radio-group"
+                    class="radio"
+                    checked
+                  />
                   <label for="test1">Bármilyen</label>
                 </p>
                 <p>
-                  <input type="radio" id="test2" name="radio-group" class="radio" />
+                  <input
+                    type="radio"
+                    id="test2"
+                    name="radio-group"
+                    class="radio"
+                  />
                   <label for="test2">Közel van</label>
                 </p>
                 <p>
-                  <input type="radio" id="test3" name="radio-group" class="radio" />
+                  <input
+                    type="radio"
+                    id="test3"
+                    name="radio-group"
+                    class="radio"
+                  />
                   <label for="test3">Távmunka</label>
                 </p>
               </form>
@@ -101,18 +122,20 @@
                 </div>
                 <div class="category">
                   <select name="" id="">
-                    <option value="">Bármilyen kategória</option>
+                    <option value="">Kategória</option>
                   </select>
                 </div>
                 <div class="order">
                   <select name="" id="">
-                    <option value="">Legújabb elől</option>
+                    <option value="">Legújabb</option>
+                    <option value="">Legrégibb</option>
+                    <option value="">Legtöbbet fizető</option>
                   </select>
                 </div>
                 <div class="submit">
                   <button type="submit">
                     <p>Keresés</p>
-                    <img src="../images/search.svg" alt="" />
+                    <img src="../images/search.svg" />
                   </button>
                 </div>
               </div>
@@ -120,7 +143,45 @@
             <div class="result">
               <p>Talált állások: <span>14</span></p>
             </div>
-            <div class="post"></div>
+            <div class="post">
+              <div class="top">
+                <div class="text">
+                  <h3>Mester cukrász</h3>
+                  <p>
+                    Cégünk elismert és elkötelezett mester cukrászt keres, aki
+                    csatlakozna tehetséges csapatunkhoz. Ha a sütés és édesítés
+                    művészetének szenvedélyese vagy, és rendelkezel széleskörű
+                    tapasztalattal a cukrászat terén
+                  </p>
+                </div>
+                <div class="logo">
+                  <img src="../images/desszertneked.png" />
+                </div>
+              </div>
+              <div class="bottom">
+                <div class="tags">
+                  <div class="category">
+                    <p>Vendéglátás</p>
+                  </div>
+                  <div class="widget">
+                    <div class="map">
+                      <img src="../images/map-pin.svg" />
+                      <p>Budapest, XI. Kerület</p>
+                    </div>
+                    <div class="time">
+                      <img src="../images/clock.svg" />
+                      <p>2 órája</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="continue">
+                  <a href="">
+                    <p>Tovább</p>
+                    <img src="../images/arrow-up-right.svg" />
+                  </a>
+                </div>
+              </div>
+            </div>
           </main>
         </div>
       </section>

@@ -10,6 +10,10 @@
   box-sizing: border-box;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   background: #f4f4f4;
 }
@@ -38,8 +42,6 @@ body {
 
   padding-top: 40px;
   height: 80px;
-
-  transition: 0.3s;
   z-index: 20;
 }
 
@@ -53,7 +55,6 @@ body {
 
 .desktop .brand img {
   height: 70px;
-  transition: 0.3s;
 }
 
 .desktop nav {
@@ -306,6 +307,7 @@ body {
 .posts .content aside {
   float: left;
   width: 30%;
+  height: 100%;
   padding: 20px;
 
   border-radius: 10px;
@@ -505,6 +507,164 @@ body {
 
 .posts .content main .result p span {
   color: #0083b0;
+}
+
+.posts .content main .post {
+  background: white;
+  box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.25);
+  border-radius: 10px;
+  padding: 30px;
+}
+
+.posts .content main .post .top {
+  outline: 2px red solid;
+  display: flex;
+}
+
+.posts .content main .post .top .text {
+  flex: 4;
+  outline: 2px red solid;
+}
+
+.posts .content main .post .top .text h3 {
+  color: #0083b0;
+  font-family: "Roboto", "Sans-serif";
+  font-size: 22px;
+  margin-bottom: 15px;
+}
+
+.posts .content main .post .top .text p {
+  margin: 0;
+  text-align: left;
+  color: #3e3e3e;
+  font-family: "Inter", "Sans-serif";
+  font-size: 17px;
+  width: 100%;
+  margin-bottom: 30px;
+}
+
+.posts .content main .post .top .logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+}
+
+.posts .content main .post .top .logo img {
+  height: 100px;
+}
+
+.posts .content main .post .bottom {
+  outline: 2px green solid;
+  display: flex;
+}
+
+.posts .content main .post .bottom .tags {
+  flex: 4;
+
+  display: flex;
+  align-items: center;
+  outline: 2px green solid;
+}
+
+.posts .content main .post .bottom .tags .category {
+  flex: 1;
+}
+
+.posts .content main .post .bottom .tags .category p {
+  margin: 0;
+  background: linear-gradient(45deg, #00b4db 0%, #0083b0 100%);
+  color: white;
+  font-size: 16px;
+  font-family: "Roboto", "Sans-serif";
+  border-radius: 10px;
+  padding: 5px 10px;
+  font-weight: 500;
+}
+
+.posts .content main .post .bottom .tags .widget {
+  flex: 2;
+
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.posts .content main .post .bottom .tags .widget .map {
+  display: flex;
+  align-items: center;
+  margin-bottom: 5px;
+}
+
+.posts .content main .post .bottom .tags .widget .map img {
+  height: 20px;
+  margin-right: 10px;
+}
+
+.posts .content main .post .bottom .tags .widget .map p {
+  background: none;
+  color: #3e3e3e;
+  margin: 0;
+  padding: 0;
+  font-family: "Inter", "Sans-serif";
+  text-align: left;
+  font-size: 15px;
+}
+
+.posts .content main .post .bottom .tags .widget .time {
+  display: flex;
+  align-items: center;
+}
+
+.posts .content main .post .bottom .tags .widget .time img {
+  height: 20px;
+  margin-right: 10px;
+}
+
+.posts .content main .post .bottom .tags .widget .time p {
+  background: none;
+  color: #3e3e3e;
+  margin: 0;
+  padding: 0;
+  font-family: "Inter", "Sans-serif";
+  text-align: left;
+  font-size: 15px;
+}
+
+.posts .content main .post .bottom .continue {
+  flex: 1;
+  outline: 2px green solid;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.posts .content main .post .bottom .continue a {
+  display: flex;
+  flex-direction: row;
+
+  width: auto;
+  display: inline-block;
+
+  background: linear-gradient(45deg, #00b4db 0%, #0083b0 100%);
+
+  padding: 15px 20px;
+  text-decoration: none;
+}
+
+.posts .content main .post .bottom .continue a p {
+  margin: 0;
+  padding: 0;
+  width: auto;
+
+  font-size: 18px;
+  color: white;
+}
+
+.posts .content main .post .bottom .continue a img {
+  margin: 0;
+  padding: 0;
 }
 
 /* -------------------------------------------------------------------------- */

@@ -3,7 +3,7 @@ window.onscroll = function () {
 };
 
 function scrollFunction() {
-  if (document.body.scrollTop > 50 || document.documentElement.scrollTop > 50) {
+  if (document.body.scrollTop > 80 || document.documentElement.scrollTop > 80) {
     document.querySelector(".desktop").style.position = "sticky";
     document.querySelector(".desktop").style.top = "20px";
     document.querySelector(".desktop").style.backgroundColor = "#ffffff40";
