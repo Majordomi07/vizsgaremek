@@ -5,6 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>újmeló | Álláskeresési platform</title>
     <link rel="stylesheet" href="index.css" />
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+      integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
     <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
     <script src="https://kit.fontawesome.com/cf8fab1fb5.js" crossorigin="anonymous"></script>
   </head>
@@ -28,6 +34,23 @@
         <div class="cta">
           <a href="">Bejelentkezés</a>
         </div>
+      </header>
+
+      <!-- -------------------------- Responsive header -------------------------- -->
+
+      <header class="mobile">
+        <div class="brand">
+          <img src="../images/logo-white.svg" />
+        </div>
+        <div class="bars" onclick="toggle()">
+          <i></i>
+        </div>
+        <nav id="nav">
+          <a href="">Álláshírdetések</a>
+          <a href="">Blog</a>
+          <a href="">Kapcsolat</a>
+          <a href="">Bejelentkezés</a>
+        </nav>
       </header>
 
       <!-- ----------------------------------------------------------------------- -->
@@ -348,5 +371,6 @@
     </div>
     <script src="typeWriter.js"></script>
     <script src="headerScroll.js"></script>
+    <script src="headerSwitch.js"></script>
   </body>
 </html>
