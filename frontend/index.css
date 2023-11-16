@@ -2,7 +2,7 @@
 /*                                   Global                                   */
 /* -------------------------------------------------------------------------- */
 
-@import url("https://fonts.googleapis.com/css2?family=Inter&family=Roboto:wght@400;500;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Lato:wght@400;700;900&display=swap");
 
 * {
   padding: 0;
@@ -22,6 +22,7 @@ body {
   max-width: 1400px;
   margin: 0 auto;
 
+  width: 100%;
   padding-left: 30px;
   padding-right: 30px;
 }
@@ -43,6 +44,7 @@ body {
   padding-top: 40px;
   height: 80px;
   z-index: 20;
+  width: 100%;
 }
 
 .desktop .brand {
@@ -317,23 +319,26 @@ body {
 
 .showcase .typeWriter {
   font-size: 72px;
-  font-family: "Roboto", "Sans-Serif";
+  font-family: "Lato", "Sans-Serif";
+  font-weight: 900;
   line-height: 1;
   color: white;
   border-right: 2px white solid;
   padding-right: 5px;
   height: 80px;
-  font-weight: 700;
+  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 
 .showcase h2 {
   font-size: 72px;
-  font-family: "Roboto", "Sans-Serif";
+  font-family: "Lato", "Sans-Serif";
+  font-weight: 800;
   color: #00b4db;
+  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 
 .showcase p {
-  width: 50%;
+  width: 40%;
   text-align: center;
 
   margin-top: 50px;
@@ -341,7 +346,8 @@ body {
 
   color: white;
   font-family: "Inter", sans-serif;
-  font-size: 17px;
+  font-weight: 300;
+  font-size: 18px;
 }
 
 .showcase a {
@@ -410,7 +416,8 @@ body {
 
 .posts h2 {
   font-size: 60px;
-  font-family: "Roboto", "Sans-serif";
+  font-family: "Lato", "Sans-serif";
+  font-weight: 900;
   text-align: center;
   margin-bottom: 20px;
 }
@@ -421,7 +428,8 @@ body {
   margin: 0 auto;
   text-align: center;
   width: 70%;
-  margin-bottom: 80px;
+  margin-bottom: 120px;
+  color: #3e3e3e;
 }
 
 .posts .content {
@@ -431,7 +439,7 @@ body {
 
 .posts .content aside {
   float: left;
-  width: 30%;
+  width: 25%;
   height: 100%;
   padding: 20px;
 
@@ -442,7 +450,7 @@ body {
 
 .posts .content aside h3 {
   font-size: 22px;
-  font-family: "Roboto", "Sans-serif";
+  font-family: "Lato", "Sans-serif";
   margin-top: 10px;
 }
 
@@ -450,17 +458,20 @@ body {
 .posts .content aside .wage h4 {
   font-size: 17px;
   font-family: "Inter", "Sans-serif";
+  font-weight: 500;
   margin-top: 30px;
   margin-bottom: 20px;
+  color: black;
 }
 
 .posts .content aside .location p,
 .posts .content aside .wage p {
   margin: 0;
   padding: 0;
-  font-size: 16px;
+  font-size: 17px;
   text-align: left;
   margin-bottom: 15px;
+  color: black;
 }
 
 .posts .content aside .location .radio:checked,
@@ -527,7 +538,7 @@ body {
 }
 
 .posts .content main {
-  width: 70%;
+  width: 75%;
 }
 
 .posts .content main .topbar {
@@ -622,7 +633,7 @@ body {
   margin: 0;
   padding: 0;
   color: white;
-  font-family: "Roboto", "Sans-serif";
+  font-family: "Lato", "Sans-serif";
   font-size: 17px;
   margin-right: 10px;
 }
@@ -640,7 +651,7 @@ body {
   text-align: left;
   margin: 0;
   font-size: 19px;
-  font-family: "Roboto", "Sans-serif";
+  font-family: "Lato", "Sans-serif";
   font-weight: 500;
 }
 
@@ -667,7 +678,7 @@ body {
 
 .posts .content main .post .top .text h3 {
   color: #0083b0;
-  font-family: "Roboto", "Sans-serif";
+  font-family: "Lato", "Sans-serif";
   font-size: 22px;
   margin-bottom: 15px;
 }
@@ -709,22 +720,24 @@ body {
 }
 
 .posts .content main .post .bottom .tags .category p {
-  margin: 0;
-  background: linear-gradient(45deg, #00b4db 0%, #0083b0 100%);
   color: white;
   font-size: 16px;
-  font-family: "Roboto", "Sans-serif";
-  border-radius: 10px;
-  padding: 5px 10px;
+  font-family: "Lato", "Sans-serif";
   font-weight: 400;
+
+  background: linear-gradient(45deg, #00b4db 0%, #0083b0 100%);
+  border-radius: 10px;
+
+  padding: 5px 10px;
+  margin: 0;
 }
 
 .posts .content main .post .bottom .tags .widget {
-  flex: 2;
-
   display: flex;
   justify-content: center;
   flex-direction: column;
+
+  flex: 2;
 }
 
 .posts .content main .post .bottom .tags .widget .map {
@@ -739,13 +752,15 @@ body {
 }
 
 .posts .content main .post .bottom .tags .widget .map p {
-  background: none;
   color: #3e3e3e;
-  margin: 0;
-  padding: 0;
+
   font-family: "Inter", "Sans-serif";
   text-align: left;
   font-size: 15px;
+
+  margin: 0;
+  padding: 0;
+  background: none;
 }
 
 .posts .content main .post .bottom .tags .widget .time {
@@ -759,26 +774,26 @@ body {
 }
 
 .posts .content main .post .bottom .tags .widget .time p {
-  background: none;
   color: #3e3e3e;
-  margin: 0;
-  padding: 0;
   font-family: "Inter", "Sans-serif";
   text-align: left;
   font-size: 15px;
+
+  margin: 0;
+  padding: 0;
+  background: none;
 }
 
 .posts .content main .post .bottom .continue {
-  flex: 1;
-
   display: flex;
   align-items: center;
   justify-content: center;
+
+  flex: 1;
 }
 
 .posts .content main .post .bottom .continue button {
   display: flex;
-
   align-items: center;
   justify-content: center;
   padding: 10px 25px;
@@ -790,15 +805,15 @@ body {
 }
 
 .posts .content main .post .bottom .continue button p {
+  font-size: 18px;
+  font-family: "Lato", "Sans-serif";
+  color: white;
+  font-weight: 500;
+
   margin: 0;
   padding: 0;
 
   margin-right: 5px;
-
-  font-size: 18px;
-  font-family: "Roboto", "Sans-serif";
-  color: white;
-  font-weight: 400;
 }
 
 .posts .content main .post .bottom .continue button img {
@@ -813,22 +828,19 @@ body {
 }
 
 .posts .content main .arrange a {
+  color: #3e3e3e;
+  font-family: Inter;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  text-decoration: none;
+
   margin: 0;
   padding: 0;
 
   display: flex;
   align-items: center;
   justify-content: center;
-
-  text-decoration: none;
-  color: #3e3e3e;
-
-  font-family: Inter;
-  font-size: 19px;
-  font-style: normal;
-  font-weight: 400;
-
-  font-size: 18px;
 }
 
 .posts .content main .arrange a img {
@@ -839,134 +851,194 @@ body {
 }
 
 /* -------------------------------------------------------------------------- */
+/*                                  Call-back                                 */
+/* -------------------------------------------------------------------------- */
+
+.callback {
+  margin-bottom: 120px;
+}
+
+.callback .container {
+  height: 600px;
+}
+
+.callback .container .content {
+  display: flex;
+}
+
+.callback .container .content .text {
+  width: 50%;
+  height: 600px;
+
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.callback .container .content .text h2 {
+  color: white;
+  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  font-family: Lato;
+  font-size: 60px;
+  font-weight: 800;
+
+  margin-bottom: 20px;
+}
+
+.callback .container .content .text p {
+  color: white;
+  font-family: Inter;
+  font-size: 18px;
+  font-weight: 300;
+
+  margin-bottom: 35px;
+}
+
+.callback .container .content .text form {
+  display: flex;
+  flex-direction: column;
+}
+
+.callback .container .content .text input {
+  font-size: 17px;
+
+  padding: 10px 20px;
+  width: 75%;
+
+  border: none;
+  border-radius: 10px;
+  box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.25);
+
+  transition: all 0.2s;
+  margin-bottom: 15px;
+}
+
+.callback .container .content .text input:focus {
+  outline: none;
+  box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.4);
+}
+
+.callback .container .content .text .adatvedelmi {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  margin-top: 20px;
+  margin-bottom: 30px;
+}
+
+.callback .container .content .text .adatvedelmi input {
+  height: 20px;
+  width: 20px;
+  margin: 0;
+}
+
+.callback .container .content .text .adatvedelmi label {
+  color: #fff;
+  font-family: "Inter", "Sans-Serif";
+  font-size: 15px;
+  font-weight: 400;
+
+  width: 60%;
+}
+
+.callback .container .content .text .submit {
+  width: 150px;
+  height: 50px;
+  margin-bottom: 10px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+
+  border-radius: 10px;
+  background: linear-gradient(90deg, #00b4db 0%, #0083b0 100%);
+  border: none;
+
+  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+  transition: all 0.3s;
+}
+
+.callback .container .content .text .submit:hover {
+  transform: scale(1.05);
+}
+
+.callback .container .content .text .submit p {
+  color: white;
+  font-family: "Lato", "Sans-Serif";
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+
+  margin: 0;
+  padding: 0;
+}
+
+.callback .container .content .text .submit img {
+  height: 15px;
+  width: 15px;
+}
+
+.callback .bg {
+  height: 600px;
+  width: 100%;
+  position: absolute;
+
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+
+  z-index: -1;
+  background: linear-gradient(90deg, #008baa 0%, #004e68 100%);
+  overflow: hidden;
+}
+
+.callback .bg::before {
+  content: "";
+  position: absolute;
+
+  width: 100%;
+  height: 600px;
+
+  background: linear-gradient(90deg, #057088 0%, #013242 100%);
+  opacity: 0;
+  z-index: -1;
+
+  animation: bg 5s ease-in-out infinite alternate-reverse;
+}
+
+.callback .bg img {
+  width: 40%;
+  opacity: 0.2;
+
+  animation: rotating 60s linear infinite;
+}
+
+/* -------------------------------------------------------------------------- */
 /*                                    Blog                                    */
 /* -------------------------------------------------------------------------- */
 
-.blog .vonal {
-  width: 100px;
-  height: 10px;
-
-  border-radius: 10px;
-  background: black;
-}
-
 .blog h2 {
   font-size: 60px;
-  font-family: "Roboto", "Sans-Serif";
-  color: black;
+  font-family: "Lato", "Sans-serif";
+  font-weight: 900;
 
-  margin-top: 10px;
+  text-align: center;
+
+  margin-bottom: 20px;
 }
 
 .blog p {
-  width: 40%;
-  font-size: 17px;
-  color: black;
-  font-family: "Inter", sans-serif;
-  font-weight: 400;
-
-  margin-top: 20px;
-}
-
-.blog .cards {
-  width: 100%;
-
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-
-  margin-top: 50px;
-}
-
-.blog .cards .card {
-  background: rgba(0, 0, 0, 0.4);
-  width: 400px;
-  margin-bottom: 40px;
-  border-radius: 10px;
-}
-
-.blog .cards .card img {
-  width: 400px;
-  height: 200px;
-  border-top-left-radius: 10px;
-  border-top-right-radius: 10px;
-}
-
-.blog .cards .card h3 {
-  color: white;
-  font-family: "Roboto", "Sans-Serif";
   font-size: 20px;
-  padding-left: 20px;
-  margin-top: 20px;
-}
+  font-family: "Inter", "Sans-serif";
+  color: #3e3e3e;
 
-.blog .cards .card p {
-  width: 90%;
-  font-size: 15px;
-  padding-left: 20px;
-}
+  text-align: center;
 
-.blog .cards .card a {
-  display: inline-block;
-
-  margin-top: 40px;
-  margin-bottom: 50px;
-  margin-left: 20px;
-  padding: 5px 25px;
-
-  color: white;
-  font-family: "Inter", sans-serif;
-  font-size: 15px;
-  text-decoration: none;
-
-  border-radius: 10px;
-  background: linear-gradient(90deg, #2193b0 0%, #6dd5ed 100%);
-  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
-}
-
-.blog .cards .card .profile {
-  display: flex;
-
-  height: 80px;
-  padding-left: 20px;
-}
-
-.blog .cards .card .profile .img {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.blog .cards .card .profile .img img {
-  width: 50px;
-  height: 50px;
-
-  border-radius: 100%;
-}
-
-.blog .cards .card .profile .text {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-
-  margin-left: 10px;
-}
-
-.blog .cards .card .profile .text h4 {
-  color: white;
-  font-family: "Roboto", "Sans-Serif";
-  font-size: 14px;
-
-  width: 100px;
-}
-
-.blog .cards .card .profile .text p {
-  color: white;
-  font-family: "Inter", "Sans-Serif";
-  font-size: 13px;
-
-  width: 100px;
-  padding-left: 0;
-  margin-top: 0;
+  margin: 0 auto;
+  margin-bottom: 120px;
+  width: 70%;
 }

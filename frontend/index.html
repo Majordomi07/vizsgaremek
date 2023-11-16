@@ -15,13 +15,13 @@
     <script src="https://kit.fontawesome.com/cf8fab1fb5.js" crossorigin="anonymous"></script>
   </head>
   <body>
+    <!-- ----------------------------------------------------------------------- -->
+    <!--                                 Header                                  -->
+    <!-- ----------------------------------------------------------------------- -->
+
+    <!-- --------------------------- Desktop header ---------------------------- -->
+
     <div class="container">
-      <!-- ----------------------------------------------------------------------- -->
-      <!--                                 Header                                  -->
-      <!-- ----------------------------------------------------------------------- -->
-
-      <!-- --------------------------- Desktop header ---------------------------- -->
-
       <header class="desktop">
         <div class="brand">
           <img src="../images/logo-white.svg" />
@@ -35,69 +35,71 @@
           <a href="">Bejelentkezés</a>
         </div>
       </header>
+    </div>
 
-      <!-- -------------------------- Responsive header -------------------------- -->
+    <!-- -------------------------- Responsive header -------------------------- -->
 
-      <header class="mobile">
-        <div class="brand">
-          <img src="../images/logo-white.svg" />
+    <header class="mobile">
+      <div class="brand">
+        <img src="../images/logo-white.svg" />
+      </div>
+      <div class="bars" onclick="toggle()">
+        <i></i>
+      </div>
+      <nav id="nav">
+        <a href="">Álláshírdetések</a>
+        <a href="">Blog</a>
+        <a href="">Kapcsolat</a>
+        <a href="">Bejelentkezés</a>
+      </nav>
+    </header>
+
+    <!-- ----------------------------------------------------------------------- -->
+    <!--                                Showcase                                 -->
+    <!-- ----------------------------------------------------------------------- -->
+
+    <div class="background"></div>
+    <section class="showcase">
+      <div class="blob" id="main">
+        <img src="../images/blob.svg" id="blob" />
+      </div>
+      <h2 class="typeWriter"></h2>
+      <h2>#újmeló</h2>
+      <p>
+        Fedezze fel az álmai munkáját a mi platformunkon! Kínáljuk a legfrissebb állásajánlatokat minden területen, hogy
+        segítsünk Önnek elindítani vagy felpörgetni karrierjét.
+      </p>
+      <a href="#posts">Kezdj bele a keresésbe</a>
+      <div class="icons">
+        <div class="check">
+          <img src="../images/check.svg" />
+          <p>Teljesen ingyenes böngészés</p>
         </div>
-        <div class="bars" onclick="toggle()">
-          <i></i>
+        <div class="check">
+          <img src="../images/check.svg" />
+          <p>Teljesen ingyenes állásfeltöltés</p>
         </div>
-        <nav id="nav">
-          <a href="">Álláshírdetések</a>
-          <a href="">Blog</a>
-          <a href="">Kapcsolat</a>
-          <a href="">Bejelentkezés</a>
-        </nav>
-      </header>
+      </div>
+      <a href="#posts" class="arrow">
+        <img src="../images/arrow.svg" />
+      </a>
+    </section>
 
-      <!-- ----------------------------------------------------------------------- -->
-      <!--                                Showcase                                 -->
-      <!-- ----------------------------------------------------------------------- -->
+    <!-- ----------------------------------------------------------------------- -->
+    <!--                                  Posts                                  -->
+    <!-- ----------------------------------------------------------------------- -->
 
-      <div class="background"></div>
-      <section class="showcase">
-        <div class="blob" id="main">
-          <img src="../images/blob.svg" id="blob" />
-        </div>
-        <div class="typeWriter"></div>
-        <h2>#újmeló</h2>
-        <p>
-          Fedezze fel az álmai munkáját a mi platformunkon! Kínáljuk a legfrissebb állásajánlatokat minden területen,
-          hogy segítsünk Önnek elindítani vagy felpörgetni karrierjét.
-        </p>
-        <a href="#posts">Kezdj bele a keresésbe</a>
-        <div class="icons">
-          <div class="check">
-            <img src="../images/check.svg" />
-            <p>Teljesen ingyenes böngészés</p>
-          </div>
-          <div class="check">
-            <img src="../images/check.svg" />
-            <p>Teljesen ingyenes állásfeltöltés</p>
-          </div>
-        </div>
-        <a href="#posts" class="arrow">
-          <img src="../images/arrow.svg" />
-        </a>
-      </section>
-
-      <!-- ----------------------------------------------------------------------- -->
-      <!--                                  Posts                                  -->
-      <!-- ----------------------------------------------------------------------- -->
-
+    <div class="container">
       <section class="posts" id="posts">
         <h2>Álláshírdetések</h2>
         <p>
-          Lépjen be a jövőjébe és böngéssze át a friss és sokszínű munkalehetőségeket, amelyeket vállalkozások és
+          Lépjen be a jövojébe és böngéssze át a friss és sokszínu munkalehetoségeket, amelyeket vállalkozások és
           szervezetek kínálnak, vagy hozza létre saját álláshirdetését a szakmai élet legkiválóbb tehetségeinek
           eléréséhez.
         </p>
         <div class="content">
           <aside>
-            <h3>Szűrők</h3>
+            <h3>Szurok</h3>
             <div class="location">
               <h4>Lokáció</h4>
               <form>
@@ -137,7 +139,7 @@
             <form>
               <div class="topbar">
                 <div class="search">
-                  <input type="text" placeholder="Kulcsszó kereső" />
+                  <input type="text" placeholder="Kulcsszó kereso" />
                 </div>
                 <div class="category">
                   <select name="" id="">
@@ -148,7 +150,7 @@
                   <select name="" id="">
                     <option value="">Legújabb</option>
                     <option value="">Legrégibb</option>
-                    <option value="">Legtöbbet fizető</option>
+                    <option value="">Legtöbbet fizeto</option>
                   </select>
                 </div>
                 <div class="submit">
@@ -168,7 +170,7 @@
                   <h3>Mester cukrász</h3>
                   <p>
                     Cégünk elismert és elkötelezett mester cukrászt keres, aki csatlakozna tehetséges csapatunkhoz. Ha a
-                    sütés és édesítés művészetének szenvedélyese vagy, és rendelkezel széleskörű tapasztalattal a
+                    sütés és édesítés muvészetének szenvedélyese vagy, és rendelkezel szélesköru tapasztalattal a
                     cukrászat terén
                   </p>
                 </div>
@@ -206,7 +208,7 @@
                 <div class="text">
                   <h3>Programozó</h3>
                   <p>
-                    Cégünk, a vezető telekommunikációs szolgáltató, izgalmas lehetőséget kínál tapasztalt programozóknak
+                    Cégünk, a vezeto telekommunikációs szolgáltató, izgalmas lehetoséget kínál tapasztalt programozóknak
                     a csapatunkban való részvételre. A digitális forradalom és az 5G terjedése új és izgalmas
                     kihívásokat teremt a telekommunikáció területén.
                   </p>
@@ -246,7 +248,7 @@
                   <h3>Burkoló</h3>
                   <p>
                     Cégünk elismert és elkötelezett burkolót keres, aki csatlakozna tapasztalt csapatunkhoz. Ha a
-                    burkolás és felújítás területén rendelkezel szakértelemmel, és az esztétika és minőség fontos
+                    burkolás és felújítás területén rendelkezel szakértelemmel, és az esztétika és minoség fontos
                     számodra, akkor nálunk a helyed!
                   </p>
                 </div>
@@ -293,82 +295,56 @@
           </main>
         </div>
       </section>
+    </div>
 
-      <!-- ----------------------------------------------------------------------- -->
-      <!--                                  Blog                                   -->
-      <!-- ----------------------------------------------------------------------- 
+    <!-- ----------------------------------------------------------------------- -->
+    <!--                                Call-back                                -->
+    <!-- ----------------------------------------------------------------------- -->
 
-      <section class="blog">
-        <div class="vonal"></div>
-        <h2>Blog</h2>
-        <p>
-          Itt naprakész információkat, tippeket és tanácsokat találsz, amik
-          segítenek sikeresen megtalálni álmaid állását.
-        </p>
-        <div class="cards">
-          <div class="card">
-            <img src="../images/blog1.jfif"/>
-            <h3>Közösségi élet a munkahelyen</h3>
+    <section class="callback">
+      <div class="bg">
+        <img src="../images/blob.svg" id="blob" />
+      </div>
+      <div class="container">
+        <div class="content">
+          <div class="text">
+            <h2>Kérjen visszahívást</h2>
             <p>
-              A közösségi élet a munkahelyen rendkívül fontos szerepet játszik
-              abban, hogy egy munkahely inspiráló és harmonikus légkört
-              teremtsen...
+              Visszahívást kérni egy munkaügyi szakembertol számos elonnyel jár. Eloször is, lehetové teszi, hogy
+              részletesen megbeszéljük a munkajogi vagy szakmai kérdéseinket, anélkül, hogy azonnal kimerítoen
+              válaszokat kellene keresnünk.
             </p>
-            <a href="">Tovább</a>
-            <div class="profile">
-              <div class="img">
-                <img src="../images/profile.jfif"/>
+            <form>
+              <input type="text" placeholder="Név" />
+              <input type="text" placeholder="Telefonszám" />
+              <div class="adatvedelmi">
+                <input type="checkbox" name="adatvedelmi" />
+                <label for="adatvedelmi">Elolvastam és elfogadom az adatvédelmi nyilatkozatot.</label>
               </div>
-              <div class="text">
-                <h4>Kovács Judit</h4>
-                <p>2023. 05. 14.</p>
-              </div>
-            </div>
-          </div>
-
-          <div class="card">
-            <img src="../images/blog1.jfif"/>
-            <h3>Közösségi élet a munkahelyen</h3>
-            <p>
-              A közösségi élet a munkahelyen rendkívül fontos szerepet játszik
-              abban, hogy egy munkahely inspiráló és harmonikus légkört
-              teremtsen...
-            </p>
-            <a href="">Tovább</a>
-            <div class="profile">
-              <div class="img">
-                <img src="../images/profile.jfif"/>
-              </div>
-              <div class="text">
-                <h4>Kovács Judit</h4>
-                <p>2023. 05. 14.</p>
-              </div>
-            </div>
-          </div>
-
-          <div class="card">
-            <img src="../images/blog1.jfif"/>
-            <h3>Közösségi élet a munkahelyen</h3>
-            <p>
-              A közösségi élet a munkahelyen rendkívül fontos szerepet játszik
-              abban, hogy egy munkahely inspiráló és harmonikus légkört
-              teremtsen...
-            </p>
-            <a href="">Tovább</a>
-            <div class="profile">
-              <div class="img">
-                <img src="../images/profile.jfif"/>
-              </div>
-              <div class="text">
-                <h4>Kovács Judit</h4>
-                <p>2023. 05. 14.</p>
-              </div>
-            </div>
+              <button class="submit">
+                <p>Elküldés</p>
+                <img src="../images/phone.svg" />
+              </button>
+            </form>
           </div>
         </div>
-      </section>
-      -->
+      </div>
+    </section>
+
+    <!-- ----------------------------------------------------------------------- -->
+    <!--                                  Blog                                   -->
+    <!-- ----------------------------------------------------------------------- -->
+
+    <div class="container">
+      <div class="blog">
+        <h2>Blog</h2>
+        <p>
+          blogok általában praktikus tanácsokat és tippeket is tartalmaznak, amelyek segíthetnek javítani az
+          álláskeresési stratégiádat. Tehát, amikor állást keresel, érdemes időt szánni a blogok olvasására.
+        </p>
+      </div>
     </div>
+
     <script src="typeWriter.js"></script>
     <script src="headerScroll.js"></script>
     <script src="headerSwitch.js"></script>
