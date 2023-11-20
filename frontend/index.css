@@ -2,7 +2,27 @@
 /*                                   Global                                   */
 /* -------------------------------------------------------------------------- */
 
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Lato:wght@400;700;900&display=swap");
+@font-face {
+  font-family: "Inter";
+  src: url(../fonts/Inter-Regular.ttf);
+}
+
+@font-face {
+  font-family: "Sailec Bold";
+  src: url(../fonts/Sailec-Bold.ttf);
+}
+
+@font-face {
+  font-family: "Sailec Medium";
+  src: url(../fonts/Sailec-Medium.ttf);
+}
+
+:root {
+  --secondary-text-color: #3e3e3e;
+  --inter-font: "Inter";
+  --sailec-bold-font: "Sailec Bold";
+  --sailec-medium-font: "Sailec Medium";
+}
 
 * {
   padding: 0;
@@ -68,11 +88,12 @@ body {
 }
 
 .desktop nav a {
-  box-sizing: content-box;
   color: white;
-  font-family: "Inter", sans-serif;
+  font-family: var(--sailec-medium-font);
   font-size: 17px;
   text-decoration: none;
+
+  box-sizing: content-box;
   position: relative;
   display: flex;
   align-items: center;
@@ -103,11 +124,11 @@ body {
 
 .desktop .cta a {
   color: white;
-  font-family: "Inter", sans-serif;
+  font-family: var(--sailec-medium-font);
   font-size: 17px;
   text-decoration: none;
-  padding: 8px 25px;
 
+  padding: 8px 25px;
   border-radius: 10px;
   background: linear-gradient(45deg, #00b4db 0%, #0083b0 100%);
   box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
@@ -218,12 +239,11 @@ body {
 }
 
 .mobile nav a {
-  margin-bottom: 20px;
-  text-decoration: none;
   color: white;
-  color: white;
-  font-family: "Inter", sans-serif;
   font-size: 17px;
+  text-decoration: none;
+
+  margin-bottom: 20px;
 }
 
 @media only screen and (max-width: 900px) {
@@ -250,13 +270,11 @@ body {
 
 .background {
   position: absolute;
-
   width: 100%;
   height: 100vh;
   top: 0;
   left: 0;
   right: 0;
-
   z-index: -1;
   background: linear-gradient(90deg, #008baa 0%, #004e68 100%);
   box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
@@ -318,41 +336,39 @@ body {
 }
 
 .showcase .typeWriter {
-  font-size: 72px;
-  font-family: "Lato", "Sans-Serif";
-  font-weight: 900;
-  line-height: 1;
   color: white;
+  font-family: var(--sailec-bold-font);
+  font-size: 72px;
+  line-height: 1;
+  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+
   border-right: 2px white solid;
   padding-right: 5px;
   height: 80px;
-  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 
 .showcase h2 {
-  font-size: 72px;
-  font-family: "Lato", "Sans-Serif";
-  font-weight: 800;
   color: #00b4db;
+  font-family: var(--sailec-bold-font);
+  font-size: 72px;
   text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  letter-spacing: -4px;
 }
 
 .showcase p {
-  width: 40%;
+  color: white;
+  font-family: var(--inter-font);
+  font-size: 18px;
   text-align: center;
 
+  width: 40%;
   margin-top: 50px;
   margin-bottom: 50px;
-
-  color: white;
-  font-family: "Inter", sans-serif;
-  font-weight: 300;
-  font-size: 18px;
 }
 
 .showcase a {
   color: white;
-  font-family: "Inter", sans-serif;
+  font-family: var(--sailec-medium-font);
   font-size: 18px;
   text-decoration: none;
   padding: 15px 25px;
@@ -380,19 +396,21 @@ body {
 }
 
 .showcase .icons .check p {
+  color: #e9e9e9;
+  font-family: var(--inter-font);
   font-size: 12px;
+
   width: auto;
   margin: 0;
   margin-left: 10px;
-  color: #e9e9e9;
 }
 
 .showcase .arrow {
-  padding: 0;
+  position: absolute;
   background: none;
   box-shadow: none;
   margin: 0;
-  position: absolute;
+  padding: 0;
   top: 90vh;
   z-index: 1;
 }
@@ -415,21 +433,22 @@ body {
 }
 
 .posts h2 {
+  font-family: var(--sailec-bold-font);
   font-size: 60px;
-  font-family: "Lato", "Sans-serif";
-  font-weight: 900;
   text-align: center;
+
   margin-bottom: 20px;
 }
 
 .posts p {
+  color: var(--secondary-text-color);
+  font-family: var(--inter-font);
   font-size: 20px;
-  font-family: "Inter", "Sans-serif";
-  margin: 0 auto;
   text-align: center;
+
+  margin: 0 auto;
   width: 70%;
   margin-bottom: 120px;
-  color: #3e3e3e;
 }
 
 .posts .content {
@@ -449,29 +468,27 @@ body {
 }
 
 .posts .content aside h3 {
+  font-family: var(--inter-font);
   font-size: 22px;
-  font-family: "Lato", "Sans-serif";
   margin-top: 10px;
 }
 
 .posts .content aside .location h4,
 .posts .content aside .wage h4 {
+  font-family: var(--inter-font);
   font-size: 17px;
-  font-family: "Inter", "Sans-serif";
-  font-weight: 500;
   margin-top: 30px;
   margin-bottom: 20px;
-  color: black;
 }
 
 .posts .content aside .location p,
 .posts .content aside .wage p {
-  margin: 0;
-  padding: 0;
+  font-family: var(--inter-font);
   font-size: 17px;
   text-align: left;
+  margin: 0;
+  padding: 0;
   margin-bottom: 15px;
-  color: black;
 }
 
 .posts .content aside .location .radio:checked,
@@ -553,12 +570,14 @@ body {
 }
 
 .posts .content main .topbar .search input {
-  padding: 10px 20px;
+  font-family: var(--inter-font);
+  font-size: 17px;
+
   border: none;
   border-radius: 10px;
   box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.25);
-  font-size: 17px;
   width: 100%;
+  padding: 10px 20px;
   transition: all 0.2s;
 }
 
@@ -572,12 +591,14 @@ body {
 }
 
 .posts .content main .topbar .category select {
+  font-family: var(--inter-font);
+  font-size: 17px;
+  box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.25);
+  width: 100%;
   padding: 10px 20px;
+
   border: none;
   border-radius: 10px;
-  box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.25);
-  font-size: 17px;
-  width: 100%;
   border-right: 10px solid transparent;
 }
 
@@ -591,13 +612,15 @@ body {
 }
 
 .posts .content main .topbar .order select {
-  padding: 10px 20px;
+  font-family: var(--inter-font);
+  font-size: 17px;
+
   border: none;
   border-radius: 10px;
-  box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.25);
-  font-size: 17px;
-  width: 100%;
   border-right: 10px solid transparent;
+  box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.25);
+  width: 100%;
+  padding: 10px 20px;
 }
 
 .posts .content main .topbar .order select:focus {
@@ -610,14 +633,15 @@ body {
 }
 
 .posts .content main .topbar .submit button {
-  width: 100%;
+  text-align: center;
+
   display: inline-block;
   border: none;
-  text-align: center;
-  background: linear-gradient(45deg, #00b4db 0%, #0083b0 100%);
-  padding: 10px 20px;
   border-radius: 10px;
+  background: linear-gradient(45deg, #00b4db 0%, #0083b0 100%);
   box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+  padding: 10px 20px;
+  width: 100%;
 
   display: flex;
   align-items: center;
@@ -630,11 +654,12 @@ body {
 }
 
 .posts .content main .topbar .submit button p {
+  color: white;
+  font-family: var(--sailec-medium-font);
+  font-size: 17px;
+
   margin: 0;
   padding: 0;
-  color: white;
-  font-family: "Lato", "Sans-serif";
-  font-size: 17px;
   margin-right: 10px;
 }
 
@@ -648,23 +673,24 @@ body {
 }
 
 .posts .content main .result p {
+  font-family: var(--inter-font);
   text-align: left;
-  margin: 0;
   font-size: 19px;
-  font-family: "Lato", "Sans-serif";
-  font-weight: 500;
+
+  margin: 0;
 }
 
 .posts .content main .result p span {
   color: #0083b0;
+  font-family: var(--sailec-medium-font);
 }
 
 .posts .content main .post {
   background: white;
   box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.25);
   border-radius: 10px;
-  padding: 30px;
 
+  padding: 30px;
   margin-bottom: 30px;
 }
 
@@ -678,17 +704,19 @@ body {
 
 .posts .content main .post .top .text h3 {
   color: #0083b0;
-  font-family: "Lato", "Sans-serif";
-  font-size: 22px;
+  font-family: var(--sailec-medium-font);
+  font-size: 20px;
+
   margin-bottom: 15px;
 }
 
 .posts .content main .post .top .text p {
-  margin: 0;
+  color: var(--secondary-text-color);
+  font-family: var(--inter-font);
   text-align: left;
-  color: #3e3e3e;
-  font-family: "Inter", "Sans-serif";
   font-size: 17px;
+
+  margin: 0;
   width: 100%;
   margin-bottom: 30px;
 }
@@ -721,9 +749,8 @@ body {
 
 .posts .content main .post .bottom .tags .category p {
   color: white;
+  font-family: var(--sailec-medium-font);
   font-size: 16px;
-  font-family: "Lato", "Sans-serif";
-  font-weight: 400;
 
   background: linear-gradient(45deg, #00b4db 0%, #0083b0 100%);
   border-radius: 10px;
@@ -752,9 +779,9 @@ body {
 }
 
 .posts .content main .post .bottom .tags .widget .map p {
-  color: #3e3e3e;
+  color: var(--secondary-text-color);
+  font-family: var(--inter-font);
 
-  font-family: "Inter", "Sans-serif";
   text-align: left;
   font-size: 15px;
 
@@ -774,8 +801,8 @@ body {
 }
 
 .posts .content main .post .bottom .tags .widget .time p {
-  color: #3e3e3e;
-  font-family: "Inter", "Sans-serif";
+  color: var(--secondary-text-color);
+  font-family: var(--inter-font);
   text-align: left;
   font-size: 15px;
 
@@ -805,10 +832,9 @@ body {
 }
 
 .posts .content main .post .bottom .continue button p {
-  font-size: 18px;
-  font-family: "Lato", "Sans-serif";
   color: white;
-  font-weight: 500;
+  font-family: var(--sailec-medium-font);
+  font-size: 18px;
 
   margin: 0;
   padding: 0;
@@ -828,11 +854,10 @@ body {
 }
 
 .posts .content main .arrange a {
-  color: #3e3e3e;
-  font-family: Inter;
+  color: var(--secondary-text-color);
+  font-family: var(--inter-font);
   font-size: 18px;
   font-style: normal;
-  font-weight: 400;
   text-decoration: none;
 
   margin: 0;
@@ -878,19 +903,17 @@ body {
 
 .callback .container .content .text h2 {
   color: white;
+  font-family: var(--sailec-bold-font);
   text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-  font-family: Lato;
   font-size: 60px;
-  font-weight: 800;
 
   margin-bottom: 20px;
 }
 
 .callback .container .content .text p {
   color: white;
-  font-family: Inter;
+  font-family: var(--inter-font);
   font-size: 18px;
-  font-weight: 300;
 
   margin-bottom: 35px;
 }
@@ -901,6 +924,8 @@ body {
 }
 
 .callback .container .content .text input {
+  color: var(--secondary-text-color);
+  font-family: var(--inter-font);
   font-size: 17px;
 
   padding: 10px 20px;
@@ -922,7 +947,7 @@ body {
 .callback .container .content .text .adatvedelmi {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 15px;
 
   margin-top: 20px;
   margin-bottom: 30px;
@@ -936,10 +961,9 @@ body {
 
 .callback .container .content .text .adatvedelmi label {
   color: #fff;
-  font-family: "Inter", "Sans-Serif";
+  font-family: var(--sailec-medium-font);
   font-size: 15px;
-  font-weight: 400;
-
+  font-style: normal;
   width: 60%;
 }
 
@@ -967,10 +991,9 @@ body {
 
 .callback .container .content .text .submit p {
   color: white;
-  font-family: "Lato", "Sans-Serif";
+  font-family: var(--sailec-medium-font);
   font-size: 18px;
   font-style: normal;
-  font-weight: 500;
   line-height: normal;
 
   margin: 0;
@@ -1022,19 +1045,17 @@ body {
 /* -------------------------------------------------------------------------- */
 
 .blog h2 {
+  font-family: var(--sailec-bold-font);
   font-size: 60px;
-  font-family: "Lato", "Sans-serif";
-  font-weight: 900;
-
   text-align: center;
 
   margin-bottom: 20px;
 }
 
 .blog p {
+  color: var(--secondary-text-color);
+  font-family: var(--inter-font);
   font-size: 20px;
-  font-family: "Inter", "Sans-serif";
-  color: #3e3e3e;
 
   text-align: center;
 
