@@ -59,16 +59,17 @@ body {
 
 #headerScroll {
   transition: top 0.2s;
-  z-index: 10;
+  z-index: 3;
 }
 
 .desktop {
+  position: relative;
   display: flex;
   align-items: center;
+  z-index: 4;
 
-  margin-top: 40px;
+  margin-top: 30px;
   height: 80px;
-  z-index: 10;
   transition: padding-left 0.2s, padding-right 0.2s;
 }
 
@@ -81,7 +82,7 @@ body {
 }
 
 .desktop .brand img {
-  height: 70px;
+  height: 60px;
 }
 
 .desktop nav {
@@ -133,7 +134,7 @@ body {
   font-size: 17px;
   text-decoration: none;
 
-  padding: 8px 25px;
+  padding: 8px 40px;
   border-radius: 10px;
   background: linear-gradient(45deg, #00b4db 0%, #0083b0 100%);
   box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
@@ -147,7 +148,7 @@ body {
 
 /* --------------------------------- Mobile --------------------------------- */
 
-.mobile {
+.responsive {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -155,25 +156,24 @@ body {
   padding-top: 15px;
 }
 
-.mobile .brand {
+.responsive .brand {
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-.mobile .brand img {
+.responsive .brand img {
   height: 35px;
   padding: 0;
   margin: 0;
 }
 
-.mobile .bars {
+.responsive .bars {
   width: 35px;
   height: 35px;
-  z-index: 2;
 }
 
-.mobile .bars i {
+.responsive .bars i {
   width: 20px;
   height: 2px;
   background: white;
@@ -183,7 +183,7 @@ body {
   top: 30.5px;
 }
 
-.mobile .bars i::before {
+.responsive .bars i::before {
   content: "";
   width: 20px;
   height: 2px;
@@ -193,7 +193,7 @@ body {
   bottom: 6px;
 }
 
-.mobile .bars i::after {
+.responsive .bars i::after {
   content: "";
   width: 20px;
   height: 2px;
@@ -203,21 +203,21 @@ body {
   top: 6px;
 }
 
-.mobile .bars.active i {
+.responsive .bars.active i {
   background: transparent;
 }
 
-.mobile .bars.active i::before {
+.responsive .bars.active i::before {
   rotate: 45deg;
   top: 0px;
 }
 
-.mobile .bars.active i::after {
+.responsive .bars.active i::after {
   rotate: -45deg;
   top: 0px;
 }
 
-.mobile nav {
+.responsive nav {
   position: fixed;
   background: #218199;
   height: 100vh;
@@ -225,7 +225,6 @@ body {
   right: 0;
   width: 0;
   right: -100px;
-  z-index: 1;
   display: flex;
   flex-direction: column;
 
@@ -243,7 +242,7 @@ body {
   display: none;
 }
 
-.mobile nav a {
+.responsive nav a {
   color: white;
   font-size: 17px;
   text-decoration: none;
@@ -255,7 +254,7 @@ body {
   .desktop {
     display: none;
   }
-  .mobile {
+  .responsive {
     display: flex;
   }
 }
@@ -264,36 +263,40 @@ body {
   .desktop {
     display: flex;
   }
-  .mobile {
+  .responsive {
     display: none;
   }
 }
 
 /* -------------------------------------------------------------------------- */
-/*                                  Showcase                                  */
+/*                                    Hero                                    */
 /* -------------------------------------------------------------------------- */
 
-.background {
-  position: absolute;
+.hero {
+  position: relative;
   width: 100%;
-  height: 100vh;
   top: 0;
   left: 0;
   right: 0;
-  z-index: -1;
   background: linear-gradient(90deg, #008baa 0%, #004e68 100%);
   box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+  z-index: 1;
+
+  margin-top: -120px;
+  padding-top: 180px;
 }
 
-.background::before {
-  content: "";
+.hero::before {
   position: absolute;
+  content: "";
   width: 100%;
   height: 100%;
   background: linear-gradient(90deg, #057088 0%, #013242 100%);
   opacity: 0;
   animation: bg 5s ease-in-out infinite alternate-reverse;
-  z-index: -3;
+  z-index: -1;
+
+  margin-top: -180px;
 }
 
 @keyframes bg {
@@ -305,127 +308,91 @@ body {
   }
 }
 
-.showcase {
-  height: calc(100vh - 80px);
+.hero .container {
   display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
 }
 
-.showcase .blob {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 50vw;
-  height: 100vh;
-  z-index: -1;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
+.hero .container .text {
+  flex: 1;
 }
 
-.showcase .blob img {
-  opacity: 0.2;
-  animation: rotating 60s linear infinite;
+.hero .container .illustration {
+  flex: 1;
 }
 
-@keyframes rotating {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-.showcase .typeWriter {
+.hero .container .text h1 {
   color: white;
   font-family: "Sailec Bold";
-  font-size: 72px;
-  line-height: 1;
-  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-
-  border-right: 2px white solid;
-  padding-right: 5px;
-  height: 80px;
+  font-size: 60px;
 }
 
-.showcase h2 {
+.cursor {
+  display: inline-block;
+  width: 3px;
+  margin-left: 4px;
+  background: white;
+}
+
+.cursor.blink {
+  animation: blink 0.8s ease-in-out infinite;
+}
+
+@keyframes blink {
+  0%,
+  100% {
+    background: var(--teal);
+  }
+  40%,
+  50% {
+    background: transparent;
+  }
+}
+
+.hero .container .text h2 {
   color: #00b4db;
   font-family: "Sailec Bold";
-  font-size: 72px;
-  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-  letter-spacing: -4px;
+  font-size: 50px;
+
+  margin-top: -10px;
 }
 
-.showcase p {
+.hero .container .text p {
   color: white;
   font-family: "Inter";
-  font-size: 18px;
-  text-align: center;
+  font-size: 16px;
+  width: 80%;
 
-  width: 40%;
-  margin-top: 50px;
-  margin-bottom: 50px;
-}
-
-.showcase a {
-  color: white;
-  font-family: "Sailec Medium";
-  font-size: 18px;
-  text-decoration: none;
-  padding: 15px 25px;
-
-  border-radius: 10px;
-  background: linear-gradient(45deg, #00b4db 0%, #0083b0 100%);
-  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
-  transition: 0.2s all;
-}
-
-.showcase a:hover {
-  transform: scale(1.1);
-}
-
-.showcase .icons {
-  display: flex;
-  gap: 20px;
   margin-top: 30px;
 }
 
-.showcase .icons .check {
+.hero .container .text a {
+  display: inline-block;
+  width: auto;
+  color: white;
+  font-family: "Sailec Medium";
+  font-size: 16px;
+  text-decoration: none;
+
+  padding: 10px 35px;
+  border-radius: 10px;
+
+  margin-top: 50px;
+  margin-bottom: 120px;
+
+  background: linear-gradient(45deg, #00b4db 0%, #0083b0 100%);
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.15);
+}
+
+.hero .container .text a:hover {
+  transform: scale(1.05);
+}
+
+.hero .container .illustration {
   display: flex;
   align-items: center;
-  justify-content: center;
-}
+  justify-content: flex-end;
 
-.showcase .icons .check p {
-  color: #e9e9e9;
-  font-family: "Inter";
-  font-size: 12px;
-
-  width: auto;
-  margin: 0;
-  margin-left: 10px;
-}
-
-.showcase .arrow {
-  position: absolute;
-  background: none;
-  box-shadow: none;
-  margin: 0;
-  padding: 0;
-  top: 90vh;
-  z-index: 1;
-}
-
-.showcase .arrow img {
-  width: 70px;
-}
-
-.showcase .arrow:hover {
-  transform: scale(1.1);
+  margin-top: -140px;
 }
 
 /* -------------------------------------------------------------------------- */
@@ -433,13 +400,13 @@ body {
 /* -------------------------------------------------------------------------- */
 
 .posts {
-  margin-top: 100px;
-  margin-bottom: 100px;
+  margin-top: 80px;
+  margin-bottom: 60px;
 }
 
 .posts h2 {
   font-family: "Sailec Bold";
-  font-size: 60px;
+  font-size: 40px;
   text-align: center;
 
   margin-bottom: 20px;
@@ -448,12 +415,12 @@ body {
 .posts p {
   color: var(--secondary-text-color);
   font-family: "Inter";
-  font-size: 20px;
+  font-size: 16px;
   text-align: center;
 
   margin: 0 auto;
   width: 70%;
-  margin-bottom: 120px;
+  margin-bottom: 100px;
 }
 
 .posts .content {
@@ -466,7 +433,6 @@ body {
   width: 25%;
   height: 100%;
   padding: 20px;
-  z-index: 0;
 
   border-radius: 10px;
   background: white;
@@ -475,14 +441,14 @@ body {
 
 .posts .content aside h3 {
   font-family: "Inter";
-  font-size: 22px;
+  font-size: 21px;
   margin-top: 10px;
 }
 
 .posts .content aside .location h4,
 .posts .content aside .wage h4 {
   font-family: "Inter";
-  font-size: 17px;
+  font-size: 16px;
   margin-top: 30px;
   margin-bottom: 20px;
 }
@@ -490,7 +456,7 @@ body {
 .posts .content aside .location p,
 .posts .content aside .wage p {
   font-family: "Inter";
-  font-size: 17px;
+  font-size: 15px;
   text-align: left;
   margin: 0;
   padding: 0;
@@ -577,12 +543,13 @@ body {
 
 .posts .content main .topbar .search input {
   font-family: "Inter";
-  font-size: 17px;
+  font-size: 15px;
 
   border: none;
   border-radius: 10px;
   box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.25);
   width: 100%;
+  height: 45px;
   padding: 10px 20px;
   transition: all 0.2s;
 }
@@ -598,9 +565,11 @@ body {
 
 .posts .content main .topbar .category select {
   font-family: "Inter";
-  font-size: 17px;
+  font-size: 15px;
+
   box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.25);
   width: 100%;
+  height: 45px;
   padding: 10px 20px;
 
   border: none;
@@ -619,13 +588,14 @@ body {
 
 .posts .content main .topbar .order select {
   font-family: "Inter";
-  font-size: 17px;
+  font-size: 15px;
 
   border: none;
   border-radius: 10px;
   border-right: 10px solid transparent;
   box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.25);
   width: 100%;
+  height: 45px;
   padding: 10px 20px;
 }
 
@@ -646,11 +616,13 @@ body {
   border-radius: 10px;
   background: linear-gradient(45deg, #00b4db 0%, #0083b0 100%);
   box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
-  padding: 10px 20px;
+  padding: 10px 40px;
+  height: 45px;
   width: 100%;
 
   display: flex;
   align-items: center;
+  justify-content: center;
 
   transition: 0.2s all;
 }
@@ -681,7 +653,7 @@ body {
 .posts .content main .result p {
   font-family: "Inter";
   text-align: left;
-  font-size: 19px;
+  font-size: 16px;
 
   margin: 0;
 }
@@ -711,7 +683,7 @@ body {
 .posts .content main .post .top .text h3 {
   color: #0083b0;
   font-family: "Sailec Medium";
-  font-size: 20px;
+  font-size: 21px;
 
   margin-bottom: 15px;
 }
@@ -720,7 +692,7 @@ body {
   color: var(--secondary-text-color);
   font-family: "Inter";
   text-align: left;
-  font-size: 17px;
+  font-size: 16px;
 
   margin: 0;
   width: 100%;
@@ -756,7 +728,7 @@ body {
 .posts .content main .post .bottom .tags .category p {
   color: white;
   font-family: "Sailec Medium";
-  font-size: 16px;
+  font-size: 15px;
 
   background: linear-gradient(45deg, #00b4db 0%, #0083b0 100%);
   border-radius: 10px;
@@ -787,9 +759,8 @@ body {
 .posts .content main .post .bottom .tags .widget .map p {
   color: var(--secondary-text-color);
   font-family: "Inter";
-
   text-align: left;
-  font-size: 15px;
+  font-size: 14px;
 
   margin: 0;
   padding: 0;
@@ -810,7 +781,7 @@ body {
   color: var(--secondary-text-color);
   font-family: "Inter";
   text-align: left;
-  font-size: 15px;
+  font-size: 14px;
 
   margin: 0;
   padding: 0;
@@ -879,312 +850,4 @@ body {
   margin: 0;
 
   height: 24px;
-}
-
-/* -------------------------------------------------------------------------- */
-/*                                  Call-back                                 */
-/* -------------------------------------------------------------------------- */
-
-.callback {
-  margin-bottom: 120px;
-}
-
-.callback .container {
-  height: 600px;
-}
-
-.callback .container .content {
-  display: flex;
-}
-
-.callback .container .content .text {
-  width: 50%;
-  height: 600px;
-
-  display: flex;
-  align-items: flex-start;
-  justify-content: center;
-  flex-direction: column;
-}
-
-.callback .container .content .text h2 {
-  color: white;
-  font-family: "Sailec Bold";
-  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-  font-size: 60px;
-
-  margin-bottom: 20px;
-}
-
-.callback .container .content .text p {
-  color: white;
-  font-family: "Inter";
-  font-size: 18px;
-
-  margin-bottom: 35px;
-}
-
-.callback .container .content .text form {
-  display: flex;
-  flex-direction: column;
-}
-
-.callback .container .content .text input {
-  color: var(--secondary-text-color);
-  font-family: "Inter";
-  font-size: 17px;
-
-  padding: 10px 20px;
-  width: 75%;
-
-  border: none;
-  border-radius: 10px;
-  box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.25);
-
-  transition: all 0.2s;
-  margin-bottom: 15px;
-}
-
-.callback .container .content .text input:focus {
-  outline: none;
-  box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.4);
-}
-
-.callback .container .content .text .adatvedelmi {
-  display: flex;
-  align-items: center;
-  gap: 15px;
-
-  margin-top: 20px;
-  margin-bottom: 30px;
-}
-
-.callback .container .content .text .adatvedelmi input {
-  height: 20px;
-  width: 20px;
-  margin: 0;
-}
-
-.callback .container .content .text .adatvedelmi label {
-  color: #fff;
-  font-family: "Sailec Medium";
-  font-size: 15px;
-  font-style: normal;
-  width: 60%;
-}
-
-.callback .container .content .text .submit {
-  width: 150px;
-  height: 50px;
-  margin-bottom: 10px;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-
-  border-radius: 10px;
-  background: linear-gradient(90deg, #00b4db 0%, #0083b0 100%);
-  border: none;
-
-  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
-  transition: all 0.3s;
-}
-
-.callback .container .content .text .submit:hover {
-  transform: scale(1.05);
-}
-
-.callback .container .content .text .submit p {
-  color: white;
-  font-family: "Sailec Medium";
-  font-size: 18px;
-  font-style: normal;
-  line-height: normal;
-
-  margin: 0;
-  padding: 0;
-}
-
-.callback .container .content .text .submit img {
-  height: 15px;
-  width: 15px;
-}
-
-.callback .bg {
-  height: 600px;
-  width: 100%;
-  position: absolute;
-
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
-
-  z-index: -1;
-  background: linear-gradient(90deg, #008baa 0%, #004e68 100%);
-  overflow: hidden;
-}
-
-.callback .bg::before {
-  content: "";
-  position: absolute;
-
-  width: 100%;
-  height: 600px;
-
-  background: linear-gradient(90deg, #057088 0%, #013242 100%);
-  opacity: 0;
-  z-index: -1;
-
-  animation: bg 5s ease-in-out infinite alternate-reverse;
-}
-
-.callback .bg img {
-  width: 40%;
-  opacity: 0.2;
-
-  animation: rotating 60s linear infinite;
-}
-
-/* -------------------------------------------------------------------------- */
-/*                                    Blog                                    */
-/* -------------------------------------------------------------------------- */
-
-.blog {
-  margin-bottom: 100px;
-}
-
-.blog h2 {
-  font-family: "Sailec Bold";
-  font-size: 60px;
-  text-align: center;
-
-  margin-bottom: 20px;
-}
-
-.blog p {
-  color: var(--secondary-text-color);
-  font-family: "Inter";
-  font-size: 20px;
-
-  text-align: center;
-
-  margin: 0 auto;
-  margin-bottom: 120px;
-  width: 70%;
-}
-
-.blog .blog-wrapper {
-  display: grid;
-  grid-auto-flow: column;
-  gap: 50px;
-  overflow: auto;
-
-  padding-bottom: 30px;
-}
-
-.blog .blog-wrapper .blog-card {
-  width: 360px;
-
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.blog .blog-wrapper .blog-card img {
-  width: 280px;
-  height: 150px;
-  margin-bottom: -40px;
-
-  z-index: 2;
-  box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.25);
-  border-radius: 10px;
-}
-
-.blog .blog-wrapper .blog-card .text {
-  background: white;
-  box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.25);
-  border-radius: 10px;
-  padding: 80px 25px 20px 25px;
-}
-
-.blog .blog-wrapper .blog-card .text h3 {
-  color: var(--title-text-color);
-  font-family: "Sailec Medium";
-  font-size: 21px;
-}
-
-.blog .blog-wrapper .blog-card .text p {
-  color: var(--secondary-text-color);
-  font-family: "Inter";
-  font-size: 16px;
-  text-align: left;
-
-  width: 100%;
-  margin: 0;
-  margin-top: 10px;
-  margin-bottom: 40px;
-}
-
-.blog .blog-wrapper .blog-card .text a {
-  color: white;
-  font-family: "Sailec Medium";
-  font-size: 16px;
-  border-radius: 10px;
-  padding: 5px 25px;
-  background: linear-gradient(45deg, #00b4db 0%, #0083b0 100%);
-  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
-}
-
-.blog .blog-wrapper .blog-card .text .author {
-  display: flex;
-  width: 100%;
-  gap: 15px;
-
-  margin-top: 40px;
-}
-
-.blog .blog-wrapper .blog-card .text .author img {
-  height: 54px;
-  width: 54px;
-  border-radius: 100%;
-  box-shadow: none;
-
-  padding: 0;
-  margin: 0;
-}
-
-.blog .blog-wrapper .blog-card .text .author .infos {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-
-.blog .blog-wrapper .blog-card .text .author .infos h4 {
-  color: var(--secondary-text-color);
-  font-family: "Sailec Medium";
-  font-size: 15px;
-}
-
-.blog .blog-wrapper .blog-card .text .author .infos p {
-  color: var(--secondary-text-color);
-  font-family: "Inter";
-  font-size: 14px;
-
-  margin: 0;
-}
-
-div.blog-wrapper::-webkit-scrollbar {
-  height: 7px;
-}
-
-div.blog-wrapper::-webkit-scrollbar-track {
-  border-radius: 5px;
-  background: #d9d9d9;
-}
-
-div.blog-wrapper::-webkit-scrollbar-thumb {
-  background: linear-gradient(90deg, #008baa 0%, #004e68 100%);
-  border-radius: 5px;
 }

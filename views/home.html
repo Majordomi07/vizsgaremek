@@ -5,29 +5,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>újmeló | Álláskeresési platform</title>
     <link rel="stylesheet" href="../assets/css/home.css" />
-    <script
-      src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
-      integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    ></script>
     <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
   </head>
   <body>
     <!-- ----------------------------------------------------------------------- -->
     <!--                                 Header                                  -->
     <!-- ----------------------------------------------------------------------- -->
+
     <!-- --------------------------- Desktop header ---------------------------- -->
 
     <div class="container" id="headerScroll">
       <header class="desktop">
         <div class="brand">
-          <img src="../images/logo-white.svg" />
+          <img src="../assets/images/logo-white.svg" />
         </div>
         <nav>
           <a href="#posts">Álláshírdetések</a>
-          <a href="#blog">Blog</a>
           <a href="">Kapcsolat</a>
+          <a href="#blog">Kezelőfelület</a>
         </nav>
         <div class="cta">
           <a href="">Bejelentkezés</a>
@@ -37,7 +32,7 @@
 
     <!-- -------------------------- Responsive header -------------------------- -->
 
-    <header class="mobile">
+    <header class="responsive">
       <div class="brand">
         <img src="../images/logo-white.svg" />
       </div>
@@ -46,38 +41,32 @@
       </div>
       <nav id="nav">
         <a href="">Álláshírdetések</a>
-        <a href="">Blog</a>
+        <a href="">Admin</a>
         <a href="">Kapcsolat</a>
         <a href="">Bejelentkezés</a>
       </nav>
     </header>
 
     <!-- ----------------------------------------------------------------------- -->
-    <!--                                Showcase                                 -->
+    <!--                                  Hero                                   -->
     <!-- ----------------------------------------------------------------------- -->
 
-    <div class="background"></div>
-    <section class="showcase">
-      <h2 class="typeWriter"></h2>
-      <h2>#újmeló</h2>
-      <p>
-        Fedezze fel az álmai munkáját a mi platformunkon! Kínáljuk a legfrissebb állásajánlatokat minden területen, hogy
-        segítsünk Önnek elindítani vagy felpörgetni karrierjét.
-      </p>
-      <a href="#posts">Kezdj bele a keresésbe</a>
-      <div class="icons">
-        <div class="check">
-          <img src="../images/check.svg" />
-          <p>Teljesen ingyenes böngészés</p>
+    <section class="hero">
+      <div class="container">
+        <div class="text">
+          <h1>Építs karriert</h1>
+          <h2>#újmeló</h2>
+          <p>
+            Fedezze fel az álmai munkáját a mi platformunkon! Kínáljuk a legfrissebb
+            állásajánlatokat minden területen, hogy segítsünk Önnek elindítani vagy felpörgetni
+            karrierjét.
+          </p>
+          <a href="#posts">Kezdj bele a keresésbe</a>
         </div>
-        <div class="check">
-          <img src="../images/check.svg" />
-          <p>Teljesen ingyenes állásfeltöltés</p>
+        <div class="illustration">
+          <img src="../assets/images/illustration.svg" />
         </div>
       </div>
-      <a href="#posts" class="arrow">
-        <img src="../images/arrow.svg" />
-      </a>
     </section>
 
     <!-- ----------------------------------------------------------------------- -->
@@ -88,9 +77,9 @@
       <section class="posts" id="posts">
         <h2>Álláshírdetések</h2>
         <p>
-          Lépjen be a jövojébe és böngéssze át a friss és sokszínu munkalehetoségeket, amelyeket vállalkozások és
-          szervezetek kínálnak, vagy hozza létre saját álláshirdetését a szakmai élet legkiválóbb tehetségeinek
-          eléréséhez.
+          Lépjen be a jövojébe és böngéssze át a friss és sokszínu munkalehetoségeket, amelyeket
+          vállalkozások és szervezetek kínálnak, vagy hozza létre saját álláshirdetését a szakmai
+          élet legkiválóbb tehetségeinek eléréséhez.
         </p>
         <div class="content">
           <aside>
@@ -134,7 +123,7 @@
             <form>
               <div class="topbar">
                 <div class="search">
-                  <input type="text" placeholder="Kulcsszó kereso" />
+                  <input type="text" placeholder="Kulcsszó kereső" />
                 </div>
                 <div class="category">
                   <select name="" id="">
@@ -151,7 +140,7 @@
                 <div class="submit">
                   <button type="submit">
                     <p>Keresés</p>
-                    <img src="../images/search.svg" />
+                    <img src="../assets/images/icons/search-icon.svg" />
                   </button>
                 </div>
               </div>
@@ -164,9 +153,9 @@
                 <div class="text">
                   <h3>Mester cukrász</h3>
                   <p>
-                    Cégünk elismert és elkötelezett mester cukrászt keres, aki csatlakozna tehetséges csapatunkhoz. Ha a
-                    sütés és édesítés muvészetének szenvedélyese vagy, és rendelkezel szélesköru tapasztalattal a
-                    cukrászat terén
+                    Cégünk elismert és elkötelezett mester cukrászt keres, aki csatlakozna
+                    tehetséges csapatunkhoz. Ha a sütés és édesítés muvészetének szenvedélyese vagy,
+                    és rendelkezel szélesköru tapasztalattal a cukrászat terén
                   </p>
                 </div>
                 <div class="logo">
@@ -180,11 +169,11 @@
                   </div>
                   <div class="widget">
                     <div class="map">
-                      <img src="../images/map-pin.svg" />
+                      <img src="../assets/images/icons/map-pin.svg" />
                       <p>Budapest, XI. Kerület</p>
                     </div>
                     <div class="time">
-                      <img src="../images/clock.svg" />
+                      <img src="../assets/images/icons/clock.svg" />
                       <p>2 órája</p>
                     </div>
                   </div>
@@ -192,7 +181,7 @@
                 <div class="continue">
                   <button>
                     <p>Tovább</p>
-                    <img src="../images/arrow-up-right.svg" />
+                    <img src="../assets/images/icons/arrow-up-right.svg" />
                   </button>
                 </div>
               </div>
@@ -203,9 +192,10 @@
                 <div class="text">
                   <h3>Programozó</h3>
                   <p>
-                    Cégünk, a vezeto telekommunikációs szolgáltató, izgalmas lehetoséget kínál tapasztalt programozóknak
-                    a csapatunkban való részvételre. A digitális forradalom és az 5G terjedése új és izgalmas
-                    kihívásokat teremt a telekommunikáció területén.
+                    Cégünk, a vezeto telekommunikációs szolgáltató, izgalmas lehetoséget kínál
+                    tapasztalt programozóknak a csapatunkban való részvételre. A digitális
+                    forradalom és az 5G terjedése új és izgalmas kihívásokat teremt a
+                    telekommunikáció területén.
                   </p>
                 </div>
                 <div class="logo">
@@ -219,11 +209,11 @@
                   </div>
                   <div class="widget">
                     <div class="map">
-                      <img src="../images/map-pin.svg" />
+                      <img src="../assets/images/icons/map-pin.svg" />
                       <p>Debrecen</p>
                     </div>
                     <div class="time">
-                      <img src="../images/clock.svg" />
+                      <img src="../assets/images/icons/clock.svg" />
                       <p>Több mint egy hete</p>
                     </div>
                   </div>
@@ -231,7 +221,7 @@
                 <div class="continue">
                   <button>
                     <p>Tovább</p>
-                    <img src="../images/arrow-up-right.svg" />
+                    <img src="../assets/images/icons/arrow-up-right.svg" />
                   </button>
                 </div>
               </div>
@@ -242,9 +232,9 @@
                 <div class="text">
                   <h3>Burkoló</h3>
                   <p>
-                    Cégünk elismert és elkötelezett burkolót keres, aki csatlakozna tapasztalt csapatunkhoz. Ha a
-                    burkolás és felújítás területén rendelkezel szakértelemmel, és az esztétika és minoség fontos
-                    számodra, akkor nálunk a helyed!
+                    Cégünk elismert és elkötelezett burkolót keres, aki csatlakozna tapasztalt
+                    csapatunkhoz. Ha a burkolás és felújítás területén rendelkezel szakértelemmel,
+                    és az esztétika és minoség fontos számodra, akkor nálunk a helyed!
                   </p>
                 </div>
                 <div class="logo">
@@ -258,11 +248,11 @@
                   </div>
                   <div class="widget">
                     <div class="map">
-                      <img src="../images/map-pin.svg" />
+                      <img src="../assets/images/icons/map-pin.svg" />
                       <p>Piliscsaba</p>
                     </div>
                     <div class="time">
-                      <img src="../images/clock.svg" />
+                      <img src="../assets/images/icons/clock.svg" />
                       <p>Több mint egy hónapja</p>
                     </div>
                   </div>
@@ -270,7 +260,7 @@
                 <div class="continue">
                   <button>
                     <p>Tovább</p>
-                    <img src="../images/arrow-up-right.svg" />
+                    <img src="../assets/images/icons/arrow-up-right.svg" />
                   </button>
                 </div>
               </div>
@@ -278,163 +268,18 @@
 
             <div class="arrange">
               <a href="">
-                <img src="../images/chevron-left.svg" />
+                <img src="../assets/images/icons/arrow-left.svg" />
               </a>
               <a href=""><b>1</b></a>
               <a href="">2</a>
               <a href="">3</a>
               <a href="">
-                <img src="../images/chevron-right.svg" />
+                <img src="../assets/images/icons/arrow-right.svg" />
               </a>
             </div>
           </main>
         </div>
       </section>
-    </div>
-
-    <!-- ----------------------------------------------------------------------- -->
-    <!--                                Call-back                                -->
-    <!-- ----------------------------------------------------------------------- -->
-
-    <section class="callback">
-      <div class="bg">
-        <img src="../images/blob.svg" id="blob" />
-      </div>
-      <div class="container">
-        <div class="content">
-          <div class="text">
-            <h2>Kérjen visszahívást</h2>
-            <p>
-              Visszahívást kérni egy munkaügyi szakembertől számos előnnyel jár. Először is, lehetővé teszi, hogy
-              részletesen megbeszéljük a munkajogi vagy szakmai kérdéseinket, anélkül, hogy azonnal kimerítően
-              válaszokat kellene keresnünk.
-            </p>
-            <form>
-              <input type="text" placeholder="Név" />
-              <input type="text" placeholder="Telefonszám" />
-              <div class="adatvedelmi">
-                <input type="checkbox" name="adatvedelmi" />
-                <label for="adatvedelmi">Elolvastam és elfogadom az adatvédelmi nyilatkozatot.</label>
-              </div>
-              <button class="submit">
-                <p>Elküldés</p>
-                <img src="../images/phone.svg" />
-              </button>
-            </form>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ----------------------------------------------------------------------- -->
-    <!--                                  Blog                                   -->
-    <!-- ----------------------------------------------------------------------- -->
-
-    <div class="container">
-      <div class="blog" id="blog">
-        <h2>Blog</h2>
-        <p>
-          blogok általában praktikus tanácsokat és tippeket is tartalmaznak, amelyek segíthetnek javítani az
-          álláskeresési stratégiádat. Tehát, amikor állást keresel, érdemes időt szánni a blogok olvasására.
-        </p>
-
-        <div class="blog-wrapper">
-          <div class="blog-card">
-            <img src="../images/cover.jpg" />
-            <div class="text">
-              <h3>Közösségi élet a munkahelyen</h3>
-              <p>
-                A közösségi élet a munkahelyen rendkívül fontos szerepet játszik abban, hogy egy munkahely inspiráló és
-                harmonikus légkört teremtsen...
-              </p>
-              <a>Tovább</a>
-              <div class="author">
-                <img src="../images/author-icon.png" />
-                <div class="infos">
-                  <h4>Nagy Imola</h4>
-                  <p>2023. 05. 12</p>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="blog-card">
-            <img src="../images/cover.jpg" />
-            <div class="text">
-              <h3>Közösségi élet a munkahelyen</h3>
-              <p>
-                A közösségi élet a munkahelyen rendkívül fontos szerepet játszik abban, hogy egy munkahely inspiráló és
-                harmonikus légkört teremtsen...
-              </p>
-              <a>Tovább</a>
-              <div class="author">
-                <img src="../images/author-icon.png" />
-                <div class="infos">
-                  <h4>Nagy Imola</h4>
-                  <p>2023. 05. 12</p>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="blog-card">
-            <img src="../images/cover.jpg" />
-            <div class="text">
-              <h3>Közösségi élet a munkahelyen</h3>
-              <p>
-                A közösségi élet a munkahelyen rendkívül fontos szerepet játszik abban, hogy egy munkahely inspiráló és
-                harmonikus légkört teremtsen...
-              </p>
-              <a>Tovább</a>
-              <div class="author">
-                <img src="../images/author-icon.png" />
-                <div class="infos">
-                  <h4>Nagy Imola</h4>
-                  <p>2023. 05. 12</p>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="blog-card">
-            <img src="../images/cover.jpg" />
-            <div class="text">
-              <h3>Közösségi élet a munkahelyen</h3>
-              <p>
-                A közösségi élet a munkahelyen rendkívül fontos szerepet játszik abban, hogy egy munkahely inspiráló és
-                harmonikus légkört teremtsen...
-              </p>
-              <a>Tovább</a>
-              <div class="author">
-                <img src="../images/author-icon.png" />
-                <div class="infos">
-                  <h4>Nagy Imola</h4>
-                  <p>2023. 05. 12</p>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="blog-card">
-            <img src="../images/cover.jpg" />
-            <div class="text">
-              <h3>Közösségi élet a munkahelyen</h3>
-              <p>
-                A közösségi élet a munkahelyen rendkívül fontos szerepet játszik abban, hogy egy munkahely inspiráló és
-                harmonikus légkört teremtsen...
-              </p>
-              <a>Tovább</a>
-              <div class="author">
-                <img src="../images/author-icon.png" />
-                <div class="infos">
-                  <h4>Nagy Imola</h4>
-                  <p>2023. 05. 12</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
     </div>
 
     <script src="../assets/js/typeWriter.js"></script>
