@@ -91,6 +91,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: space-around;
+  gap: 30px;
 }
 
 .desktop nav a {
@@ -149,11 +150,15 @@ body {
 /* --------------------------------- Mobile --------------------------------- */
 
 .responsive {
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: space-between;
+  z-index: 4;
 
   padding-top: 15px;
+
+  padding: 15px 30px 0 30px;
 }
 
 .responsive .brand {
@@ -169,8 +174,13 @@ body {
 }
 
 .responsive .bars {
-  width: 35px;
-  height: 35px;
+  z-index: 4;
+  width: 40px;
+  height: 30px;
+
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
 }
 
 .responsive .bars i {
@@ -179,7 +189,6 @@ body {
   background: white;
   border-radius: 5px;
   position: absolute;
-  right: 30px;
   top: 30.5px;
 }
 
@@ -234,17 +243,11 @@ body {
   transition: 0.3s;
 }
 
-.open {
-  display: block;
-}
-
-.hide {
-  display: none;
-}
-
 .responsive nav a {
   color: white;
-  font-size: 17px;
+  font-size: 16px;
+  font-family: "Sailec Medium";
+
   text-decoration: none;
 
   margin-bottom: 20px;
@@ -374,6 +377,60 @@ body {
   height: 370px;
 }
 
+@media only screen and (max-width: 900px) {
+  .hero .container {
+    flex-direction: column;
+    padding-top: 65px;
+  }
+
+  .hero .container .text {
+    order: 2;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .hero .container .text h1 {
+    font-size: 36px;
+    text-align: center;
+  }
+
+  .hero .container .text h2 {
+    font-size: 35px;
+    text-align: center;
+  }
+
+  .hero .container .text p {
+    font-size: 11px;
+    text-align: center;
+
+    width: 100%;
+    margin-top: 20px;
+  }
+
+  .hero .container .text a {
+    font-size: 10px;
+    margin-bottom: 35px;
+    margin-top: 25px;
+  }
+
+  .hero .container .illustration {
+    order: 1;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    margin-bottom: 20px;
+  }
+
+  .hero .container .illustration object {
+    height: 120px;
+  }
+}
+
 /* -------------------------------------------------------------------------- */
 /*                                    Posts                                   */
 /* -------------------------------------------------------------------------- */
@@ -441,30 +498,22 @@ body {
   margin-bottom: 15px;
 }
 
-.posts .content aside .wage .radio:checked .posts .content aside .wage .radio:not(:checked) {
+.posts .content aside .wage .radio:checked,
+.posts .content aside .wage .radio:not(:checked) {
   position: absolute;
   opacity: 0;
 }
 
-.posts .content aside .wage .radio:checked + label .posts .content aside .wage .radio:not(:checked) + label {
+.posts .content aside .wage .radio:checked + label,
+.posts .content aside .wage .radio:not(:checked) + label {
   position: relative;
   padding-left: 28px;
   cursor: pointer;
   display: inline-block;
 }
 
-.posts
-  .content
-  aside
-  .wage
-  .radio:checked
-  + label:before
-  .posts
-  .content
-  aside
-  .wage
-  .radio:not(:checked)
-  + label:before {
+.posts .content aside .wage .radio:checked + label:before,
+.posts .content aside .wage .radio:not(:checked) + label:before {
   content: "";
   position: absolute;
   left: 0;
@@ -476,18 +525,8 @@ body {
   background: #fff;
 }
 
-.posts
-  .content
-  aside
-  .wage
-  .radio:checked
-  + label:after
-  .posts
-  .content
-  aside
-  .wage
-  .radio:not(:checked)
-  + label:after {
+.posts .content aside .wage .radio:checked + label:after,
+.posts .content aside .wage .radio:not(:checked) + label:after {
   content: "";
   width: 12px;
   height: 12px;
@@ -855,6 +894,106 @@ body {
   margin: 0;
 
   height: 24px;
+}
+
+@media only screen and (max-width: 900px) {
+  .posts {
+    margin-top: 30px;
+  }
+
+  .posts h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+  }
+
+  .posts p {
+    font-size: 11px;
+    width: 100%;
+    margin-bottom: 50px;
+  }
+
+  .posts .content aside {
+    display: none;
+  }
+
+  .posts .content main {
+    width: 100%;
+  }
+
+  .posts .content main form .topbar {
+    flex-direction: column;
+  }
+
+  .posts .content main form .topbar .category,
+  .posts .content main form .topbar .order,
+  .posts .content main form .topbar .submit {
+    display: none;
+  }
+
+  .posts .content main form .topbar .search input {
+    font-size: 9px;
+    padding: 10px;
+    height: 24px;
+    border-radius: 5px;
+  }
+
+  .posts .content main .result p {
+    font-size: 10px;
+  }
+
+  .posts .content main .post {
+    padding: 20px;
+  }
+
+  .posts .content main .post .top .text h3 {
+    font-size: 12px;
+    margin-bottom: 10px;
+  }
+
+  .posts .content main .post .top .text p {
+    font-size: 10px;
+    width: 90%;
+    margin-bottom: 20px;
+  }
+
+  .posts .content main .post .top .logo img {
+    height: 40px;
+  }
+
+  .posts .content main .post .bottom .tags {
+    gap: 20px;
+  }
+
+  .posts .content main .post .bottom .tags .category p {
+    font-size: 8px;
+    border-radius: 5px;
+  }
+
+  .posts .content main .post .bottom .tags .widget .time img,
+  .posts .content main .post .bottom .tags .widget .map img {
+    height: 10px;
+    margin-right: 5px;
+  }
+
+  .posts .content main .post .bottom .tags .widget .time p,
+  .posts .content main .post .bottom .tags .widget .map p {
+    font-size: 8px;
+  }
+
+  .posts .content main .post .bottom .continue button {
+    border-radius: 5px;
+    padding: 5px 10px;
+    box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.25);
+  }
+
+  .posts .content main .post .bottom .continue button p {
+    font-size: 10px;
+    margin-right: 3px;
+  }
+
+  .posts .content main .post .bottom .continue button img {
+    height: 15px;
+  }
 }
 
 /* -------------------------------------------------------------------------- */
