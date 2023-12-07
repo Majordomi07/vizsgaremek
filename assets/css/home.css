@@ -922,6 +922,7 @@ body {
 
   .posts .content main form .topbar {
     flex-direction: column;
+    gap: 10px;
   }
 
   .posts .content main form .topbar .category,
@@ -930,11 +931,90 @@ body {
     display: none;
   }
 
+  .posts .content main form .topbar .search {
+    width: 100%;
+  }
+
   .posts .content main form .topbar .search input {
     font-size: 9px;
     padding: 10px;
     height: 24px;
     border-radius: 5px;
+  }
+
+  .posts .content main form .topbar .responsive {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    padding: 0;
+  }
+
+  .posts .content main form .topbar .responsive .filter {
+    width: 50%;
+  }
+
+  .posts .content main form .topbar .responsive .filter button {
+    display: flex;
+    width: 100%;
+
+    text-align: center;
+
+    display: inline-block;
+    border: none;
+    border-radius: 5px;
+    background: linear-gradient(45deg, #00b4db 0%, #0083b0 100%);
+    box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.25);
+    padding: 10px 40px;
+    height: 24px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    transition: 0.2s all;
+  }
+
+  .posts .content main form .topbar .responsive .filter button p {
+    color: white;
+    font-family: "Sailec Medium";
+    font-size: 11px;
+
+    margin: 0;
+    width: auto;
+    margin-right: 6px;
+  }
+
+  .posts .content main form .topbar .responsive .filter button img {
+    height: 10px;
+  }
+
+  .posts .content main form .topbar .responsive .submit {
+    display: flex;
+  }
+
+  .posts .content main form .topbar .responsive .submit button:hover {
+    transform: none;
+  }
+
+  .posts .content main form .topbar .responsive .submit button {
+    display: flex;
+    width: 50%;
+    border-radius: 5px;
+    height: 24px;
+    width: 100%;
+    box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.25);
+  }
+
+  .posts .content main form .topbar .responsive .submit button p {
+    font-size: 11px;
+    width: auto;
+    margin-right: 6px;
+  }
+
+  .posts .content main form .topbar .responsive .submit button img {
+    height: 10px;
   }
 
   .posts .content main .result p {
@@ -982,7 +1062,7 @@ body {
 
   .posts .content main .post .bottom .continue button {
     border-radius: 5px;
-    padding: 5px 10px;
+    padding: 5px 15px;
     box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.25);
   }
 
