@@ -134,7 +134,7 @@
                 </div>
                 <div class="responsive">
                   <div class="filter">
-                    <button type="submit">
+                    <button onclick="responsiveFilter()">
                       <p>Szűrő</p>
                       <img src="../assets/images/icons/filter.svg" />
                     </button>
@@ -172,7 +172,7 @@
                   <div class="widget">
                     <div class="map">
                       <img src="../assets/images/icons/map-pin.svg" />
-                      <p>Budapest, XI. Kerület</p>
+                      <p>Budapest</p>
                     </div>
                     <div class="time">
                       <img src="../assets/images/icons/clock.svg" />
@@ -214,7 +214,7 @@
                     </div>
                     <div class="time">
                       <img src="../assets/images/icons/clock.svg" />
-                      <p>Több mint egy hete</p>
+                      <p>Két hete</p>
                     </div>
                   </div>
                 </div>
@@ -252,7 +252,7 @@
                     </div>
                     <div class="time">
                       <img src="../assets/images/icons/clock.svg" />
-                      <p>Több mint egy hónapja</p>
+                      <p>Egy hónapja</p>
                     </div>
                   </div>
                 </div>
@@ -277,6 +277,46 @@
               </a>
             </div>
           </main>
+
+          <div class="responsive-filter closed">
+            <div class="location">
+              <h4>Település</h4>
+              <select name="" id="">
+                <option value="">Budapest</option>
+                <option value="">Székesfehérvár</option>
+                <option value="">Szeged</option>
+              </select>
+            </div>
+            <div class="wage">
+              <h4>Órabér</h4>
+              <form>
+                <p>
+                  <input type="radio" id="wage21" name="wage2" class="radio" checked />
+                  <label for="wage21">1 200 Ft - 1 800 Ft</label>
+                </p>
+                <p>
+                  <input type="radio" id="wage22" name="wage2" class="radio" />
+                  <label for="wage22">1 800 Ft - 2 300 Ft</label>
+                </p>
+                <p>
+                  <input type="radio" id="wage23" name="wage2" class="radio" />
+                  <label for="wage23">2 300 Ft - 2 800 Ft</label>
+                </p>
+              </form>
+            </div>
+            <div class="category">
+              <h4>Kategória</h4>
+              <select name="" id="">
+                <option value="">Bármilyen kategória</option>
+              </select>
+            </div>
+            <div class="order">
+              <h4>Rendezés</h4>
+              <select name="" id="">
+                <option value="">Legnagyobb fizetés</option>
+              </select>
+            </div>
+          </div>
         </div>
       </section>
     </div>
@@ -314,5 +354,6 @@
     <script src="../assets/js/typeWriter.js"></script>
     <script src="../assets/js/headerScroll.js"></script>
     <script src="../assets/js/headerSwitch.js"></script>
+    <script src="../assets/js/responsiveFilter.js"></script>
   </body>
 </html>

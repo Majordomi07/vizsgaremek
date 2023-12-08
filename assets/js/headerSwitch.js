@@ -3,7 +3,6 @@ let open = false;
 function toggle() {
   var bars = document.querySelector(".bars");
   var nav = document.getElementById("nav");
-  console.log(nav);
   if (open == false) {
     nav.style.width = "85%";
     nav.style.right = "0px";

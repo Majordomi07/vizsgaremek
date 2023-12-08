@@ -157,6 +157,7 @@ body {
   z-index: 4;
 
   padding-top: 15px;
+  z-index: 10;
 
   padding: 15px 30px 0 30px;
 }
@@ -253,7 +254,7 @@ body {
   margin-bottom: 20px;
 }
 
-@media only screen and (max-width: 900px) {
+@media only screen and (max-width: 1000px) {
   .desktop {
     display: none;
   }
@@ -262,7 +263,7 @@ body {
   }
 }
 
-@media only screen and (min-width: 900px) {
+@media only screen and (min-width: 1000px) {
   .desktop {
     display: flex;
   }
@@ -377,7 +378,7 @@ body {
   height: 370px;
 }
 
-@media only screen and (max-width: 900px) {
+@media only screen and (max-width: 1000px) {
   .hero .container {
     flex-direction: column;
     padding-top: 65px;
@@ -437,6 +438,7 @@ body {
 
 .posts {
   margin: 60px 0;
+  position: relative;
 }
 
 .posts h2 {
@@ -896,9 +898,16 @@ body {
   height: 24px;
 }
 
-@media only screen and (max-width: 900px) {
+@media only screen and (min-width: 1000px) {
+  .posts .content .responsive-filter {
+    display: none;
+  }
+}
+
+@media only screen and (max-width: 1000px) {
   .posts {
     margin-top: 30px;
+    overflow: hidden;
   }
 
   .posts h2 {
@@ -910,6 +919,10 @@ body {
     font-size: 11px;
     width: 100%;
     margin-bottom: 50px;
+  }
+
+  .posts .content {
+    position: relative;
   }
 
   .posts .content aside {
@@ -933,6 +946,7 @@ body {
 
   .posts .content main form .topbar .search {
     width: 100%;
+    z-index: 3;
   }
 
   .posts .content main form .topbar .search input {
@@ -1074,6 +1088,138 @@ body {
   .posts .content main .post .bottom .continue button img {
     height: 15px;
   }
+
+  .posts .content main .arrange a {
+    font-size: 13px;
+  }
+
+  .posts .content main .arrange a img {
+    height: 15px;
+  }
+
+  .posts .content .responsive-filter {
+    display: block;
+    position: absolute;
+    top: -20px;
+    right: -30px;
+    left: -15px;
+
+    padding-left: 15px;
+    padding-top: 100px;
+    padding-bottom: 30px;
+
+    background: white;
+    box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.25);
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+
+    transition: 0.3s;
+  }
+
+  .posts .content .responsive-filter .location h4,
+  .posts .content .responsive-filter .wage h4,
+  .posts .content .responsive-filter .category h4,
+  .posts .content .responsive-filter .order h4 {
+    font-family: "Sailec Medium";
+    font-size: 12px;
+  }
+
+  .posts .content .responsive-filter .category select {
+    margin-bottom: 15px;
+  }
+
+  .posts .content .responsive-filter .location select {
+    margin-bottom: 15px;
+  }
+
+  .posts .content .responsive-filter .location select,
+  .posts .content .responsive-filter .category select,
+  .posts .content .responsive-filter .order select {
+    font-family: "Inter";
+    font-size: 10px;
+
+    border: none;
+    box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.25);
+    border-radius: 5px;
+    padding: 0 10px;
+    height: 28px;
+    width: 40%;
+
+    margin-top: 10px;
+  }
+
+  .posts .content .responsive-filter .wage form {
+    margin-top: 10px;
+  }
+
+  .posts .content .responsive-filter .wage p {
+    font-family: "Inter";
+    font-size: 12px;
+    text-align: left;
+    margin: 0;
+    padding: 0;
+    margin-bottom: 15px;
+  }
+
+  .posts .content .responsive-filter .wage .radio:checked,
+  .posts .content .responsive-filter .wage .radio:not(:checked) {
+    position: absolute;
+    opacity: 0;
+  }
+
+  .posts .content .responsive-filter .wage .radio:checked + label,
+  .posts .content .responsive-filter .wage .radio:not(:checked) + label {
+    position: relative;
+    padding-left: 28px;
+    cursor: pointer;
+    display: inline-block;
+  }
+
+  .posts .content .responsive-filter .wage .radio:checked + label:before,
+  .posts .content .responsive-filter .wage .radio:not(:checked) + label:before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 16px;
+    height: 16px;
+    border: 1px solid #a3a3a3;
+    border-radius: 100%;
+    background: #fff;
+    margin-top: -1px;
+  }
+
+  .posts .content .responsive-filter .wage .radio:checked + label:after,
+  .posts .content .responsive-filter .wage .radio:not(:checked) + label:after {
+    content: "";
+    width: 10px;
+    height: 10px;
+    background: linear-gradient(45deg, #00b4db 0%, #0083b0 100%);
+    position: absolute;
+    top: 4px;
+    left: 4px;
+    border-radius: 100%;
+    -webkit-transition: all 0.2s ease;
+    transition: all 0.2s ease;
+    margin-top: -1px;
+  }
+
+  .posts .content .responsive-filter .wage .radio:not(:checked) + label:after {
+    opacity: 0;
+    -webkit-transform: scale(0);
+    transform: scale(0);
+  }
+
+  .posts .content .responsive-filter .wage .radio:checked + label:after {
+    opacity: 1;
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  }
+
+  .posts .content .responsive-filter.closed {
+    right: calc(-100% + 34px);
+    left: calc(100% + 34px);
+  }
 }
 
 /* -------------------------------------------------------------------------- */
@@ -1166,4 +1312,53 @@ footer .low .container p {
   color: white;
   font-family: "Inter";
   font-size: 16px;
+}
+
+@media only screen and (max-width: 1000px) {
+  footer main .container {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 50px 0;
+  }
+
+  footer main .container .brand {
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    padding: 0;
+  }
+
+  footer main .container .brand img {
+    height: 55px;
+  }
+
+  footer main .container .brand p {
+    font-size: 13px;
+    width: 100%;
+    text-align: center;
+  }
+
+  footer main .container .nav {
+    display: none;
+  }
+
+  footer .low {
+    padding: 0;
+    padding-top: 10px;
+    padding-bottom: 20px;
+  }
+
+  footer .low .container {
+    flex-direction: column;
+  }
+
+  footer .low .container p {
+    font-size: 12px;
+    margin-top: 10px;
+  }
 }
