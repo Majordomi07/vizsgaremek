@@ -43,6 +43,26 @@
   font-size: 60px;
 }
 
+#typing-container {
+  position: relative;
+  font-family: "Arial", sans-serif;
+  height: 80px;
+}
+
+#typing {
+  margin: 0;
+  animation: typing 1s steps(40) forwards;
+}
+
+@keyframes typing {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+
 .hero .container .text h2 {
   color: #00b4db;
   font-family: "Sailec Bold";
@@ -113,6 +133,10 @@
   .hero .container .text h1 {
     font-size: 36px;
     text-align: center;
+  }
+
+  #typing-container {
+    height: 50px;
   }
 
   .hero .container .text h2 {
