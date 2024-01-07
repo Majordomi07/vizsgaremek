@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", function () {
-  const texts = ["Első szöveg", "Második szöveg", "Harmadik szöveg"];
+  const texts = ["Építs karriert", "Növeld a bevételed", "Fejleszd magad"];
   let textIndex = 0;
   let charIndex = 0;
 
