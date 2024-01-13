@@ -38,7 +38,8 @@ document.addEventListener("DOMContentLoaded", () => {
       const result = await response.json();
 
       if (response.ok) {
-        console.log("Sikeres regisztráció:", result.message);
+        console.log(result.message);
+        window.location.href = "/login#successful-registration";
       } else if (result.error) {
         displayErrors(result.error);
       }
@@ -48,14 +49,16 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
-  function displayErrors(errors) {
-    errors.forEach((error) => {
-      const errorElement = document.getElementById(`${error.path}Error`);
-      if (errorElement) {
-        errorElement.textContent = error.msg;
-      }
-    });
-  }
+  const displayErrors = (errors) => {
+    if (Array.isArray(errors)) {
+      errors.forEach((error) => {
+        const errorField = document.getElementById(`${error.path}Error`);
+        if (errorField) {
+          errorField.textContent = error.msg;
+        }
+      });
+    }
+  };
 
   function clearErrors() {
     const errorElements = document.querySelectorAll(".error");

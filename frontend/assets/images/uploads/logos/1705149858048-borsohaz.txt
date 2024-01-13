@@ -1,0 +1,27 @@
+Szia Csilla!
+
+A weboldallal kapcsolatban írok. Vannak ötleteim és javaslataim amiket lehetne hasznosítani az új weboldal létrehozása közben.
+
+Először is nincs a weboldalnak igazi kezdőlapja, az összes oldal felépítése megegyezik pedig a kezdőlap feladata lenne az érdeklődőt megfogni és továbbirányítani a weboldalon.
+
+A képek minősége rossz, illetve nehéz kivenni hogy mi is történik rajtuk pontosan mivel annyira közelről vannak fotózva. Ennek megoldásául láttam, hogy a facebook oldalon van egy professzionális videó is az intézet bemutatásáról, ebből a videóból jó képeket lehetne kivágni, amiket fel tudnék használni a weboldal színesebbé tételéhez. 
+
+Az összesen oldalon a szöveg hasábokba van törve ami egyrészt a szélesesebb képernyőkön nagyon elnyújtva jelenik meg, illetve a szemnek is rossz ennyi szöveget látni egyszerre, harmadrészt pedig a látogatónak is kényelmetlen így olvasni. 
+
+Nincsenek rendesen kiemelve a címsorok az oldalakon, van ahol a bekezdéssel egy sorban van, ez is nehezíti a látogatót a tájékozódásban. 
+
+Nincsen könnyen áttekinthető asztali navigációs menü, a telefonos/tabletes menü van asztali nézetben is. Ez is a látogatót nehezíti. 
+
+A legtöbb aloldalon túl tömör, hideg a szöveg nincsen benne semmilyen törés, ilyen például a "szállások" oldal (https://borsohaz.hu/index.php/szallasok). Ezt az aloldalt is könnyen lehetne feldobni például képpel az apartmanokról, vagy egy-egy színes piktogram az elérhetőségükhöz, árakhoz.
+
+
+A weboldal 13 oldalból áll, aminek a fejlesztése nagyjából 250.000 és 500.000 között van. 
+
+Én 150.000 forintért megcsinálnám referencia áron, nekem is jól fog jönni a portfóliómban. 
+Amit átadnék ezért az összegért az egy teljesen új, reszponzív, egyedileg fejlesztett weboldal, ami mai szemmel is hívogató és látogató barát. A weboldalt feltölteném a jelenlegi oldalon lévő szöveges tartalommal illetve válogatnék a Facebook oldalon lévő képes tartalmak közül. 
+Ezért az összegért vállalok még a későbbiekben 2 óra ingyenes tartalom frissítést/feltöltést. Azután 4000Ft/óra alapon fríssítem a weboldalt.
+
+Véleményem szerint együttműködéssel egy remek tájékoztató oldalt lehetne készíteni a mostani oldal alapján ami megfelelne a mai trendeknek és még jó pár évig ki fogja tudni szolgálni a látogatók igényeit.
+
+Köszönettel,
+Major Dominik 

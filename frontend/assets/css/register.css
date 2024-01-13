@@ -364,6 +364,10 @@ main .form form .button button {
     font-size: 12px;
   }
 
+  .error {
+    font-size: 10px;
+  }
+
   main .form form .company-check input {
     height: 15px;
     width: 15px;
@@ -375,6 +379,10 @@ main .form form .button button {
 
   main .form form .company .companyLogo p {
     font-size: 15px;
+  }
+
+  main .form form .company .companyLogo .error {
+    font-size: 10px;
   }
 
   main .form form .company .companyLogo .file p {

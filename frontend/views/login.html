@@ -5,9 +5,34 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>újmeló | Bejelentkezés</title>
     <link rel="stylesheet" href="../assets/css/global.css" />
+    <link rel="stylesheet" href="../assets/css/popup.css" />
     <link rel="stylesheet" href="../assets/css/login.css" />
   </head>
   <body>
+    <!-- --------------------------- Popup messages ---------------------------- -->
+
+    <div class="popup" id="success">
+      <div class="top">
+        <img src="../assets/images/icons/check-circle.svg" />
+        <h3>Sikeres regisztráció!</h3>
+      </div>
+      <div class="bottom">
+        <p>Sikeresen regisztráltál, most kérlek jelentkezz be!</p>
+      </div>
+    </div>
+
+    <div class="popup" id="error">
+      <div class="top">
+        <img src="../assets/images/icons/alert-triangle.svg" />
+        <h3>Bejelentkezési hiba</h3>
+      </div>
+      <div class="bottom">
+        <p>Ezekkel az adatokkal nincsen felhasználó regisztrálva. Kérlek próbálj újra!</p>
+      </div>
+    </div>
+
+    <!-- -------------------------------- Main --------------------------------- -->
+
     <main>
       <div class="design">
         <div class="logo">
@@ -23,12 +48,12 @@
         <form id="loginForm">
           <div>
             <label>Email cím</label>
-            <input type="text" placeholder="valaki@valami.com" />
+            <input type="text" placeholder="valaki@valami.com" id="email" name="email" />
             <p id="emailError" class="error"></p>
           </div>
           <div>
             <label>Jelszó</label>
-            <input type="password" placeholder="Jelszó" />
+            <input type="password" placeholder="Jelszó" id="password" name="password" />
             <p id="passwordError" class="error"></p>
           </div>
           <a href="/register">Fiók létrehozása</a>
@@ -39,6 +64,7 @@
       </div>
     </main>
 
+    <script src="../assets/js/functions/popupMessage.js"></script>
     <script src="../assets/js/connection/login.js"></script>
   </body>
 </html>

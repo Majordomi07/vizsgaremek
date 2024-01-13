@@ -116,8 +116,6 @@ const registerUser = async (req, res) => {
         const query = "INSERT INTO companies(name, logo, description, userID) VALUES (?, ?, ?, ?);";
         db.query(query, [companyName, companyLogoPath, companyDescription, userID]);
       }
-
-      console.log("Sikeres regisztráció.");
       res.json({ message: "Sikeres regisztráció." });
     }
   });

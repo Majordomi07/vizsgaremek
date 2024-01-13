@@ -39,6 +39,9 @@ app.get("/advertisement/locations", getLocations);
 const registerAuth = require("./routes/registerAuth.js");
 app.post("/auth/register", upload.single("companyLogo"), registerAuth.registerValidation, registerAuth.registerUser);
 
+const loginAuth = require("./routes/loginAuth.js");
+app.post("/auth/login", loginAuth.loginValidation, loginAuth.loginUser);
+
 //Szerver
 
 app.listen(3000, () => {
