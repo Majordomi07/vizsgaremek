@@ -71,7 +71,7 @@ main .design .blob {
   height: 100%;
   width: 100%;
   background-repeat: no-repeat;
-  animation: rotating 30s infinite linear;
+  animation: rotating 60s infinite linear;
   opacity: 0.2;
 }
 
