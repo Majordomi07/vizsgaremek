@@ -13,7 +13,7 @@
   <body>
     <!-- --------------------------- Popup messages ---------------------------- -->
 
-    <div class="popup" id="success">
+    <div class="popup success" id="successfulLogin">
       <div class="top">
         <img src="../assets/images/icons/check-circle.svg" />
         <h3>Sikeres bejelentkezés</h3>
@@ -23,13 +23,13 @@
       </div>
     </div>
 
-    <div class="popup" id="error">
+    <div class="popup error" id="controlPanelError">
       <div class="top">
         <img src="../assets/images/icons/alert-triangle.svg" />
-        <h3>Vezérlőpult hiba</h3>
+        <h3>Kezelőfelület hiba</h3>
       </div>
       <div class="bottom">
-        <p>Bejelentkezés nélkül nem használhatod a vezérlőpultot.</p>
+        <p>Bejelentkezés nélkül nem használhatod a kezelőfelületet.</p>
       </div>
     </div>
 
@@ -49,7 +49,7 @@
         <nav>
           <a href="/#posts">Álláshírdetések</a>
           <a href="/contact">Kapcsolat</a>
-          <a href="/admin/user">Kezelőfelület</a>
+          <a id="controlPanel">Kezelőfelület</a>
         </nav>
         <div class="cta">
           <a href="/login">Bejelentkezés</a>
@@ -71,7 +71,7 @@
       <nav id="nav">
         <a href="/#posts">Álláshírdetések</a>
         <a href="/contact">Kapcsolat</a>
-        <a href="/admin/user">Kezelőfelület</a>
+        <a href="/admin/user" id="controlPanel">Kezelőfelület</a>
         <a href="/login">Bejelentkezés</a>
       </nav>
     </header>
@@ -373,7 +373,7 @@
           <div class="nav">
             <h3>Linkek</h3>
             <a href="/#posts">Álláshírdetések</a>
-            <a href="/admin/user">Kezelőfelület</a>
+            <a href="/admin/user" id="controlPanel">Kezelőfelület</a>
             <a href="/contact">Kapcsolat</a>
             <a href="/login">Bejelentkezés</a>
           </div>

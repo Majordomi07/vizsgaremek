@@ -44,19 +44,19 @@
   width: 90%;
 }
 
-#success .top {
+.success .top {
   background: rgba(70, 168, 70, 0.8);
 }
 
-#success .bottom {
+.success .bottom {
   background: rgba(91, 180, 91, 0.8);
 }
 
-#error .top {
+.error .top {
   background: rgba(250, 46, 31, 0.8);
 }
 
-#error .bottom {
+.error .bottom {
   background: rgba(244, 67, 54, 0.8);
 }
 

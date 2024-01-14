@@ -2,6 +2,7 @@ const { check, validationResult } = require("express-validator");
 const bcrypt = require("bcrypt");
 const mysql = require("mysql");
 const db = require("../db.js");
+const { createTokens, validateToken } = require("../jwt.js");
 
 // Validáció
 
@@ -54,6 +55,13 @@ const loginUser = async (req, res) => {
     if (!passwordMatch) {
       return res.status(401).json({ error: "Hibás email cím vagy jelszó." });
     }
+
+    const accessToken = createTokens(user.userID);
+
+    res.cookie("access-token", accessToken, {
+      maxAge: 3600 * 1000,
+      httpOnly: true,
+    });
 
     res.json({ message: "Sikeres bejelentkezés." });
   } catch (error) {

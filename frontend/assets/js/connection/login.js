@@ -21,9 +21,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
     if (response.ok) {
       console.log(data.message);
-      window.location.href = "/home#successful-login";
+
+      localStorage.setItem("successfulLogin", "popup");
+      window.location.href = "/home";
     } else {
-      popupMessageError();
+      popuploginError();
       displayErrors(data.error);
     }
   });

@@ -39,7 +39,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
       if (response.ok) {
         console.log(result.message);
-        window.location.href = "/login#successful-registration";
+
+        localStorage.setItem("successfulRegister", "popup");
+        window.location.href = "/login";
       } else if (result.error) {
         displayErrors(result.error);
       }

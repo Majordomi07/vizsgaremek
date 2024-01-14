@@ -1,10 +1,14 @@
 const express = require("express");
 const path = require("path");
 const router = express.Router();
+const cookieParser = require("cookie-parser");
 const bodyParser = require("body-parser");
 const multer = require("multer");
+const { validateToken } = require("./jwt.js");
 
 const app = express();
+
+app.use(cookieParser());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
@@ -26,7 +30,7 @@ const sendPages = require("./routes/sendPages.js");
 router.get("/", sendPages.sendHomePage);
 router.get("/home", sendPages.redirectHomePage);
 router.get("/contact", sendPages.sendContactPage);
-router.get("/admin/user", sendPages.sendAdminUserPage);
+router.get("/admin/user", validateToken, sendPages.sendAdminUserPage);
 router.get("/register", sendPages.sendRegisterPage);
 router.get("/login", sendPages.sendLoginPage);
 
