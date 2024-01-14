@@ -25,7 +25,7 @@ const sendRegisterPage = (req, res) => {
 };
 
 const sendLoginPage = (req, res) => {
-  res.sendFile(path.join(__dirname, "../../frontend/views/authcentication/login.html"));
+  res.sendFile(path.join(__dirname, "../../frontend/views/authentication/login.html"));
 };
 
 module.exports = {

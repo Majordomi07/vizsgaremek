@@ -185,16 +185,16 @@ footer {
     margin-top: -65px;
   }
 
-  .main h2 {
+  main h2 {
     font-size: 24px;
     font-family: "Sailec Bold";
-    margin: 30px 0 10px 0;
+    margin: 10px 0 10px 0;
   }
 
-  .main p {
+  main p {
     font-size: 11px;
     font-family: "Inter";
-    margin-bottom: 10px;
+    margin-bottom: 40px;
   }
 
   aside {
