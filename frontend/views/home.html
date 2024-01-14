@@ -23,13 +23,33 @@
       </div>
     </div>
 
-    <div class="popup error" id="controlPanelError">
+    <div class="popup success" id="successfulLogout">
+      <div class="top">
+        <img src="../assets/images/icons/check-circle.svg" />
+        <h3>Sikeres kijelentkezés</h3>
+      </div>
+      <div class="bottom">
+        <p>Sikeresen kijelentkeztél.</p>
+      </div>
+    </div>
+
+    <div class="popup error" id="controlPanelAuthError">
       <div class="top">
         <img src="../assets/images/icons/alert-triangle.svg" />
         <h3>Kezelőfelület hiba</h3>
       </div>
       <div class="bottom">
         <p>Bejelentkezés nélkül nem használhatod a kezelőfelületet.</p>
+      </div>
+    </div>
+
+    <div class="popup error" id="controlPanelCompanyError">
+      <div class="top">
+        <img src="../assets/images/icons/alert-triangle.svg" />
+        <h3>Kezelőfelület hiba</h3>
+      </div>
+      <div class="bottom">
+        <p>Nem cégként regisztráltál, így számodra nem elérhető a kezelőfelület.</p>
       </div>
     </div>
 
@@ -49,10 +69,10 @@
         <nav>
           <a href="/#posts">Álláshírdetések</a>
           <a href="/contact">Kapcsolat</a>
-          <a id="controlPanel">Kezelőfelület</a>
+          <a class="controlPanel">Kezelőfelület</a>
         </nav>
         <div class="cta">
-          <a href="/login">Bejelentkezés</a>
+          <a id="loginButton">Bejelentkezés</a>
         </div>
       </header>
     </div>
@@ -71,8 +91,8 @@
       <nav id="nav">
         <a href="/#posts">Álláshírdetések</a>
         <a href="/contact">Kapcsolat</a>
-        <a href="/admin/user" id="controlPanel">Kezelőfelület</a>
-        <a href="/login">Bejelentkezés</a>
+        <a class="controlPanel">Kezelőfelület</a>
+        <a id="loginButton">Bejelentkezés</a>
       </nav>
     </header>
 
@@ -373,9 +393,9 @@
           <div class="nav">
             <h3>Linkek</h3>
             <a href="/#posts">Álláshírdetések</a>
-            <a href="/admin/user" id="controlPanel">Kezelőfelület</a>
+            <a class="controlPanel">Kezelőfelület</a>
             <a href="/contact">Kapcsolat</a>
-            <a href="/login">Bejelentkezés</a>
+            <a id="loginButton">Bejelentkezés</a>
           </div>
         </div>
       </main>
@@ -389,6 +409,7 @@
 
     <script src="../assets/js/connection/home.js"></script>
     <script src="../assets/js/functions/popupMessage.js"></script>
+    <script src="../assets/js/functions/logoutButton.js"></script>
     <script src="../assets/js/functions/typeWriter.js"></script>
     <script src="../assets/js/functions/headerScroll.js"></script>
     <script src="../assets/js/functions/headerSwitch.js"></script>

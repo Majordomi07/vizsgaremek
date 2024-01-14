@@ -95,7 +95,7 @@
   transform: scale(1.1);
 }
 
-/* --------------------------------- Mobile --------------------------------- */
+/* ------------------------------- Responsive ------------------------------- */
 
 .responsive {
   position: relative;
@@ -200,6 +200,7 @@
 
   text-decoration: none;
 
+  cursor: pointer;
   margin-bottom: 20px;
 }
 

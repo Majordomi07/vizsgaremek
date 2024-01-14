@@ -99,9 +99,9 @@ const registerUser = async (req, res) => {
   const saltRounds = 10;
   const hashedPassword = await bcrypt.hash(password, saltRounds);
 
-  let companyLogoPath = null;
+  let companyLogo = null;
   if (req.file) {
-    companyLogoPath = req.file.path;
+    companyLogo = req.file.filename;
   }
 
   const query = "INSERT INTO users (email, password, firstName, lastName) VALUES (?, ?, ?, ?);";
@@ -114,7 +114,7 @@ const registerUser = async (req, res) => {
 
       if (req.body.company == "true") {
         const query = "INSERT INTO companies(name, logo, description, userID) VALUES (?, ?, ?, ?);";
-        db.query(query, [companyName, companyLogoPath, companyDescription, userID]);
+        db.query(query, [companyName, companyLogo, companyDescription, userID]);
       }
       res.json({ message: "Sikeres regisztráció." });
     }

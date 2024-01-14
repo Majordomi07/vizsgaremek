@@ -22,7 +22,7 @@ function popupSuccessfulRegister() {
   slideInSuccessfulRegister();
 
   setTimeout(() => {
-    slideOutSuccesfulRegister();
+    slideOutSuccessfulRegister();
   }, 5000);
 }
 
@@ -54,56 +54,120 @@ function popupSuccessfulLogin() {
   }, 5000);
 }
 
-/* --------------------------- ControlPanel error --------------------------- */
+/* --------------------------- Successful logout ---------------------------- */
 
-function slideInControlPanelError() {
-  const popup = document.getElementById("controlPanelError");
+function slideInSuccessfulLogout() {
+  const popup = document.getElementById("successfulLogout");
   popup.classList.add("show");
 }
 
-function slideOutControlPanelError() {
-  const popup = document.getElementById("controlPanelError");
+function slideOutSuccesfulLogout() {
+  const popup = document.getElementById("successfulLogout");
   popup.classList.remove("show");
 }
 
-function popupControlPanelError() {
-  slideInControlPanelError();
+var storageData = localStorage.getItem("successfulLogout");
+
+if (storageData) {
+  popupSuccessfulLogout();
+
+  localStorage.removeItem("successfulLogout");
+}
+
+function popupSuccessfulLogout() {
+  slideInSuccessfulLogout();
 
   setTimeout(() => {
-    slideOutControlPanelError();
+    slideOutSuccesfulLogout();
   }, 5000);
 }
 
-document.getElementById("controlPanel").addEventListener("click", async () => {
-  try {
-    const response = await fetch("/admin/user");
+/* --------------------------- ControlPanel error --------------------------- */
 
-    if (response.ok) {
-      window.location.href = "/admin/user";
-    } else {
-      popupControlPanelError();
+function slideInControlPanelAuthError() {
+  const popup = document.getElementById("controlPanelAuthError");
+  popup.classList.add("show");
+}
+
+function slideOutControlPanelAuthError() {
+  const popup = document.getElementById("controlPanelAuthError");
+  popup.classList.remove("show");
+}
+
+function popupControlPanelAuthError() {
+  slideInControlPanelAuthError();
+
+  setTimeout(() => {
+    slideOutControlPanelAuthError();
+  }, 5000);
+}
+
+function slideInControlPanelCompanyError() {
+  const popup = document.getElementById("controlPanelCompanyError");
+  popup.classList.add("show");
+}
+
+function slideOutControlPanelCompanyError() {
+  const popup = document.getElementById("controlPanelCompanyError");
+  popup.classList.remove("show");
+}
+
+function popupControlPanelCompanyError() {
+  slideInControlPanelCompanyError();
+
+  setTimeout(() => {
+    slideOutControlPanelCompanyError();
+  }, 5000);
+}
+
+const controlPanelLinks = document.querySelectorAll(".controlPanel");
+
+controlPanelLinks.forEach((link) => {
+  link.addEventListener("click", async (event) => {
+    event.preventDefault();
+
+    try {
+      const response = await fetch("/controlPanel/company");
+
+      if (response.ok) {
+        try {
+          const response = await fetch("/controlPanel/company/registered-company");
+          const data = await response.json();
+
+          if (data.userExists) {
+            console.log(data);
+            window.location.href = "/controlPanel/company";
+          } else {
+            popupControlPanelCompanyError();
+          }
+        } catch (error) {
+          console.error("Hiba a fetchelés során:", error);
+        }
+      } else {
+        popupControlPanelAuthError();
+      }
+    } catch (error) {
+      console.log("Hiba történt: " + error.message);
     }
-  } catch (error) {
-    console.log("Hiba történt: " + error.message);
-  }
+  });
 });
 
 /* ------------------------------- Login error ------------------------------ */
 
-function slideInloginError() {
+function slideInLoginError() {
   const popup = document.getElementById("loginError");
   popup.classList.add("show");
 }
 
-function slideOutloginError() {
+function slideOutLoginError() {
   const popup = document.getElementById("loginError");
   popup.classList.remove("show");
 }
 
-function popuploginError() {
-  slideInloginError();
+function popupLoginError() {
+  slideInLoginError();
 
   setTimeout(() => {
-    slideOutloginError();
+    slideOutLoginError();
   }, 5000);
 }

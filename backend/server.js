@@ -30,7 +30,7 @@ const sendPages = require("./routes/sendPages.js");
 router.get("/", sendPages.sendHomePage);
 router.get("/home", sendPages.redirectHomePage);
 router.get("/contact", sendPages.sendContactPage);
-router.get("/admin/user", validateToken, sendPages.sendAdminUserPage);
+router.get("/controlPanel/company", validateToken, sendPages.sendcontrolPanelUserPage);
 router.get("/register", sendPages.sendRegisterPage);
 router.get("/login", sendPages.sendLoginPage);
 
@@ -45,6 +45,12 @@ app.post("/auth/register", upload.single("companyLogo"), registerAuth.registerVa
 
 const loginAuth = require("./routes/loginAuth.js");
 app.post("/auth/login", loginAuth.loginValidation, loginAuth.loginUser);
+app.get("/auth/logged-in", validateToken, loginAuth.loggedinUser);
+app.get("/auth/logout", validateToken, loginAuth.logoutUser);
+
+const { getCompany, registeredCompany } = require("./routes/getCompany.js");
+app.get("/controlPanel/company/info", validateToken, getCompany);
+app.get("/controlPanel/company/registered-company", validateToken, registeredCompany);
 
 //Szerver
 

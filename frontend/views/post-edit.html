@@ -3,11 +3,11 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>újmeló | Céginformációk</title>
-    <link rel="stylesheet" href="../../assets/css/global.css" />
-    <link rel="stylesheet" href="../../assets/css/header.css" />
-    <link rel="stylesheet" href="../../assets/css/user.css" />
-    <link rel="stylesheet" href="../../assets/css/footer.css" />
+    <title>újmeló | Álláshírdetés szerkesztése</title>
+    <link rel="stylesheet" href="../assets/css/global.css" />
+    <link rel="stylesheet" href="../assets/css/header.css" />
+    <link rel="stylesheet" href="../assets/css/post-edit.css" />
+    <link rel="stylesheet" href="../assets/css/footer.css" />
   </head>
   <body>
     <!-- ----------------------------------------------------------------------- -->
@@ -15,12 +15,12 @@
     <!-- ----------------------------------------------------------------------- -->
 
     <aside>
-      <a href="/" class="brand">
+      <a href="/">
         <img src="../assets/images/logo-white.svg" />
       </a>
-      <a href="">
-        <img src="../../assets/images/icons/user-icon.svg" />
-        <p>majordominik</p>
+      <a href="/controlPanel/company">
+        <img src="../assets/images/icons/user-icon.svg" />
+        <p id="companyName"></p>
       </a>
       <a href="">Álláshírdetések</a>
     </aside>
@@ -45,9 +45,9 @@
         <i></i>
       </div>
       <nav id="nav">
-        <a href="">
-          <img src="../../assets/images/icons/user-icon.svg" />
-          <p>majordominik</p>
+        <a href="/controlPanel/company">
+          <img src="../assets/images/icons/user-icon.svg" />
+          <p id="companyName"></p>
         </a>
         <a href="">Álláshírdetések</a>
       </nav>
@@ -57,24 +57,48 @@
     <!--                                  Main                                   -->
     <!-- ----------------------------------------------------------------------- -->
 
-    <div class="profile">
-      <h2>Saját profil</h2>
-      <p>Itt jelenik meg a saját profilodhoz fűződő adatok.</p>
-    </div>
-
     <main>
-      <div class="company-info">
-        <h3>Céginformációk</h3>
-        <h4>Cégnév:</h4>
-        <p>MD Kft.</p>
-        <h4>Céglogó:</h4>
-        <img src="../../assets/images/logos/MD.png" />
-        <h4>Cég leírás:</h4>
-        <p>
-          A MD Kft. egy innovatív és vezető informatikai vállalkozás, amely magas szintű technológiai megoldásokat kínál
-          ügyfeleinek a digitális világban.
-        </p>
-      </div>
+      <h2>Álláshírdetés szerkesztése</h2>
+      <p>Itt szerkeszthetsz álláshírdetést</p>
+
+      <form>
+        <div>
+          <label>Álláshírdetés címe:</label>
+          <input type="text" placeholder="Cím" />
+        </div>
+        <div>
+          <label>Általános információk:</label>
+          <textarea placeholder="Rövid leírás"></textarea>
+        </div>
+        <div>
+          <label>Kategória:</label>
+          <select>
+            <option selected>Informatikai</option>
+            <option>Fizikai</option>
+          </select>
+        </div>
+        <div>
+          <label>Óradíj:</label>
+          <input type="text" placeholder="0 Ft" />
+        </div>
+        <div>
+          <label>Település:</label>
+          <input type="text" placeholder="Település" />
+        </div>
+        <div>
+          <label>Elvárások:</label>
+          <textarea placeholder="..."></textarea>
+        </div>
+        <div>
+          <label>Juttatások:</label>
+          <textarea placeholder="..."></textarea>
+        </div>
+        <div class="buttons">
+            <button class="delete">Törlés</button>
+            <button class="save">Mentés</button>
+          </div>
+        </div>
+      </form>
     </main>
 
     <!-- ----------------------------------------------------------------------- -->
@@ -103,6 +127,6 @@
       </div>
     </footer>
 
-    <script src="../../assets/js/functions/headerSwitch.js"></script>
+    <script src="../assets/js/functions/headerSwitch.js"></script>
   </body>
 </html>

@@ -25,13 +25,13 @@ document.addEventListener("DOMContentLoaded", () => {
       localStorage.setItem("successfulLogin", "popup");
       window.location.href = "/home";
     } else {
-      popuploginError();
+      popupLoginError();
       displayErrors(data.error);
     }
   });
 
   function clearErrors() {
-    const errorElements = document.querySelectorAll(".error");
+    const errorElements = document.querySelectorAll("#loginForm .error");
     errorElements.forEach((element) => {
       element.textContent = "";
     });

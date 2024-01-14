@@ -70,7 +70,22 @@ const loginUser = async (req, res) => {
   }
 };
 
+// Ellenőrzés
+
+const loggedinUser = async (req, res) => {
+  res.json({});
+};
+
+// Logout
+
+const logoutUser = async (req, res) => {
+  res.clearCookie("access-token");
+  res.redirect("/");
+};
+
 module.exports = {
   loginValidation,
   loginUser,
+  loggedinUser,
+  logoutUser,
 };

@@ -12,8 +12,8 @@ const sendContactPage = (req, res) => {
   res.sendFile(path.join(__dirname, "../../frontend/views/contact.html"));
 };
 
-const sendAdminUserPage = (req, res) => {
-  res.sendFile(path.join(__dirname, "../../frontend/views/admin/user.html"));
+const sendcontrolPanelUserPage = (req, res) => {
+  res.sendFile(path.join(__dirname, "../../frontend/views/company.html"));
 };
 
 const sendRegisterPage = (req, res) => {
@@ -28,7 +28,7 @@ module.exports = {
   sendHomePage,
   redirectHomePage,
   sendContactPage,
-  sendAdminUserPage,
+  sendcontrolPanelUserPage,
   sendRegisterPage,
   sendLoginPage,
 };
