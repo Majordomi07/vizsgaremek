@@ -30,7 +30,8 @@ const sendPages = require("./routes/sendPages.js");
 router.get("/", sendPages.sendHomePage);
 router.get("/home", sendPages.redirectHomePage);
 router.get("/contact", sendPages.sendContactPage);
-router.get("/controlPanel/company", validateToken, sendPages.sendcontrolPanelUserPage);
+router.get("/controlPanel/company", validateToken, sendPages.sendcontrolPanelCompanyPage);
+router.get("/controlPanel/advertisements", validateToken, sendPages.sendcontrolPanelAdvertisementsPage);
 router.get("/register", sendPages.sendRegisterPage);
 router.get("/login", sendPages.sendLoginPage);
 
