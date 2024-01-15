@@ -97,7 +97,7 @@ main p {
   margin-bottom: 70px;
 }
 
-main .new-post {
+main .new-advertisement {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -113,18 +113,18 @@ main .new-post {
   transition: 0.2s all;
 }
 
-main .new-post:hover {
+main .new-advertisement:hover {
   transform: scale(1.05);
 }
 
-main .new-post p {
+main .new-advertisement p {
   color: white;
   font-family: "Sailec Medium";
   font-size: 17px;
   margin: 0;
 }
 
-main .new-post img {
+main .new-advertisement img {
   height: 20px;
 }
 
@@ -376,16 +376,16 @@ footer {
     margin-bottom: 40px;
   }
 
-  main .new-post {
+  main .new-advertisement {
     padding: 8px 15px;
     margin-bottom: 30px;
   }
 
-  main .new-post p {
+  main .new-advertisement p {
     font-size: 13px;
   }
 
-  main .new-post img {
+  main .new-advertisement img {
     height: 15px;
   }
 

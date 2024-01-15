@@ -32,6 +32,7 @@ router.get("/home", sendPages.redirectHomePage);
 router.get("/contact", sendPages.sendContactPage);
 router.get("/controlPanel/company", validateToken, sendPages.sendcontrolPanelCompanyPage);
 router.get("/controlPanel/advertisements", validateToken, sendPages.sendcontrolPanelAdvertisementsPage);
+router.get("/controlPanel/advertisement/edit/:id", validateToken, sendPages.sendcontrolPanelEditAdvertisementPage);
 router.get("/register", sendPages.sendRegisterPage);
 router.get("/login", sendPages.sendLoginPage);
 
@@ -40,6 +41,9 @@ app.get("/advertisement/categories", getCategories);
 
 const { getLocations } = require("./routes/getLocations.js");
 app.get("/advertisement/locations", getLocations);
+
+const { createAdvertisement } = require("./routes/createAdvertisement.js");
+app.post("/advertisement/create-new", createAdvertisement);
 
 const registerAuth = require("./routes/registerAuth.js");
 app.post("/auth/register", upload.single("companyLogo"), registerAuth.registerValidation, registerAuth.registerUser);

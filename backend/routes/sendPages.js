@@ -20,6 +20,10 @@ const sendcontrolPanelAdvertisementsPage = (req, res) => {
   res.sendFile(path.join(__dirname, "../../frontend/views/controlPanel/advertisements.html"));
 };
 
+const sendcontrolPanelEditAdvertisementPage = (req, res) => {
+  res.sendFile(path.join(__dirname, "../../frontend/views/controlPanel/advertisement-edit.html"));
+};
+
 const sendRegisterPage = (req, res) => {
   res.sendFile(path.join(__dirname, "../../frontend/views/authentication/register.html"));
 };
@@ -34,6 +38,7 @@ module.exports = {
   sendContactPage,
   sendcontrolPanelCompanyPage,
   sendcontrolPanelAdvertisementsPage,
+  sendcontrolPanelEditAdvertisementPage,
   sendRegisterPage,
   sendLoginPage,
 };
