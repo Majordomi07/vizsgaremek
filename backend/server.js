@@ -36,14 +36,23 @@ router.get("/controlPanel/advertisement/edit/:id", validateToken, sendPages.send
 router.get("/register", sendPages.sendRegisterPage);
 router.get("/login", sendPages.sendLoginPage);
 
-const { getCategories } = require("./routes/getCategories.js");
-app.get("/advertisement/categories", getCategories);
+const { getAdvertisement } = require("./routes/getAdvertisement.js");
+app.get("/advertisement/api/:id", getAdvertisement);
+
+const { editVerification } = require("./routes/editVerification.js");
+app.get("/advertisement/edit-verification/:id", validateToken, editVerification);
+
+const { getAllCategories } = require("./routes/getAllCategories.js");
+app.get("/advertisement/allCategories", getAllCategories);
+
+const { getUsedCategories } = require("./routes/getUsedCategories.js");
+app.get("/advertisement/usedCategories", getUsedCategories);
 
 const { getLocations } = require("./routes/getLocations.js");
 app.get("/advertisement/locations", getLocations);
 
 const { createAdvertisement } = require("./routes/createAdvertisement.js");
-app.post("/advertisement/create-new", createAdvertisement);
+app.post("/advertisement/create-new", validateToken, createAdvertisement);
 
 const registerAuth = require("./routes/registerAuth.js");
 app.post("/auth/register", upload.single("companyLogo"), registerAuth.registerValidation, registerAuth.registerUser);

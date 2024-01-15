@@ -1,23 +1,36 @@
 const db = require("../db.js");
 
 const createAdvertisement = (req, res) => {
-  const query = "INSERT INTO advertisement() VALUES ();";
+  const userID = req.user.userID;
 
-  db.query(query, (error, results) => {
+  const queryCompaniesID = "SELECT companiesID FROM companies WHERE userID = ?;";
+
+  db.query(queryCompaniesID, [userID], (error, results) => {
     if (error) {
-      console.error("Feltöltési hiba:", error);
-      res.status(500).json({ error: "Hiba történt a feltöltés során." });
+      console.error("Keresési hiba:", error);
+      res.status(500).json({ error: "Hiba történt a keresés során." });
     } else {
-      const queryLastInsertedId = "SELECT LAST_INSERT_ID() as advertisementID;";
+      const companiesID = results[0].companiesID;
 
-      db.query(queryLastInsertedId, (errorId, resultsId) => {
-        if (errorId) {
-          console.error("Azonosító lekérdezési hiba:", errorId);
-          res.status(500).json({ error: "Hiba történt az azonosító lekérdezése során." });
+      const query = "INSERT INTO advertisement(companiesID) VALUES (?);";
+
+      db.query(query, [companiesID], (error, results) => {
+        if (error) {
+          console.error("Feltöltési hiba:", error);
+          res.status(500).json({ error: "Hiba történt a feltöltés során." });
         } else {
-          const advertisementID = resultsId[0].advertisementID;
+          const queryLastInsertedId = "SELECT LAST_INSERT_ID() as advertisementID;";
 
-          res.redirect("/controlPanel/advertisement/edit/" + advertisementID);
+          db.query(queryLastInsertedId, (errorId, resultsId) => {
+            if (errorId) {
+              console.error("Azonosító lekérdezési hiba:", errorId);
+              res.status(500).json({ error: "Hiba történt az azonosító lekérdezése során." });
+            } else {
+              const advertisementID = resultsId[0].advertisementID;
+
+              res.json({ advertisementID });
+            }
+          });
         }
       });
     }

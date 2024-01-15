@@ -4,10 +4,10 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>újmeló | Álláshírdetés szerkesztése</title>
-    <link rel="stylesheet" href="../assets/css/global.css" />
-    <link rel="stylesheet" href="../assets/css/header.css" />
-    <link rel="stylesheet" href="../assets/css/advertisement.css" />
-    <link rel="stylesheet" href="../assets/css/footer.css" />
+    <link rel="stylesheet" href="/assets/css/global.css" />
+    <link rel="stylesheet" href="/assets/css/header.css" />
+    <link rel="stylesheet" href="/assets/css/advertisement-edit.css" />
+    <link rel="stylesheet" href="/assets/css/footer.css" />
   </head>
   <body>
     <!-- ----------------------------------------------------------------------- -->
@@ -16,10 +16,10 @@
 
     <aside>
       <a href="/" class="brand">
-        <img src="../assets/images/logo-white.svg" />
+        <img src="/assets/images/logo-white.svg" />
       </a>
       <a href="/controlPanel/company">
-        <img src="../assets/images/icons/user-icon.svg" />
+        <img src="/assets/images/icons/user-icon.svg" />
         <p id="companyName"></p>
       </a>
       <a href="/controlPanel/advertisements">Álláshírdetések</a>
@@ -38,7 +38,7 @@
     <header class="responsive">
       <div class="brand">
         <a href="/">
-          <img src="../assets/images/logo-white.svg" />
+          <img src="/assets/images/logo-white.svg" />
         </a>
       </div>
       <div class="bars" onclick="toggle()">
@@ -46,7 +46,7 @@
       </div>
       <nav id="nav">
         <a href="/controlPanel/company">
-          <img src="../assets/images/icons/user-icon.svg" />
+          <img src="/assets/images/icons/user-icon.svg" />
           <p id="companyName"></p>
         </a>
         <a href="/controlPanel/advertisements">Álláshírdetések</a>
@@ -64,34 +64,31 @@
       <form>
         <div>
           <label>Álláshírdetés címe:</label>
-          <input type="text" placeholder="Cím" />
+          <input type="text" placeholder="Cím" id="title"/>
         </div>
         <div>
           <label>Általános információk:</label>
-          <textarea placeholder="Rövid leírás"></textarea>
+          <textarea placeholder="Rövid leírás" id="general"></textarea>
         </div>
         <div>
           <label>Kategória:</label>
-          <select>
-            <option selected>Informatikai</option>
-            <option>Fizikai</option>
-          </select>
+          <select id="category"></select>
         </div>
         <div>
           <label>Óradíj:</label>
-          <input type="text" placeholder="0 Ft" />
+          <input type="text" placeholder="0 Ft" id="wage"/>
         </div>
         <div>
           <label>Település:</label>
-          <input type="text" placeholder="Település" />
+          <input type="text" placeholder="Település" id="location"/>
         </div>
         <div>
           <label>Elvárások:</label>
-          <textarea placeholder="..."></textarea>
+          <textarea placeholder="..." id="requirement"></textarea>
         </div>
         <div>
           <label>Juttatások:</label>
-          <textarea placeholder="..."></textarea>
+          <textarea placeholder="..." id="benefit"></textarea>
         </div>
         <div class="buttons">
             <button class="delete">Törlés</button>
@@ -110,7 +107,7 @@
         <div class="container">
           <div class="brand">
             <a href="/">
-              <img src="../assets/images/logo-white.svg" />
+              <img src="/assets/images/logo-white.svg" />
             </a>
             <p>
               Az álláshírdetési platformok számos előnnyel járnak az állást keresők és munkaadók számára. Ezek a
@@ -127,6 +124,7 @@
       </div>
     </footer>
 
-    <script src="../assets/js/functions/headerSwitch.js"></script>
+    <script src="/assets/js/connection/editAdvertisement.js"></script>
+    <script src="/assets/js/functions/headerSwitch.js"></script>
   </body>
 </html>

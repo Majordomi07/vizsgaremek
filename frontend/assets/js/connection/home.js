@@ -5,7 +5,7 @@
 document.addEventListener("DOMContentLoaded", () => {
   const categorySelects = document.querySelectorAll("#category");
 
-  fetch("/advertisement/categories")
+  fetch("/advertisement/usedCategories")
     .then((response) => response.json())
     .then((data) => {
       categorySelects.forEach((categorySelect) => {

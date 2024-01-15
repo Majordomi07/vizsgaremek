@@ -32,11 +32,11 @@ document.addEventListener("DOMContentLoaded", () => {
         if (!response.ok) {
           throw new Error(`Network response was not ok: ${response.statusText}`);
         }
-        return response.text(); // vagy response.json() ha JSON-t vársz
+        return response.json();
       })
       .then((data) => {
-        // itt dolgozd fel a választ, például nyisd meg az oldalt
-        window.location.href = data;
+        const advertisementID = data.advertisementID;
+        window.location.href = `/controlPanel/advertisement/edit/${advertisementID}`;
       })
       .catch((error) => {
         console.error("Fetch error:", error);
