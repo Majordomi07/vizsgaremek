@@ -168,11 +168,8 @@ main .post .top .logo {
   display: flex;
   align-items: center;
   justify-content: center;
-  flex: 1;
-}
-
-main .post .top .logo img {
   height: 80px;
+  flex: 1;
 }
 
 main .post .bottom {

@@ -100,6 +100,7 @@ main p {
 main div {
   display: flex;
   flex-direction: column;
+  margin-bottom: 20px;
 }
 
 main div label {
@@ -118,7 +119,6 @@ main div input {
   border-radius: 10px;
   padding: 10px;
   box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.25);
-  margin-bottom: 25px;
 }
 
 main div select {
@@ -135,6 +135,15 @@ main div select:focus,
 main div input:focus {
   outline: 0;
   box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.4);
+}
+
+.error {
+  color: #f44336;
+  font-size: 15px;
+  font-family: "Inter";
+  margin: 0;
+  text-align: left;
+  margin-top: 5px;
 }
 
 main .buttons {
@@ -260,6 +269,10 @@ footer {
 
   main div textarea {
     height: 80px;
+  }
+
+  main div .error {
+    font-size: 10px;
   }
 
   main .buttons {

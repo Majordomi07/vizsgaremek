@@ -5,11 +5,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>újmeló | Álláshírdetés szerkesztése</title>
     <link rel="stylesheet" href="/assets/css/global.css" />
+    <link rel="stylesheet" href="/assets/css/popup.css" />
     <link rel="stylesheet" href="/assets/css/header.css" />
     <link rel="stylesheet" href="/assets/css/advertisement-edit.css" />
     <link rel="stylesheet" href="/assets/css/footer.css" />
   </head>
   <body>
+    <!-- --------------------------- Popup messages ---------------------------- -->
+
+    <div class="popup success" id="successfulEdit">
+      <div class="top">
+        <img src="/assets/images/icons/alert-triangle.svg" />
+        <h3>Sikeres szerkesztés</h3>
+      </div>
+      <div class="bottom">
+        <p>Sikeresen szerkesztetted az álláshírdetésedet.</p>
+      </div>
+    </div>
+
     <!-- ----------------------------------------------------------------------- -->
     <!--                                 Navbar                                  -->
     <!-- ----------------------------------------------------------------------- -->
@@ -64,11 +77,13 @@
       <form>
         <div>
           <label>Álláshírdetés címe:</label>
-          <input type="text" placeholder="Cím" id="title"/>
+          <input type="text" placeholder="Cím" id="title" name="title"/>
+          <p class="error" id="titleError"></p>
         </div>
         <div>
           <label>Általános információk:</label>
-          <textarea placeholder="Rövid leírás" id="general"></textarea>
+          <textarea placeholder="Rövid leírás" id="general" name="general"></textarea>
+          <p class="error" id="generalError"></p>
         </div>
         <div>
           <label>Kategória:</label>
@@ -76,23 +91,27 @@
         </div>
         <div>
           <label>Óradíj:</label>
-          <input type="text" placeholder="0 Ft" id="wage"/>
+          <input type="text" placeholder="0 Ft" id="wage" name="wage"/>
+          <p class="error" id="wageError"></p>
         </div>
         <div>
           <label>Település:</label>
-          <input type="text" placeholder="Település" id="location"/>
+          <input type="text" placeholder="Település" id="location" name="location"/>
+          <p class="error" id="locationError"></p>
         </div>
         <div>
           <label>Elvárások:</label>
-          <textarea placeholder="..." id="requirement"></textarea>
+          <textarea placeholder="..." id="requirement" name="requirement"></textarea>
+          <p class="error" id="requirementError"></p>
         </div>
         <div>
           <label>Juttatások:</label>
-          <textarea placeholder="..." id="benefit"></textarea>
+          <textarea placeholder="..." id="benefit" name="benefit"></textarea>
+          <p class="error" id="benefitError"></p>
         </div>
         <div class="buttons">
-            <button class="delete">Törlés</button>
-            <button class="save">Mentés</button>
+            <button class="delete" id="deleteAdvertisement">Törlés</button>
+            <button class="save" id="saveAdvertisement">Mentés</button>
           </div>
         </div>
       </form>
@@ -125,6 +144,7 @@
     </footer>
 
     <script src="/assets/js/connection/editAdvertisement.js"></script>
+    <script src="/assets/js/functions/popupMessage.js"></script>
     <script src="/assets/js/functions/headerSwitch.js"></script>
   </body>
 </html>

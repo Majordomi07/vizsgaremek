@@ -54,6 +54,15 @@ app.get("/advertisement/locations", getLocations);
 const { createAdvertisement } = require("./routes/createAdvertisement.js");
 app.post("/advertisement/create-new", validateToken, createAdvertisement);
 
+const { saveValidation, saveAdvertisement } = require("./routes/saveAdvertisement.js");
+app.post("/advertisement/save/:id", validateToken, saveValidation, saveAdvertisement);
+
+const { deleteAdvertisement } = require("./routes/deleteAdvertisement.js");
+app.post("/advertisement/delete/:id", validateToken, deleteAdvertisement);
+
+const { getByCompanyAdvertisement } = require("./routes/getByCompanyAdvertisement.js");
+app.get("/advertisement/getByCompanyAdvertisement", validateToken, getByCompanyAdvertisement);
+
 const registerAuth = require("./routes/registerAuth.js");
 app.post("/auth/register", upload.single("companyLogo"), registerAuth.registerValidation, registerAuth.registerUser);
 

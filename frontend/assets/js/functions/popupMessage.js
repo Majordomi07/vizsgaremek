@@ -33,7 +33,7 @@ function slideInSuccessfulLogin() {
   popup.classList.add("show");
 }
 
-function slideOutSuccesfulLogin() {
+function slideOutSuccessfulLogin() {
   const popup = document.getElementById("successfulLogin");
   popup.classList.remove("show");
 }
@@ -50,7 +50,7 @@ function popupSuccessfulLogin() {
   slideInSuccessfulLogin();
 
   setTimeout(() => {
-    slideOutSuccesfulLogin();
+    slideOutSuccessfulLogin();
   }, 5000);
 }
 
@@ -61,7 +61,7 @@ function slideInSuccessfulLogout() {
   popup.classList.add("show");
 }
 
-function slideOutSuccesfulLogout() {
+function slideOutSuccessfulLogout() {
   const popup = document.getElementById("successfulLogout");
   popup.classList.remove("show");
 }
@@ -78,7 +78,7 @@ function popupSuccessfulLogout() {
   slideInSuccessfulLogout();
 
   setTimeout(() => {
-    slideOutSuccesfulLogout();
+    slideOutSuccessfulLogout();
   }, 5000);
 }
 
@@ -169,5 +169,53 @@ function popupLoginError() {
 
   setTimeout(() => {
     slideOutLoginError();
+  }, 5000);
+}
+
+/* ------------------------------- Edit success ------------------------------ */
+
+function slideInSuccessfulEdit() {
+  const popup = document.getElementById("successfulEdit");
+  popup.classList.add("show");
+}
+
+function slideOutSuccessfulEdit() {
+  const popup = document.getElementById("successfulEdit");
+  popup.classList.remove("show");
+}
+
+function popupSuccessfulEdit() {
+  slideInSuccessfulEdit();
+
+  setTimeout(() => {
+    slideOutSuccessfulEdit();
+  }, 5000);
+}
+
+/* ----------------------------- Delete success ------------------------------ */
+
+function slideInSuccessfulDelete() {
+  const popup = document.getElementById("successfulDelete");
+  popup.classList.add("show");
+}
+
+function slideOutSuccessfulDelete() {
+  const popup = document.getElementById("successfulDelete");
+  popup.classList.remove("show");
+}
+
+var storageData = localStorage.getItem("successfulDelete");
+
+if (storageData) {
+  popupSuccessfulDelete();
+
+  localStorage.removeItem("successfulDelete");
+}
+
+function popupSuccessfulDelete() {
+  slideInSuccessfulDelete();
+
+  setTimeout(() => {
+    slideOutSuccessfulDelete();
   }, 5000);
 }

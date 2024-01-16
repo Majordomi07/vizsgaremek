@@ -11,8 +11,6 @@ document.addEventListener("DOMContentLoaded", async (event) => {
     const response = await fetch("/advertisement/edit-verification/" + advertisementID);
     const data = await response.json();
 
-    console.log(data);
-
     if (data.verificatedUser == false) {
       window.location.href = "/";
     }
@@ -96,4 +94,86 @@ document.addEventListener("DOMContentLoaded", () => {
       benefitElement.value = data[0].benefit;
     })
     .catch((error) => console.error("Hiba a fetch kérés során:", error));
+});
+
+/* -------------------------------------------------------------------------- */
+/*                             Save advertisement                             */
+/* -------------------------------------------------------------------------- */
+
+const saveButton = document.getElementById("saveAdvertisement");
+
+const currentPath = window.location.pathname;
+const idIndex = currentPath.lastIndexOf("/") + 1;
+const advertisementID = currentPath.substring(idIndex);
+
+saveButton.addEventListener("click", async (event) => {
+  event.preventDefault();
+
+  clearErrors();
+
+  const title = document.getElementById("title").value;
+  const general = document.getElementById("general").value;
+  const category = document.getElementById("category").selectedIndex + 1;
+  const wage = document.getElementById("wage").value;
+  const location = document.getElementById("location").value;
+  const requirement = document.getElementById("requirement").value;
+  const benefit = document.getElementById("benefit").value;
+
+  const response = await fetch("/advertisement/save/" + advertisementID, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({ title, general, category, wage, location, requirement, benefit }),
+  });
+
+  const data = await response.json();
+
+  if (response.ok) {
+    popupSuccessfulEdit();
+  } else {
+    displayErrors(data.error);
+  }
+});
+
+function clearErrors() {
+  const errorElements = document.querySelectorAll(".error");
+  errorElements.forEach((element) => {
+    element.textContent = "";
+  });
+}
+
+const displayErrors = (errors) => {
+  if (Array.isArray(errors)) {
+    errors.forEach((error) => {
+      const errorField = document.getElementById(`${error.path}Error`);
+      if (errorField) {
+        errorField.textContent = error.msg;
+      }
+    });
+  }
+};
+
+/* -------------------------------------------------------------------------- */
+/*                            Delete advertisement                            */
+/* -------------------------------------------------------------------------- */
+
+const deleteButton = document.getElementById("deleteAdvertisement");
+
+deleteButton.addEventListener("click", async (event) => {
+  event.preventDefault();
+
+  const response = await fetch("/advertisement/delete/" + advertisementID, {
+    method: "POST",
+  });
+
+  const data = await response.json();
+
+  if (response.ok) {
+    localStorage.setItem("successfulDelete", "popup");
+    window.location.href = "/controlPanel/company";
+  } else {
+    console.log("hiba");
+    displayErrors(data.error);
+  }
 });
