@@ -108,8 +108,8 @@
           </div>
           <h2>#újmeló</h2>
           <p>
-            Fedezze fel az álmai munkáját a mi platformunkon! Kínáljuk a legfrissebb állásajánlatokat minden területen, hogy segítsünk Önnek
-            elindítani vagy felpörgetni karrierjét.
+            Fedezze fel az álmai munkáját a mi platformunkon! Kínáljuk a legfrissebb állásajánlatokat minden területen,
+            hogy segítsünk Önnek elindítani vagy felpörgetni karrierjét.
           </p>
           <a href="#posts">Kezdj bele a keresésbe</a>
         </div>
@@ -127,8 +127,9 @@
       <section class="posts" id="posts">
         <h2>Álláshírdetések</h2>
         <p>
-          Lépjen be a jövőjébe és böngéssze át a friss és sokszínu munkalehetoségeket, amelyeket vállalkozások és szervezetek kínálnak, vagy hozza
-          létre saját álláshirdetését a szakmai élet legkiválóbb tehetségeinek eléréséhez.
+          Lépjen be a jövőjébe és böngéssze át a friss és sokszínu munkalehetoségeket, amelyeket vállalkozások és
+          szervezetek kínálnak, vagy hozza létre saját álláshirdetését a szakmai élet legkiválóbb tehetségeinek
+          eléréséhez.
         </p>
         <div class="content">
           <aside>
@@ -161,10 +162,10 @@
             <form>
               <div class="topbar">
                 <div class="search">
-                  <input type="text" placeholder="Kulcsszó kereső" />
+                  <input type="text" placeholder="Kulcsszó kereső" id="keywordFilter" />
                 </div>
                 <div class="category">
-                  <select id="category">
+                  <select id="categoryFilter">
                     <option value="Bármelyik kategória" selected>Bármelyik kategória</option>
                   </select>
                 </div>
@@ -198,91 +199,20 @@
               </div>
             </form>
             <div class="result">
-              <p>Talált állások: <span>14</span></p>
-            </div>
-            <div class="post">
-              <div class="top">
-                <div class="text">
-                  <h3>Mester cukrász</h3>
-                  <p>
-                    Cégünk elismert és elkötelezett mester cukrászt keres, aki csatlakozna tehetséges csapatunkhoz. Ha a sütés és édesítés
-                    muvészetének szenvedélyese vagy, és rendelkezel szélesköru tapasztalattal a cukrászat terén
-                  </p>
-                </div>
-                <div class="logo">
-                  <img src="/assets/images/logos/desszertneked.png" />
-                </div>
-              </div>
-              <div class="bottom">
-                <div class="tags">
-                  <div class="category">
-                    <p>Vendéglátás</p>
-                  </div>
-                  <div class="widget">
-                    <div class="map">
-                      <img src="/assets/images/icons/map-pin.svg" />
-                      <p>Budapest</p>
-                    </div>
-                    <div class="time">
-                      <img src="/assets/images/icons/clock.svg" />
-                      <p>2 órája</p>
-                    </div>
-                  </div>
-                </div>
-                <div class="continue">
-                  <button>
-                    <p>Tovább</p>
-                    <img src="/assets/images/icons/arrow-up-right.svg" />
-                  </button>
-                </div>
-              </div>
+              <p>Talált állások: <span id="results"></span></p>
             </div>
 
-            <div class="post">
-              <div class="top">
-                <div class="text">
-                  <h3>Programozó</h3>
-                  <p>
-                    Cégünk, a vezeto telekommunikációs szolgáltató, izgalmas lehetoséget kínál tapasztalt programozóknak a csapatunkban való
-                    részvételre. A digitális forradalom és az 5G terjedése új és izgalmas kihívásokat teremt a telekommunikáció területén.
-                  </p>
-                </div>
-                <div class="logo">
-                  <img src="/assets/images/logos/telekom.png" />
-                </div>
-              </div>
-              <div class="bottom">
-                <div class="tags">
-                  <div class="category">
-                    <p>Informatika</p>
-                  </div>
-                  <div class="widget">
-                    <div class="map">
-                      <img src="/assets/images/icons/map-pin.svg" />
-                      <p>Debrecen</p>
-                    </div>
-                    <div class="time">
-                      <img src="/assets/images/icons/clock.svg" />
-                      <p>Két hete</p>
-                    </div>
-                  </div>
-                </div>
-                <div class="continue">
-                  <button>
-                    <p>Tovább</p>
-                    <img src="/assets/images/icons/arrow-up-right.svg" />
-                  </button>
-                </div>
-              </div>
-            </div>
+            <div id="advertisementsContainer"></div>
 
+            <!--
             <div class="post">
               <div class="top">
                 <div class="text">
                   <h3>Burkoló</h3>
                   <p>
-                    Cégünk elismert és elkötelezett burkolót keres, aki csatlakozna tapasztalt csapatunkhoz. Ha a burkolás és felújítás területén
-                    rendelkezel szakértelemmel, és az esztétika és minoség fontos számodra, akkor nálunk a helyed!
+                    Cégünk elismert és elkötelezett burkolót keres, aki csatlakozna tapasztalt csapatunkhoz. Ha a
+                    burkolás és felújítás területén rendelkezel szakértelemmel, és az esztétika és minoség fontos
+                    számodra, akkor nálunk a helyed!
                   </p>
                 </div>
                 <div class="logo">
@@ -313,15 +243,16 @@
                 </div>
               </div>
             </div>
+-->
 
-            <div class="arrange">
-              <a href="">
+            <div class="arrange" id="pagination">
+              <a id="prev">
                 <img src="/assets/images/icons/arrow-left.svg" />
               </a>
-              <a href=""><b>1</b></a>
-              <a href="">2</a>
-              <a href="">3</a>
-              <a href="">
+              <a id="page1"><b>1</b></a>
+              <a id="page2">2</a>
+              <a id="page3">3</a>
+              <a id="next">
                 <img src="/assets/images/icons/arrow-right.svg" />
               </a>
             </div>
@@ -382,7 +313,8 @@
               <img src="/assets/images/logo-white.svg" />
             </a>
             <p>
-              Az álláshírdetési platformok számos előnnyel járnak az állást keresők és munkaadók számára. Ezek a platformok gyors és kényelmes módját.
+              Az álláshírdetési platformok számos előnnyel járnak az állást keresők és munkaadók számára. Ezek a
+              platformok gyors és kényelmes módját.
             </p>
           </div>
           <div class="nav">

@@ -181,10 +181,8 @@ main .post .bottom .tags {
 
   display: flex;
   align-items: center;
-}
-
-main .post .bottom .tags .category {
-  flex: 1;
+  justify-content: flex-start;
+  gap: 20px;
 }
 
 main .post .bottom .tags .category p {
@@ -205,8 +203,6 @@ main .post .bottom .tags .widget {
   display: flex;
   justify-content: center;
   flex-direction: column;
-
-  flex: 2;
 }
 
 main .post .bottom .tags .widget .map {
@@ -406,7 +402,7 @@ footer {
   }
 
   main .post .bottom .tags {
-    gap: 20px;
+    gap: 10px;
   }
 
   main .post .bottom .tags .category p {

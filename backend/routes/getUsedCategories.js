@@ -2,7 +2,7 @@ const db = require("../db.js");
 
 const getUsedCategories = (req, res) => {
   const query =
-    "SELECT category FROM category INNER JOIN advertisement ON advertisement.categoryID = category.categoryID;";
+    "SELECT DISTINCT category FROM category INNER JOIN advertisement ON advertisement.categoryID = category.categoryID;";
 
   db.query(query, (error, results) => {
     if (error) {

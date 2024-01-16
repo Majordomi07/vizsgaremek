@@ -39,6 +39,9 @@ router.get("/login", sendPages.sendLoginPage);
 const { getAdvertisement } = require("./routes/getAdvertisement.js");
 app.get("/advertisement/api/:id", getAdvertisement);
 
+const { getAllAdvertisements } = require("./routes/getAllAdvertisements.js");
+app.get("/advertisement/getAllAdvertisements", getAllAdvertisements);
+
 const { editVerification } = require("./routes/editVerification.js");
 app.get("/advertisement/edit-verification/:id", validateToken, editVerification);
 

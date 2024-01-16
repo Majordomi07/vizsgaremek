@@ -130,7 +130,8 @@ saveButton.addEventListener("click", async (event) => {
   const data = await response.json();
 
   if (response.ok) {
-    popupSuccessfulEdit();
+    localStorage.setItem("successfulEdit", "popup");
+    window.location.href = "/controlPanel/advertisements";
   } else {
     displayErrors(data.error);
   }
@@ -171,7 +172,7 @@ deleteButton.addEventListener("click", async (event) => {
 
   if (response.ok) {
     localStorage.setItem("successfulDelete", "popup");
-    window.location.href = "/controlPanel/company";
+    window.location.href = "/controlPanel/advertisements";
   } else {
     console.log("hiba");
     displayErrors(data.error);

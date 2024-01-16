@@ -501,9 +501,6 @@
   align-items: center;
   justify-content: center;
   flex: 1;
-}
-
-.posts .content main .post .top .logo img {
   height: 80px;
 }
 
@@ -807,7 +804,7 @@
     margin-bottom: 20px;
   }
 
-  .posts .content main .post .top .logo img {
+  .posts .content main .post .top .logo {
     height: 40px;
   }
 
