@@ -1,7 +1,7 @@
 const db = require("../db.js");
 
 const getAllAdvertisements = (req, res) => {
-  const { page = 1, keywordFilter } = req.query;
+  const { page = 1, keywordFilter, locationFilter, categoryFilter } = req.query;
   const pageSize = 4;
   const offset = (page - 1) * pageSize;
 
@@ -11,6 +11,8 @@ const getAllAdvertisements = (req, res) => {
   const filters = [];
 
   if (keywordFilter) filters.push(`title LIKE '%${keywordFilter}%'`);
+  if (locationFilter) filters.push(`location = '${locationFilter}'`);
+  if (categoryFilter) filters.push(`category = '${categoryFilter}'`);
 
   if (filters.length > 0) {
     query += " WHERE " + filters.join(" AND ");

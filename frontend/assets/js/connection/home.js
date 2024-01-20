@@ -3,7 +3,7 @@
 /* -------------------------------------------------------------------------- */
 
 document.addEventListener("DOMContentLoaded", () => {
-  const categorySelects = document.querySelectorAll("#category");
+  const categorySelects = document.querySelectorAll("#categoryFilter");
 
   fetch("/advertisement/usedCategories")
     .then((response) => response.json())
@@ -25,7 +25,7 @@ document.addEventListener("DOMContentLoaded", () => {
 /* -------------------------------------------------------------------------- */
 
 document.addEventListener("DOMContentLoaded", () => {
-  const locationSelects = document.querySelectorAll("#location");
+  const locationSelects = document.querySelectorAll("#locationFilter");
 
   fetch("/advertisement/locations")
     .then((response) => response.json())
@@ -50,16 +50,27 @@ document.addEventListener("DOMContentLoaded", function () {
   const showMoreButton = document.getElementById("show-more");
   const dataContainer = document.getElementById("advertisementsContainer");
   const keywordFilterInput = document.getElementById("keywordFilter");
+  const locationFilterSelect = document.getElementById("locationFilter");
+  const categoryFilterSelect = document.getElementById("categoryFilter");
+
   let currentPage = 1;
   let hasMoreData = true;
 
-  function loadData(page, keywordFilter) {
+  updateResult();
+
+  function loadData(page, keywordFilter, locationFilter, categoryFilter) {
     if (!hasMoreData) {
       return;
     }
 
-    const filterParam = keywordFilter ? `&keywordFilter=${encodeURIComponent(keywordFilter)}` : "";
-    const url = `/advertisement/getAllAdvertisements?page=${page}${filterParam}`;
+    const filterParams = [];
+    if (keywordFilter) filterParams.push(`&keywordFilter=${encodeURIComponent(keywordFilter)}`);
+    if (locationFilter && locationFilter !== "Bármely település")
+      filterParams.push(`&locationFilter=${encodeURIComponent(locationFilter)}`);
+    if (categoryFilter && categoryFilter !== "Bármelyik kategória")
+      filterParams.push(`&categoryFilter=${encodeURIComponent(categoryFilter)}`);
+
+    const url = `/advertisement/getAllAdvertisements?page=${page}${filterParams.join("")}`;
 
     fetch(url)
       .then((response) => {
@@ -185,13 +196,9 @@ document.addEventListener("DOMContentLoaded", function () {
     return post;
   }
 
-  function updateResultText(totalRecords) {
-    document.getElementById("results").textContent = totalRecords;
-  }
-
   function handleShowMore() {
     currentPage++;
-    loadData(currentPage, keywordFilterInput.value);
+    loadData(currentPage, keywordFilterInput.value, locationFilterSelect.value, categoryFilterSelect.value);
   }
 
   showMoreButton.addEventListener("click", handleShowMore);
@@ -201,15 +208,26 @@ document.addEventListener("DOMContentLoaded", function () {
     hasMoreData = true;
     showMoreButton.style.display = "block";
     dataContainer.innerHTML = "";
-    loadData(currentPage, keywordFilterInput.value);
+    loadData(currentPage, keywordFilterInput.value, locationFilterSelect.value, categoryFilterSelect.value);
+    updateResult();
   }
 
   keywordFilterInput.addEventListener("input", handleFilterChange);
+  locationFilterSelect.addEventListener("change", handleFilterChange);
+  categoryFilterSelect.addEventListener("change", handleFilterChange);
 
-  fetch(`/advertisement/getTotalAdvertisementsCount`)
-    .then((response) => response.json())
-    .then((data) => updateResultText(data.totalRecords))
-    .catch((error) => console.error("Error fetching total records count:", error));
+  function updateResult() {
+    fetch(
+      `/advertisement/getTotalAdvertisementsCount?keywordFilter=${encodeURIComponent(
+        keywordFilterInput.value
+      )}&locationFilter=${encodeURIComponent(locationFilterSelect.value)}&categoryFilter=${encodeURIComponent(
+        categoryFilterSelect.value
+      )}`
+    )
+      .then((response) => response.json())
+      .then((data) => (document.getElementById("results").textContent = data.totalRecords))
+      .catch((error) => console.error("Error fetching total records count:", error));
+  }
 
   loadData(currentPage);
 });

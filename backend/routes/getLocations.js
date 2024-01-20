@@ -2,7 +2,7 @@ const db = require("../db.js");
 
 const getLocations = (req, res) => {
   const query = `
-    SELECT location FROM advertisement;
+    SELECT DISTINCT location FROM advertisement;
   `;
 
   db.query(query, (error, results) => {
