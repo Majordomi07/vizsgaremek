@@ -2,7 +2,7 @@ const db = require("../db.js");
 
 const getAllAdvertisements = (req, res) => {
   const { page = 1, keywordFilter } = req.query;
-  const pageSize = 5;
+  const pageSize = 4;
   const offset = (page - 1) * pageSize;
 
   let query =
@@ -18,8 +18,13 @@ const getAllAdvertisements = (req, res) => {
 
   query += ` LIMIT ?, ?`;
 
-  db.query(query, [offset, pageSize], (err, results) => {
+  db.query(query, [offset, pageSize + 1], (err, results) => {
     if (err) throw err;
+
+    if (results.length > pageSize) {
+      results.pop();
+    }
+
     res.json(results);
   });
 };

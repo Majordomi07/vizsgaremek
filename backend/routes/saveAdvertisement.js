@@ -1,7 +1,7 @@
 const { check, validationResult } = require("express-validator");
 const db = require("../db.js");
 
-// Advertisement alidáció
+// Advertisement validáció
 
 const saveValidation = [
   check("title").notEmpty().withMessage("Az cím mező nem lehet üres."),
@@ -24,7 +24,8 @@ const saveAdvertisement = async (req, res) => {
   const { title, general, category, wage, location, requirement, benefit } = req.body;
   const advertisementID = req.params.id;
 
-  const query = "UPDATE advertisement SET title=?, general=?, categoryID=?, requirement=?, benefit=?, location=?, wage=? WHERE advertisementID = ?";
+  const query =
+    "UPDATE advertisement SET title=?, general=?, categoryID=?, requirement=?, benefit=?, location=?, wage=? WHERE advertisementID = ?";
   db.query(query, [title, general, category, requirement, benefit, location, wage, advertisementID], (err, result) => {
     if (err) {
       console.error("Hiba az adatok mentése közben:", err);

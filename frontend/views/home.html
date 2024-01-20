@@ -176,25 +176,11 @@
                     <option value="Legtöbbet fizető">Legtöbbet fizető</option>
                   </select>
                 </div>
-                <div class="submit">
-                  <button type="submit">
-                    <p>Keresés</p>
-                    <img src="/assets/images/icons/search-icon.svg" />
+                <div class="filter">
+                  <button onclick="responsiveFilter()">
+                    <p>Szűrő</p>
+                    <img src="/assets/images/icons/filter.svg" />
                   </button>
-                </div>
-                <div class="responsive">
-                  <div class="filter">
-                    <button onclick="responsiveFilter()">
-                      <p>Szűrő</p>
-                      <img src="/assets/images/icons/filter.svg" />
-                    </button>
-                  </div>
-                  <div class="submit">
-                    <button type="submit">
-                      <p>Keresés</p>
-                      <img src="/assets/images/icons/search-icon2.svg" />
-                    </button>
-                  </div>
                 </div>
               </div>
             </form>
@@ -204,57 +190,8 @@
 
             <div id="advertisementsContainer"></div>
 
-            <!--
-            <div class="post">
-              <div class="top">
-                <div class="text">
-                  <h3>Burkoló</h3>
-                  <p>
-                    Cégünk elismert és elkötelezett burkolót keres, aki csatlakozna tapasztalt csapatunkhoz. Ha a
-                    burkolás és felújítás területén rendelkezel szakértelemmel, és az esztétika és minoség fontos
-                    számodra, akkor nálunk a helyed!
-                  </p>
-                </div>
-                <div class="logo">
-                  <img src="/assets/images/logos/szaboburkolas.png" />
-                </div>
-              </div>
-              <div class="bottom">
-                <div class="tags">
-                  <div class="category">
-                    <p>Fizikai</p>
-                  </div>
-                  <div class="widget">
-                    <div class="map">
-                      <img src="/assets/images/icons/map-pin.svg" />
-                      <p>Piliscsaba</p>
-                    </div>
-                    <div class="time">
-                      <img src="/assets/images/icons/clock.svg" />
-                      <p>Egy hónapja</p>
-                    </div>
-                  </div>
-                </div>
-                <div class="continue">
-                  <button>
-                    <p>Tovább</p>
-                    <img src="/assets/images/icons/arrow-up-right.svg" />
-                  </button>
-                </div>
-              </div>
-            </div>
--->
-
-            <div class="arrange" id="pagination">
-              <a id="prev">
-                <img src="/assets/images/icons/arrow-left.svg" />
-              </a>
-              <a id="page1"><b>1</b></a>
-              <a id="page2">2</a>
-              <a id="page3">3</a>
-              <a id="next">
-                <img src="/assets/images/icons/arrow-right.svg" />
-              </a>
+            <div class="show-more" id="show-more">
+              <p>Mutass többet...</p>
             </div>
           </main>
 

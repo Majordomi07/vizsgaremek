@@ -47,14 +47,18 @@ document.addEventListener("DOMContentLoaded", () => {
 /* -------------------------------------------------------------------------- */
 
 document.addEventListener("DOMContentLoaded", function () {
-  const pagination = document.getElementById("pagination");
+  const showMoreButton = document.getElementById("show-more");
   const dataContainer = document.getElementById("advertisementsContainer");
   const keywordFilterInput = document.getElementById("keywordFilter");
   let currentPage = 1;
+  let hasMoreData = true;
 
   function loadData(page, keywordFilter) {
-    const filterParam = keywordFilter ? `&keywordFilter=${encodeURIComponent(keywordFilter)}` : "";
+    if (!hasMoreData) {
+      return;
+    }
 
+    const filterParam = keywordFilter ? `&keywordFilter=${encodeURIComponent(keywordFilter)}` : "";
     const url = `/advertisement/getAllAdvertisements?page=${page}${filterParam}`;
 
     fetch(url)
@@ -64,12 +68,23 @@ document.addEventListener("DOMContentLoaded", function () {
         }
         return response.json();
       })
-      .then((data) => renderData(data))
+      .then((data) => {
+        renderData(data);
+        hasMoreData = data.length >= 4;
+        if (!hasMoreData) {
+          showMoreButton.style.display = "none";
+        }
+      })
       .catch((error) => console.error("Error fetching data:", error));
   }
 
   function renderData(data) {
-    dataContainer.innerHTML = "";
+    if (data.length === 0) {
+      hasMoreData = false;
+      showMoreButton.style.display = "none";
+      return;
+    }
+
     data.forEach((item) => {
       const postElement = createPostElement(item);
       dataContainer.appendChild(postElement);
@@ -131,19 +146,19 @@ document.addEventListener("DOMContentLoaded", function () {
     mapText.innerText = item.location;
     map.appendChild(mapText);
 
-    const time = document.createElement("div");
-    time.classList.add("time");
+    const wage = document.createElement("div");
+    wage.classList.add("wage");
 
-    const timeImage = document.createElement("img");
-    timeImage.src = "/assets/images/icons/clock.svg";
-    time.appendChild(timeImage);
+    const wageImage = document.createElement("img");
+    wageImage.src = "/assets/images/icons/dollar-icon.svg";
+    wage.appendChild(wageImage);
 
-    const timeText = document.createElement("p");
-    timeText.innerText = item.wage;
-    time.appendChild(timeText);
+    const wageText = document.createElement("p");
+    wageText.innerText = item.wage + " Ft/óra";
+    wage.appendChild(wageText);
 
     widget.appendChild(map);
-    widget.appendChild(time);
+    widget.appendChild(wage);
 
     tags.appendChild(category);
     tags.appendChild(widget);
@@ -170,43 +185,31 @@ document.addEventListener("DOMContentLoaded", function () {
     return post;
   }
 
-  function updatePagination() {
-    const pageLinks = pagination.querySelectorAll('a[id^="page"]');
-    pageLinks.forEach((link) => link.classList.remove("active"));
-    document.getElementById(`page${currentPage}`).classList.add("active");
+  function updateResultText(totalRecords) {
+    document.getElementById("results").textContent = totalRecords;
   }
 
+  function handleShowMore() {
+    currentPage++;
+    loadData(currentPage, keywordFilterInput.value);
+  }
+
+  showMoreButton.addEventListener("click", handleShowMore);
+
   function handleFilterChange() {
+    currentPage = 1;
+    hasMoreData = true;
+    showMoreButton.style.display = "block";
+    dataContainer.innerHTML = "";
     loadData(currentPage, keywordFilterInput.value);
   }
 
   keywordFilterInput.addEventListener("input", handleFilterChange);
 
-  document.getElementById("prev").addEventListener("click", function (e) {
-    e.preventDefault();
-    if (currentPage > 1) {
-      currentPage--;
-      updatePagination();
-      loadData(currentPage, keywordFilterInput.value);
-    }
-  });
-
-  document.getElementById("next").addEventListener("click", function (e) {
-    e.preventDefault();
-    currentPage++;
-    updatePagination();
-    loadData(currentPage, keywordFilterInput.value);
-  });
-
-  pagination.querySelectorAll('a[id^="page"]').forEach((link) => {
-    link.addEventListener("click", function (e) {
-      e.preventDefault();
-      currentPage = parseInt(this.innerText, 10);
-      updatePagination();
-      loadData(currentPage, keywordFilterInput.value);
-    });
-  });
+  fetch(`/advertisement/getTotalAdvertisementsCount`)
+    .then((response) => response.json())
+    .then((data) => updateResultText(data.totalRecords))
+    .catch((error) => console.error("Error fetching total records count:", error));
 
   loadData(currentPage);
-  updatePagination();
 });

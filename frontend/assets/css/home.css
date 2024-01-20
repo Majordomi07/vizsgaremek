@@ -332,10 +332,11 @@
   align-items: center;
   justify-content: space-between;
   gap: 30px;
+  margin-bottom: 10px;
 }
 
 .posts .content main .topbar .search {
-  flex: 3;
+  flex: 1;
 }
 
 .posts .content main .topbar .search input {
@@ -357,7 +358,7 @@
 }
 
 .posts .content main .topbar .category {
-  flex: 2;
+  flex: 1;
 }
 
 .posts .content main .topbar .category select {
@@ -380,7 +381,7 @@
 }
 
 .posts .content main .topbar .order {
-  flex: 2;
+  flex: 1;
 }
 
 .posts .content main .topbar .order select {
@@ -401,50 +402,8 @@
   box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.4);
 }
 
-.posts .content main .topbar .submit {
-  flex: 1;
-}
-
-.posts .content main .topbar .submit button {
-  text-align: center;
-
-  display: inline-block;
-  border: none;
-  border-radius: 10px;
-  background: linear-gradient(45deg, #00b4db 0%, #0083b0 100%);
-  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
-  padding: 10px 40px;
-  height: 45px;
-  width: 100%;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  transition: 0.2s all;
-}
-
-.posts .content main .topbar .submit button:hover {
-  transform: scale(1.1);
-}
-
-.posts .content main .topbar .submit button p {
-  color: white;
-  font-family: "Sailec Medium";
-  font-size: 17px;
-
-  margin: 0;
-  padding: 0;
-  margin-right: 10px;
-}
-
-.posts .content main .topbar .submit button img {
-  height: 15px;
-}
-
-.posts .content main .result {
-  margin-top: 15px;
-  margin-bottom: 30px;
+.posts .content main .topbar .filter {
+  display: none;
 }
 
 .posts .content main .result p {
@@ -453,6 +412,7 @@
   font-size: 16px;
 
   margin: 0;
+  margin-bottom: 20px;
 }
 
 .posts .content main .result p span {
@@ -561,17 +521,17 @@
   background: none;
 }
 
-.posts .content main .post .bottom .tags .widget .time {
+.posts .content main .post .bottom .tags .widget .wage {
   display: flex;
   align-items: center;
 }
 
-.posts .content main .post .bottom .tags .widget .time img {
+.posts .content main .post .bottom .tags .widget .wage img {
   height: 20px;
   margin-right: 10px;
 }
 
-.posts .content main .post .bottom .tags .widget .time p {
+.posts .content main .post .bottom .tags .widget .wage p {
   color: var(--secondary-text-color);
   font-family: "Inter";
   text-align: left;
@@ -686,8 +646,8 @@
   }
 
   .posts .content main form .topbar {
-    flex-direction: column;
     gap: 10px;
+    margin-bottom: 10px;
   }
 
   .posts .content main form .topbar .category,
@@ -697,7 +657,6 @@
   }
 
   .posts .content main form .topbar .search {
-    width: 100%;
     z-index: 3;
   }
 
@@ -708,22 +667,13 @@
     border-radius: 5px;
   }
 
-  .posts .content main form .topbar .responsive {
-    position: relative;
-    z-index: 1;
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 20px;
-    padding: 0;
-  }
-
-  .posts .content main form .topbar .responsive .filter {
+  .posts .content main form .topbar .filter {
+    display: flex !important;
     width: 50%;
+    z-index: 3;
   }
 
-  .posts .content main form .topbar .responsive .filter button {
+  .posts .content main form .topbar .filter button {
     display: flex;
     width: 100%;
 
@@ -744,7 +694,7 @@
     transition: 0.2s all;
   }
 
-  .posts .content main form .topbar .responsive .filter button p {
+  .posts .content main form .topbar .filter button p {
     color: white;
     font-family: "Sailec Medium";
     font-size: 11px;
@@ -754,34 +704,7 @@
     margin-right: 6px;
   }
 
-  .posts .content main form .topbar .responsive .filter button img {
-    height: 10px;
-  }
-
-  .posts .content main form .topbar .responsive .submit {
-    display: flex;
-  }
-
-  .posts .content main form .topbar .responsive .submit button:hover {
-    transform: none;
-  }
-
-  .posts .content main form .topbar .responsive .submit button {
-    display: flex;
-    width: 50%;
-    border-radius: 5px;
-    height: 24px;
-    width: 100%;
-    box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.25);
-  }
-
-  .posts .content main form .topbar .responsive .submit button p {
-    font-size: 11px;
-    width: auto;
-    margin-right: 6px;
-  }
-
-  .posts .content main form .topbar .responsive .submit button img {
+  .posts .content main form .topbar .filter button img {
     height: 10px;
   }
 
@@ -817,13 +740,13 @@
     border-radius: 5px;
   }
 
-  .posts .content main .post .bottom .tags .widget .time img,
+  .posts .content main .post .bottom .tags .widget .wage img,
   .posts .content main .post .bottom .tags .widget .map img {
     height: 10px;
     margin-right: 5px;
   }
 
-  .posts .content main .post .bottom .tags .widget .time p,
+  .posts .content main .post .bottom .tags .widget .wage p,
   .posts .content main .post .bottom .tags .widget .map p {
     font-size: 8px;
   }
@@ -859,7 +782,7 @@
     left: -15px;
 
     padding-left: 15px;
-    padding-top: 100px;
+    padding-top: 70px;
     padding-bottom: 30px;
 
     background: white;

@@ -42,6 +42,9 @@ app.get("/advertisement/api/:id", getAdvertisement);
 const { getAllAdvertisements } = require("./routes/getAllAdvertisements.js");
 app.get("/advertisement/getAllAdvertisements", getAllAdvertisements);
 
+const { getTotalAdvertisementsCount } = require("./routes/getTotalAdvertisementsCount.js");
+app.get("/advertisement/getTotalAdvertisementsCount", getTotalAdvertisementsCount);
+
 const { editVerification } = require("./routes/editVerification.js");
 app.get("/advertisement/edit-verification/:id", validateToken, editVerification);
 
