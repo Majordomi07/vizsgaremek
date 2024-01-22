@@ -217,15 +217,24 @@ document.addEventListener("DOMContentLoaded", function () {
   categoryFilterSelect.addEventListener("change", handleFilterChange);
 
   function updateResult() {
-    fetch(
-      `/advertisement/getTotalAdvertisementsCount?keywordFilter=${encodeURIComponent(
-        keywordFilterInput.value
-      )}&locationFilter=${encodeURIComponent(locationFilterSelect.value)}&categoryFilter=${encodeURIComponent(
-        categoryFilterSelect.value
-      )}`
-    )
-      .then((response) => response.json())
-      .then((data) => (document.getElementById("results").textContent = data.totalRecords))
+    const filterParams = [];
+
+    if (keywordFilterInput.value) filterParams.push(`&keywordFilter=${encodeURIComponent(keywordFilterInput.value)}`);
+    if (locationFilterSelect.value && locationFilterSelect.value !== "Bármely település")
+      filterParams.push(`&locationFilter=${encodeURIComponent(locationFilterSelect.value)}`);
+    if (categoryFilterSelect.value && categoryFilterSelect.value !== "Bármelyik kategória")
+      filterParams.push(`&categoryFilter=${encodeURIComponent(categoryFilterSelect.value)}`);
+
+    fetch(`/advertisement/getTotalAdvertisementsCount?page=${currentPage}${filterParams.join("")}`)
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error("Network response was not ok");
+        }
+        return response.json();
+      })
+      .then((data) => {
+        document.getElementById("results").textContent = data.totalRecords;
+      })
       .catch((error) => console.error("Error fetching total records count:", error));
   }
 
