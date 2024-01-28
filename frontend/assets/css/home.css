@@ -464,6 +464,10 @@
   height: 80px;
 }
 
+.posts .content main .post .top .logo img {
+  height: 100%;
+}
+
 .posts .content main .post .bottom {
   display: flex;
 }

@@ -162,25 +162,23 @@ document.addEventListener("DOMContentLoaded", () => {
 
 /* ------------------------------- Login error ------------------------------ */
 
-document.addEventListener("DOMContentLoaded", () => {
-  function slideInLoginError() {
-    const popup = document.getElementById("loginError");
-    popup.classList.add("show");
-  }
+function slideInLoginError() {
+  const popup = document.getElementById("loginError");
+  popup.classList.add("show");
+}
 
-  function slideOutLoginError() {
-    const popup = document.getElementById("loginError");
-    popup.classList.remove("show");
-  }
+function slideOutLoginError() {
+  const popup = document.getElementById("loginError");
+  popup.classList.remove("show");
+}
 
-  function popupLoginError() {
-    slideInLoginError();
+function popupLoginError() {
+  slideInLoginError();
 
-    setTimeout(() => {
-      slideOutLoginError();
-    }, 5000);
-  }
-});
+  setTimeout(() => {
+    slideOutLoginError();
+  }, 5000);
+}
 
 /* ------------------------------- Edit success ------------------------------ */
 

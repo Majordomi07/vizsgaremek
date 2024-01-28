@@ -1,7 +1,11 @@
 const db = require("../db.js");
 
 const getTotalAdvertisementsCount = (req, res) => {
-  const { keywordFilter, locationFilter, categoryFilter } = req.query;
+  const { keywordFilter, locationFilter, categoryFilter, wageFilter } = req.query;
+
+  if (wageFilter) {
+    var wageRanges = wageFilter.split(",");
+  }
 
   let query =
     "SELECT COUNT(*) as totalRecords FROM advertisement INNER JOIN companies ON companies.companiesID = advertisement.companiesID INNER JOIN category ON category.categoryID = advertisement.categoryID";
@@ -11,6 +15,9 @@ const getTotalAdvertisementsCount = (req, res) => {
   if (keywordFilter) filters.push(`advertisement.title LIKE '%${keywordFilter}%'`);
   if (locationFilter) filters.push(`advertisement.location = '${locationFilter}'`);
   if (categoryFilter) filters.push(`category.category = '${categoryFilter}'`);
+  if (wageFilter) {
+    filters.push(`wage BETWEEN ${wageRanges[0]} AND ${wageRanges[1]}`);
+  }
 
   if (filters.length > 0) {
     query += " WHERE " + filters.join(" AND ");

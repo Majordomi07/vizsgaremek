@@ -43,6 +43,41 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 /* -------------------------------------------------------------------------- */
+/*                                Wage Feltölés                               */
+/* -------------------------------------------------------------------------- */
+
+document.addEventListener("DOMContentLoaded", function () {
+  fetch("/advertisement/calculateWageRanges")
+    .then((response) => response.json())
+    .then((data) => {
+      function updateLabels(ranges) {
+        var labels = document.querySelectorAll("form label");
+        ranges.forEach(function (range, index) {
+          labels[index].textContent = range;
+        });
+      }
+      updateLabels(data.ranges);
+    })
+    .catch((error) => console.error("Error fetching data:", error));
+});
+
+function updateRanges() {
+  var selectedOption = document.querySelector('input[name="wage"]:checked');
+
+  if (selectedOption) {
+    var label = selectedOption.nextElementSibling.textContent.trim();
+    var values = label.split(" - ").map(function (value) {
+      return parseInt(value.replace(/\D/g, ""), 10);
+    });
+
+    ranges = values;
+  } else {
+    ranges = [];
+  }
+  return ranges;
+}
+
+/* -------------------------------------------------------------------------- */
 /*                               Advertisements                               */
 /* -------------------------------------------------------------------------- */
 
@@ -62,6 +97,7 @@ document.addEventListener("DOMContentLoaded", function () {
     if (!hasMoreData) {
       return;
     }
+    const wageFilter = updateRanges();
 
     const filterParams = [];
     if (keywordFilter) filterParams.push(`&keywordFilter=${encodeURIComponent(keywordFilter)}`);
@@ -69,6 +105,7 @@ document.addEventListener("DOMContentLoaded", function () {
       filterParams.push(`&locationFilter=${encodeURIComponent(locationFilter)}`);
     if (categoryFilter && categoryFilter !== "Bármelyik kategória")
       filterParams.push(`&categoryFilter=${encodeURIComponent(categoryFilter)}`);
+    if (wageFilter.length !== 0) filterParams.push(`&wageFilter=${encodeURIComponent(wageFilter)}`);
 
     const url = `/advertisement/getAllAdvertisements?page=${page}${filterParams.join("")}`;
 
@@ -204,6 +241,7 @@ document.addEventListener("DOMContentLoaded", function () {
   showMoreButton.addEventListener("click", handleShowMore);
 
   function handleFilterChange() {
+    console.log("lefut");
     currentPage = 1;
     hasMoreData = true;
     showMoreButton.style.display = "block";
@@ -216,7 +254,19 @@ document.addEventListener("DOMContentLoaded", function () {
   locationFilterSelect.addEventListener("change", handleFilterChange);
   categoryFilterSelect.addEventListener("change", handleFilterChange);
 
+  var radioButtons = document.querySelectorAll('input[name="wage"]');
+  radioButtons.forEach(function (radio) {
+    radio.addEventListener("change", function () {
+      if (radio.checked) {
+        updateRanges();
+        handleFilterChange();
+      }
+    });
+  });
+
   function updateResult() {
+    const wageFilter = updateRanges();
+
     const filterParams = [];
 
     if (keywordFilterInput.value) filterParams.push(`&keywordFilter=${encodeURIComponent(keywordFilterInput.value)}`);
@@ -224,6 +274,7 @@ document.addEventListener("DOMContentLoaded", function () {
       filterParams.push(`&locationFilter=${encodeURIComponent(locationFilterSelect.value)}`);
     if (categoryFilterSelect.value && categoryFilterSelect.value !== "Bármelyik kategória")
       filterParams.push(`&categoryFilter=${encodeURIComponent(categoryFilterSelect.value)}`);
+    if (wageFilter.length !== 0) filterParams.push(`&wageFilter=${encodeURIComponent(wageFilter)}`);
 
     fetch(`/advertisement/getTotalAdvertisementsCount?page=${currentPage}${filterParams.join("")}`)
       .then((response) => {

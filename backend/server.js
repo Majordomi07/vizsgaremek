@@ -57,6 +57,9 @@ app.get("/advertisement/usedCategories", getUsedCategories);
 const { getLocations } = require("./routes/getLocations.js");
 app.get("/advertisement/locations", getLocations);
 
+const { calculateWageRanges } = require("./routes/calculateWageRanges.js");
+app.get("/advertisement/calculateWageRanges", calculateWageRanges);
+
 const { createAdvertisement } = require("./routes/createAdvertisement.js");
 app.post("/advertisement/create-new", validateToken, createAdvertisement);
 

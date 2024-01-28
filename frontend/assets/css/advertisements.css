@@ -172,6 +172,10 @@ main .post .top .logo {
   flex: 1;
 }
 
+main .post .top .logo img {
+  height: 100%;
+}
+
 main .post .bottom {
   display: flex;
 }
