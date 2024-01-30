@@ -222,8 +222,12 @@ document.addEventListener("DOMContentLoaded", function () {
     continueButton.classList.add("continue");
 
     const button = document.createElement("button");
+    button.onclick = function () {
+      window.location.href = "/advertisement/view/" + item.advertisementID;
+    };
     const buttonText = document.createElement("p");
     buttonText.innerText = "Tovább";
+
     const buttonImage = document.createElement("img");
     buttonImage.src = "/assets/images/icons/arrow-up-right.svg";
 

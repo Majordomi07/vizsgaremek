@@ -258,7 +258,7 @@
   justify-content: center;
 }
 
-.post .container main .right .contact-form form .cv .file label input[type="file"] {
+input[type="file"] {
   opacity: 0;
   display: none;
 }

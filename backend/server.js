@@ -33,6 +33,7 @@ router.get("/contact", sendPages.sendContactPage);
 router.get("/controlPanel/company", validateToken, sendPages.sendcontrolPanelCompanyPage);
 router.get("/controlPanel/advertisements", validateToken, sendPages.sendcontrolPanelAdvertisementsPage);
 router.get("/controlPanel/advertisement/edit/:id", validateToken, sendPages.sendcontrolPanelEditAdvertisementPage);
+router.get("/advertisement/view/:id", sendPages.sendAdvertisementViewPage);
 router.get("/register", sendPages.sendRegisterPage);
 router.get("/login", sendPages.sendLoginPage);
 
