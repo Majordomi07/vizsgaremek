@@ -47,16 +47,18 @@ document.addEventListener("DOMContentLoaded", () => {
 /* -------------------------------------------------------------------------- */
 
 document.addEventListener("DOMContentLoaded", function () {
+  function updateLabels(ranges, formId) {
+    var labels = document.querySelectorAll(`#${formId} label`);
+    ranges.forEach(function (range, index) {
+      labels[index].textContent = range;
+    });
+  }
+
   fetch("/advertisement/calculateWageRanges")
     .then((response) => response.json())
     .then((data) => {
-      function updateLabels(ranges) {
-        var labels = document.querySelectorAll("form label");
-        ranges.forEach(function (range, index) {
-          labels[index].textContent = range;
-        });
-      }
-      updateLabels(data.ranges);
+      updateLabels(data.ranges, "wageFilter");
+      updateLabels(data.ranges, "wageFilter2");
     })
     .catch((error) => console.error("Error fetching data:", error));
 });
@@ -85,8 +87,8 @@ document.addEventListener("DOMContentLoaded", function () {
   const showMoreButton = document.getElementById("show-more");
   const dataContainer = document.getElementById("advertisementsContainer");
   const keywordFilterInput = document.getElementById("keywordFilter");
-  const locationFilterSelect = document.getElementById("locationFilter");
-  const categoryFilterSelect = document.getElementById("categoryFilter");
+  const locationFilterSelect = document.querySelectorAll("#locationFilter");
+  const categoryFilterSelect = document.querySelectorAll("#categoryFilter");
 
   let currentPage = 1;
   let hasMoreData = true;
@@ -233,26 +235,49 @@ document.addEventListener("DOMContentLoaded", function () {
     return post;
   }
 
-  function handleShowMore() {
-    currentPage++;
-    loadData(currentPage, keywordFilterInput.value, locationFilterSelect.value, categoryFilterSelect.value);
-  }
-
   showMoreButton.addEventListener("click", handleShowMore);
 
+  function handleShowMore() {
+    currentPage++;
+    const selectedCategoryValue = Array.from(categoryFilterSelect)
+      .map((inputField) => inputField.value)
+      .find((value) => value !== "Bármelyik kategória");
+
+    const selectedLocationValue = Array.from(locationFilterSelect)
+      .map((inputField) => inputField.value)
+      .find((value) => value !== "Bármely település");
+
+    loadData(currentPage, keywordFilterInput.value, selectedLocationValue, selectedCategoryValue);
+  }
+
   function handleFilterChange() {
-    console.log("lefut");
+    responsiveFilter();
+    const selectedCategoryValue = Array.from(categoryFilterSelect)
+      .map((inputField) => inputField.value)
+      .find((value) => value !== "Bármelyik kategória");
+
+    const selectedLocationValue = Array.from(locationFilterSelect)
+      .map((inputField) => inputField.value)
+      .find((value) => value !== "Bármely település");
+
+    console.log("Selected category:", selectedCategoryValue);
+    console.log("Selected location:", selectedLocationValue);
+
     currentPage = 1;
     hasMoreData = true;
     showMoreButton.style.display = "block";
     dataContainer.innerHTML = "";
-    loadData(currentPage, keywordFilterInput.value, locationFilterSelect.value, categoryFilterSelect.value);
+    loadData(currentPage, keywordFilterInput.value, selectedLocationValue, selectedCategoryValue);
     updateResult();
   }
 
   keywordFilterInput.addEventListener("input", handleFilterChange);
-  locationFilterSelect.addEventListener("change", handleFilterChange);
-  categoryFilterSelect.addEventListener("change", handleFilterChange);
+  locationFilterSelect.forEach((inputField) => {
+    inputField.addEventListener("change", handleFilterChange);
+  });
+  categoryFilterSelect.forEach((inputField) => {
+    inputField.addEventListener("change", handleFilterChange);
+  });
 
   var radioButtons = document.querySelectorAll('input[name="wage"]');
   radioButtons.forEach(function (radio) {
