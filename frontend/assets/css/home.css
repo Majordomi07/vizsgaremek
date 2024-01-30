@@ -624,6 +624,7 @@
   .posts {
     margin-top: 30px;
     overflow: hidden;
+    min-height: 600px;
   }
 
   .posts h2 {

@@ -89,13 +89,12 @@ document.addEventListener("DOMContentLoaded", function () {
   const keywordFilterInput = document.getElementById("keywordFilter");
   const locationFilterSelect = document.querySelectorAll("#locationFilter");
   const categoryFilterSelect = document.querySelectorAll("#categoryFilter");
+  const orderFilterSelect = document.querySelectorAll("#orderFilter");
 
   let currentPage = 1;
   let hasMoreData = true;
 
-  updateResult();
-
-  function loadData(page, keywordFilter, locationFilter, categoryFilter) {
+  function loadData(page, keywordFilter, locationFilter, categoryFilter, orderFilter) {
     if (!hasMoreData) {
       return;
     }
@@ -108,6 +107,7 @@ document.addEventListener("DOMContentLoaded", function () {
     if (categoryFilter && categoryFilter !== "Bármelyik kategória")
       filterParams.push(`&categoryFilter=${encodeURIComponent(categoryFilter)}`);
     if (wageFilter.length !== 0) filterParams.push(`&wageFilter=${encodeURIComponent(wageFilter)}`);
+    if (orderFilter) filterParams.push(`&orderFilter=${encodeURIComponent(orderFilter)}`);
 
     const url = `/advertisement/getAllAdvertisements?page=${page}${filterParams.join("")}`;
 
@@ -119,10 +119,15 @@ document.addEventListener("DOMContentLoaded", function () {
         return response.json();
       })
       .then((data) => {
-        renderData(data);
-        hasMoreData = data.length >= 4;
-        if (!hasMoreData) {
-          showMoreButton.style.display = "none";
+        if (data.results && data.totalCount !== undefined) {
+          renderData(data.results);
+          hasMoreData = data.results.length >= 4;
+          if (!hasMoreData) {
+            showMoreButton.style.display = "none";
+          }
+          document.getElementById("results").textContent = data.totalCount;
+        } else {
+          console.error("Invalid response format:", data);
         }
       })
       .catch((error) => console.error("Error fetching data:", error));
@@ -247,7 +252,11 @@ document.addEventListener("DOMContentLoaded", function () {
       .map((inputField) => inputField.value)
       .find((value) => value !== "Bármely település");
 
-    loadData(currentPage, keywordFilterInput.value, selectedLocationValue, selectedCategoryValue);
+    const selectedOrderValue = Array.from(orderFilterSelect)
+      .map((inputField) => inputField.value)
+      .find((value) => value !== "Legújabb");
+
+    loadData(currentPage, keywordFilterInput.value, selectedLocationValue, selectedCategoryValue, selectedOrderValue);
   }
 
   function handleFilterChange() {
@@ -260,22 +269,27 @@ document.addEventListener("DOMContentLoaded", function () {
       .map((inputField) => inputField.value)
       .find((value) => value !== "Bármely település");
 
-    console.log("Selected category:", selectedCategoryValue);
-    console.log("Selected location:", selectedLocationValue);
+    const selectedOrderValue = Array.from(orderFilterSelect)
+      .map((inputField) => inputField.value)
+      .find((value) => value !== "Legújabb");
 
     currentPage = 1;
     hasMoreData = true;
     showMoreButton.style.display = "block";
     dataContainer.innerHTML = "";
-    loadData(currentPage, keywordFilterInput.value, selectedLocationValue, selectedCategoryValue);
-    updateResult();
+    loadData(currentPage, keywordFilterInput.value, selectedLocationValue, selectedCategoryValue, selectedOrderValue);
   }
 
   keywordFilterInput.addEventListener("input", handleFilterChange);
   locationFilterSelect.forEach((inputField) => {
     inputField.addEventListener("change", handleFilterChange);
   });
+
   categoryFilterSelect.forEach((inputField) => {
+    inputField.addEventListener("change", handleFilterChange);
+  });
+
+  orderFilterSelect.forEach((inputField) => {
     inputField.addEventListener("change", handleFilterChange);
   });
 
@@ -288,31 +302,6 @@ document.addEventListener("DOMContentLoaded", function () {
       }
     });
   });
-
-  function updateResult() {
-    const wageFilter = updateRanges();
-
-    const filterParams = [];
-
-    if (keywordFilterInput.value) filterParams.push(`&keywordFilter=${encodeURIComponent(keywordFilterInput.value)}`);
-    if (locationFilterSelect.value && locationFilterSelect.value !== "Bármely település")
-      filterParams.push(`&locationFilter=${encodeURIComponent(locationFilterSelect.value)}`);
-    if (categoryFilterSelect.value && categoryFilterSelect.value !== "Bármelyik kategória")
-      filterParams.push(`&categoryFilter=${encodeURIComponent(categoryFilterSelect.value)}`);
-    if (wageFilter.length !== 0) filterParams.push(`&wageFilter=${encodeURIComponent(wageFilter)}`);
-
-    fetch(`/advertisement/getTotalAdvertisementsCount?page=${currentPage}${filterParams.join("")}`)
-      .then((response) => {
-        if (!response.ok) {
-          throw new Error("Network response was not ok");
-        }
-        return response.json();
-      })
-      .then((data) => {
-        document.getElementById("results").textContent = data.totalRecords;
-      })
-      .catch((error) => console.error("Error fetching total records count:", error));
-  }
 
   loadData(currentPage);
 });

@@ -1,7 +1,7 @@
 const db = require("../db.js");
 
 const getAllAdvertisements = (req, res) => {
-  const { page = 1, keywordFilter, locationFilter, categoryFilter, wageFilter } = req.query;
+  const { page = 1, keywordFilter, locationFilter, categoryFilter, wageFilter, orderFilter } = req.query;
   const pageSize = 4;
   const offset = (page - 1) * pageSize;
 
@@ -9,8 +9,8 @@ const getAllAdvertisements = (req, res) => {
     var wageRanges = wageFilter.split(",");
   }
 
-  let query =
-    "SELECT * FROM advertisement INNER JOIN category on category.categoryID = advertisement.categoryID INNER JOIN companies on companies.companiesID = advertisement.companiesID";
+  let countQuery =
+    "SELECT COUNT(*) AS totalCount FROM advertisement INNER JOIN category on category.categoryID = advertisement.categoryID INNER JOIN companies on companies.companiesID = advertisement.companiesID";
 
   const filters = [];
 
@@ -22,19 +22,34 @@ const getAllAdvertisements = (req, res) => {
   }
 
   if (filters.length > 0) {
-    query += " WHERE " + filters.join(" AND ");
+    countQuery += " WHERE " + filters.join(" AND ");
   }
 
-  query += ` LIMIT ?, ?`;
+  db.query(countQuery, (countErr, countResults) => {
+    if (countErr) throw countErr;
 
-  db.query(query, [offset, pageSize + 1], (err, results) => {
-    if (err) throw err;
+    const totalCount = countResults[0].totalCount;
 
-    if (results.length > pageSize) {
-      results.pop();
+    let query =
+      "SELECT * FROM advertisement INNER JOIN category on category.categoryID = advertisement.categoryID INNER JOIN companies on companies.companiesID = advertisement.companiesID";
+
+    if (filters.length > 0) {
+      query += " WHERE " + filters.join(" AND ");
     }
 
-    res.json(results);
+    if (orderFilter == "Legtöbbet fizető") {
+      query += " ORDER BY wage DESC";
+    } else {
+      query += " ORDER BY createdAt DESC";
+    }
+
+    query += ` LIMIT ?, ?`;
+
+    db.query(query, [offset, pageSize], (err, results) => {
+      if (err) throw err;
+
+      res.json({ results, totalCount });
+    });
   });
 };
 
