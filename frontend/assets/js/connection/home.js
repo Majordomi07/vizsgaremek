@@ -60,7 +60,7 @@ document.addEventListener("DOMContentLoaded", function () {
       updateLabels(data.ranges, "wageFilter");
       updateLabels(data.ranges, "wageFilter2");
     })
-    .catch((error) => console.error("Error fetching data:", error));
+    .catch((error) => console.error("Hiba a fetch közben:", error));
 });
 
 function updateRanges() {
@@ -114,7 +114,7 @@ document.addEventListener("DOMContentLoaded", function () {
     fetch(url)
       .then((response) => {
         if (!response.ok) {
-          throw new Error("Network response was not ok");
+          throw new Error("Hiba");
         }
         return response.json();
       })
@@ -127,10 +127,10 @@ document.addEventListener("DOMContentLoaded", function () {
           }
           document.getElementById("results").textContent = data.totalCount;
         } else {
-          console.error("Invalid response format:", data);
+          console.error("Hibás válasz form:", data);
         }
       })
-      .catch((error) => console.error("Error fetching data:", error));
+      .catch((error) => console.error("Hiba a fetch közben:", error));
   }
 
   function renderData(data) {

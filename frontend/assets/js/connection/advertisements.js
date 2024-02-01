@@ -30,7 +30,7 @@ document.addEventListener("DOMContentLoaded", () => {
     })
       .then((response) => {
         if (!response.ok) {
-          throw new Error(`Network response was not ok: ${response.statusText}`);
+          throw new Error(`Rossz válasz: ${response.statusText}`);
         }
         return response.json();
       })
@@ -39,7 +39,7 @@ document.addEventListener("DOMContentLoaded", () => {
         window.location.href = `/controlPanel/advertisement/edit/${advertisementID}`;
       })
       .catch((error) => {
-        console.error("Fetch error:", error);
+        console.error("Hiba a fetch közben:", error);
       });
   });
 });

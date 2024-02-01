@@ -4,8 +4,8 @@ const calculateWageRanges = (req, res) => {
   const query = "SELECT wage FROM advertisement";
   db.query(query, (err, rows) => {
     if (err) {
-      console.error("Database query failed:", err.message);
-      return res.status(500).json({ error: "Internal Server Error" });
+      console.error("Adatbázis hiba:", err.message);
+      return res.status(500).json({ error: "Szerver hiba" });
     }
 
     const wages = rows.map((row) => row.wage);

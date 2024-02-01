@@ -8,7 +8,7 @@ const getCompany = async (req, res) => {
   db.query(query, [userID], (error, results) => {
     if (error) {
       console.error("Hiba a lekérdezés során:", error);
-      res.status(500).json({ error: "Internal Server Error" });
+      res.status(500).json({ error: "Szerver hiba" });
     } else {
       res.json(results);
     }
