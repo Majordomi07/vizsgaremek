@@ -1,3 +1,7 @@
+/* -------------------------------------------------------------------------- */
+/*                                   Content                                  */
+/* -------------------------------------------------------------------------- */
+
 document.addEventListener("DOMContentLoaded", () => {
   const currentPath = window.location.pathname;
   const idIndex = currentPath.lastIndexOf("/") + 1;
@@ -254,4 +258,14 @@ function advertisementAppear(data) {
   container.appendChild(main);
 
   postSection.appendChild(container);
+
+  fetch("/auth/logged-in")
+    .then((response) => {
+      if (response.ok) {
+        document.querySelector(".contact-form").style.display = "block";
+      } else {
+        document.querySelector(".contact-form").style.display = "none";
+      }
+    })
+    .catch((error) => console.error("Hiba a fetch kérés során:", error));
 }

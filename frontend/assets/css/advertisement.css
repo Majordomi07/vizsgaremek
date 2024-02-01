@@ -138,8 +138,8 @@
 }
 
 .post .container main .right .company img {
-  width: 50%;
-  margin-top: 30px;
+  height: 100px;
+  margin-top: 10px;
 }
 
 .post .container main .right .company h4 {
@@ -159,7 +159,7 @@
 
   margin-top: 15px;
   width: 100%;
-  margin-bottom: 20px;
+  margin-bottom: 0px;
 }
 
 .post .container main .right .contact-form {
