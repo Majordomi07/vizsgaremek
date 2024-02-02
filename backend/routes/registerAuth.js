@@ -21,7 +21,9 @@ const registerValidation = [
     .isLength({ min: 8 })
     .withMessage("A jelszónak legalább 8 karakterből kell állnia.")
     .matches(/[\W_]/)
-    .withMessage("A jelszónak tartalmaznia kell legalább egy speciális karaktert."),
+    .withMessage(
+      "A jelszónak tartalmaznia kell legalább egy speciális karaktert."
+    ),
 
   check("passwordAgain")
     .notEmpty()
@@ -33,7 +35,9 @@ const registerValidation = [
       return true;
     }),
 
-  check("firstname").notEmpty().withMessage("A keresztnév mező nem lehet üres."),
+  check("firstname")
+    .notEmpty()
+    .withMessage("A keresztnév mező nem lehet üres."),
 
   check("lastname").notEmpty().withMessage("A vezetéknév mező nem lehet üres."),
 
@@ -94,7 +98,14 @@ const registerUser = async (req, res) => {
     return res.status(400).json({ error: errors.array() });
   }
 
-  const { email, password, firstname, lastname, companyName, companyDescription } = req.body;
+  const {
+    email,
+    password,
+    firstname,
+    lastname,
+    companyName,
+    companyDescription,
+  } = req.body;
 
   const saltRounds = 10;
   const hashedPassword = await bcrypt.hash(password, saltRounds);
@@ -104,21 +115,34 @@ const registerUser = async (req, res) => {
     companyLogo = req.file.filename;
   }
 
-  const query = "INSERT INTO users (email, password, firstName, lastName) VALUES (?, ?, ?, ?);";
-  db.query(query, [email, hashedPassword, firstname, lastname], (err, result) => {
-    if (err) {
-      console.error("Hiba a regisztráció során:", err);
-      res.status(500).json({ error: "Hiba történt a regisztráció során: " + err.message });
-    } else {
-      const userID = result.insertId;
+  const query =
+    "INSERT INTO users (email, password, firstName, lastName) VALUES (?, ?, ?, ?);";
+  db.query(
+    query,
+    [email, hashedPassword, firstname, lastname],
+    (err, result) => {
+      if (err) {
+        console.error("Hiba a regisztráció során:", err);
+        res
+          .status(500)
+          .json({ error: "Hiba történt a regisztráció során: " + err.message });
+      } else {
+        const userID = result.insertId;
 
-      if (req.body.company == "true") {
-        const query = "INSERT INTO companies(name, logo, description, userID) VALUES (?, ?, ?, ?);";
-        db.query(query, [companyName, companyLogo, companyDescription, userID]);
+        if (req.body.company == "true") {
+          const query =
+            "INSERT INTO companies(name, logo, description, userID) VALUES (?, ?, ?, ?);";
+          db.query(query, [
+            companyName,
+            companyLogo,
+            companyDescription,
+            userID,
+          ]);
+        }
+        res.json({ message: "Sikeres regisztráció." });
       }
-      res.json({ message: "Sikeres regisztráció." });
     }
-  });
+  );
 };
 
 module.exports = {

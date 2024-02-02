@@ -14,7 +14,13 @@ app.use(bodyParser.json());
 
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
-    cb(null, path.join(__dirname, "../frontend/assets/images/uploads/logos"));
+    if (file.fieldname === "cvFile") {
+      cb(null, path.join(__dirname, "../frontend/assets/uploads/cv"));
+    } else if (file.fieldname === "mlFile") {
+      cb(null, path.join(__dirname, "../frontend/assets/uploads/ml"));
+    } else if (file.fieldname === "companyLogo") {
+      cb(null, path.join(__dirname, "../frontend/assets/images/uploads/logos"));
+    }
   },
   filename: function (req, file, cb) {
     cb(null, Date.now() + "-" + file.originalname);
@@ -116,6 +122,10 @@ app.get("/auth/logout", validateToken, loginAuth.logoutUser);
 const contactForm = require("./routes/contactForm.js");
 app.post(
   "/contactForm",
+  upload.fields([
+    { name: "cvFile", maxCount: 1 },
+    { name: "mlFile", maxCount: 1 },
+  ]),
   validateToken,
   contactForm.formValidation,
   contactForm.sendForm

@@ -120,6 +120,7 @@ function advertisementAppear(data) {
 
   const form = document.createElement("form");
   form.id = "contactForm";
+  form.enctype = "multipart/form-data";
 
   const messageDiv = document.createElement("div");
   messageDiv.className = "message";
@@ -174,7 +175,7 @@ function advertisementAppear(data) {
   const cvError = document.createElement("p");
   cvError.textContent = "";
   cvError.className = "error";
-  cvError.id = "cvError";
+  cvError.id = "cvFileError";
   cvDiv.appendChild(cvError);
   form.appendChild(cvDiv);
 
@@ -210,7 +211,7 @@ function advertisementAppear(data) {
   const mlError = document.createElement("p");
   mlError.textContent = "";
   mlError.className = "error";
-  mlError.id = "mlError";
+  mlError.id = "mlFileError";
   mlDiv.appendChild(mlError);
   form.appendChild(mlDiv);
 
@@ -320,25 +321,35 @@ document.addEventListener("DOMContentLoaded", () => {
 
       clearErrors();
 
-      const message = document.getElementById("message").value;
+      const formData = new FormData();
+      formData.append("message", document.getElementById("message").value);
+      formData.append(
+        "adatvedelmi",
+        document.getElementById("adatvedelmi").checked
+      );
+
       const cvFile = document.getElementById("cvInput").files[0];
       const mlFile = document.getElementById("mlInput").files[0];
-      const policy = document.getElementById("adatvedelmi").checked;
+
+      if (cvFile) {
+        formData.append("cvFile", cvFile);
+      }
+
+      if (mlFile) {
+        formData.append("mlFile", mlFile);
+      }
 
       const response = await fetch("/contactForm", {
         method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ message, cvFile, mlFile, policy }),
+        body: formData,
       });
 
       const data = await response.json();
 
       if (response.ok) {
-        console.log("jo minden" + data);
+        console.log("Minden rendben", data);
       } else {
-        console.log("baj");
+        console.log("Hiba történt", data.error);
         displayErrors(data.error);
       }
     });

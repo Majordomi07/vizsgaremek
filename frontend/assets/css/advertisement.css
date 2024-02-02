@@ -389,15 +389,9 @@ input[type="file"] {
   text-align: left !important;
 }
 
-#messageError {
-  margin: 0;
-}
-
-#mlError {
-  margin: 0;
-}
-
-#cvError {
+#messageError,
+#mlFileError,
+#cvFileError {
   margin: 0;
 }
 

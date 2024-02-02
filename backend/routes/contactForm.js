@@ -6,6 +6,27 @@ const { createTokens, validateToken } = require("../jwt.js");
 
 const formValidation = [
   check("message").notEmpty().withMessage("Az üzenet mező nem lehet üres."),
+
+  check("adatvedelmi").custom((value, { req }) => {
+    if (req.body.adatvedelmi == "false") {
+      throw new Error("El kell fogadni az adatvédelmi nyilatkozatot.");
+    }
+    return true;
+  }),
+
+  check("cvFile").custom((value, { req }) => {
+    if (!req.files.cvFile) {
+      throw new Error("Önéletrajz feltöltése kötelező!");
+    }
+    return true;
+  }),
+
+  check("mlFile").custom((value, { req }) => {
+    if (!req.files.mlFile) {
+      throw new Error("Motivációs levél feltöltése kötelező!");
+    }
+    return true;
+  }),
 ];
 
 const sendForm = async (req, res) => {
@@ -16,8 +37,6 @@ const sendForm = async (req, res) => {
   }
 
   const { message } = req.body;
-
-  console.log(message);
 };
 
 module.exports = {
