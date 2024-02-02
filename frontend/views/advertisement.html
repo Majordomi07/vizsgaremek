@@ -29,7 +29,9 @@
         <h3>Kezelőfelület hiba</h3>
       </div>
       <div class="bottom">
-        <p>Nem cégként regisztráltál, így számodra nem elérhető a kezelőfelület.</p>
+        <p>
+          Nem cégként regisztráltál, így számodra nem elérhető a kezelőfelület.
+        </p>
       </div>
     </div>
 
@@ -91,17 +93,19 @@
       <div class="container">
         <h2>Mestercukrász</h2>
         <p>
-          Cégünk, a Desszert Neked, elismert és népszerű sütemények és desszertek specialistája, mestercukrászt keres
-          csapatunk bővítésére.
+          Cégünk, a Desszert Neked, elismert és népszerű sütemények és
+          desszertek specialistája, mestercukrászt keres csapatunk bővítésére.
         </p>
         <main>
           <div class="left">
             <div class="general-info">
               <h3>Általános információ</h3>
               <p>
-                Cégünk, a Desszert neked, elismert és népszerű sütemények és desszertek specialistája, mestercukrászt
-                keres csapatunk bővítésére. A sikeres pályázó felelős lesz a kiváló minőségű és kreatív sütemények,
-                torták és desszertek elkészítéséért, amelyek elkápráztatják és örömet szereznek ügyfeleinknek.
+                Cégünk, a Desszert neked, elismert és népszerű sütemények és
+                desszertek specialistája, mestercukrászt keres csapatunk
+                bővítésére. A sikeres pályázó felelős lesz a kiváló minőségű és
+                kreatív sütemények, torták és desszertek elkészítéséért, amelyek
+                elkápráztatják és örömet szereznek ügyfeleinknek.
               </p>
               <div class="widget">
                 <div class="location">
@@ -117,21 +121,37 @@
             <div class="requirements">
               <h3>Elvárások</h3>
               <ul>
-                <li>Tapasztalat: Legalább 5 év tapasztalat mestercukrászként.</li>
-                <li>Kreativitás: Képesség az egyedi és különleges sütemények tervezésére és elkészítésére.</li>
                 <li>
-                  Szakmai ismeretek: Mélyreható ismeretek a cukrászkodás minden területén, beleértve a fondant és
-                  marcipán kezelését is.
+                  Tapasztalat: Legalább 5 év tapasztalat mestercukrászként.
                 </li>
-                <li>Pontosság: Precíz munkavégzés és részletekre való odafigyelés.</li>
+                <li>
+                  Kreativitás: Képesség az egyedi és különleges sütemények
+                  tervezésére és elkészítésére.
+                </li>
+                <li>
+                  Szakmai ismeretek: Mélyreható ismeretek a cukrászkodás minden
+                  területén, beleértve a fondant és marcipán kezelését is.
+                </li>
+                <li>
+                  Pontosság: Precíz munkavégzés és részletekre való odafigyelés.
+                </li>
               </ul>
             </div>
             <div class="benefits">
               <h3>Juttatások</h3>
               <ul>
-                <li>Szakmai fejlődés: Lehetőség új technikák és trendek elsajátítására a mestercukrászként.</li>
-                <li>Kreatív szabadság: Lehetőség új desszertek és sütemények kifejlesztésére és prezentálására.</li>
-                <li>Rugalmas munkaidő: A munkaidő beosztása megegyezés szerint alakítható ki.</li>
+                <li>
+                  Szakmai fejlődés: Lehetőség új technikák és trendek
+                  elsajátítására a mestercukrászként.
+                </li>
+                <li>
+                  Kreatív szabadság: Lehetőség új desszertek és sütemények
+                  kifejlesztésére és prezentálására.
+                </li>
+                <li>
+                  Rugalmas munkaidő: A munkaidő beosztása megegyezés szerint
+                  alakítható ki.
+                </li>
               </ul>
             </div>
           </div>
@@ -141,8 +161,9 @@
               <img src="/assets/images/logos/desszertneked.png" />
               <h4>Desszert Neked Kft.</h4>
               <p>
-                Cégünk alapelve, hogy minden édes vágyadat valóra váltsuk, legyen szó tortákról, süteményekről vagy
-                egyedi különlegességekről.
+                Cégünk alapelve, hogy minden édes vágyadat valóra váltsuk,
+                legyen szó tortákról, süteményekről vagy egyedi
+                különlegességekről.
               </p>
             </div>
             <div class="contact-form">
@@ -150,7 +171,12 @@
               <form>
                 <div class="message">
                   <label for="">Üzenet:</label>
-                  <textarea name="message" placeholder="Üzenet" rows="6"></textarea>
+                  <textarea
+                    name="message"
+                    placeholder="Üzenet"
+                    rows="6"
+                  ></textarea>
+                  <p id="messageError" class="error">Hiba</p>
                 </div>
                 <div class="cv">
                   <p>Önéletrajz:</p>
@@ -158,9 +184,14 @@
                     <p id="cvFileName">Nincs kiválasztva</p>
                     <label for="cvInput">
                       Tallózás
-                      <input type="file" id="cvInput" accept="application/pdf" />
+                      <input
+                        type="file"
+                        id="cvInputElement"
+                        accept="application/pdf"
+                      />
                     </label>
                   </div>
+                  <p id="cvError" class="error">Hiba</p>
                 </div>
                 <div class="motivationLetter">
                   <p>Motivációs levél:</p>
@@ -168,17 +199,27 @@
                     <p id="mlFileName">Nincs kiválasztva</p>
                     <label for="mlInput">
                       Tallózás
-                      <input type="file" id="mlInput" accept="application/pdf" />
+                      <input
+                        type="file"
+                        id="mlInputElement"
+                        accept="application/pdf"
+                      />
                     </label>
                   </div>
+                  <p id="mlError" class="error">Hiba</p>
                 </div>
                 <div class="adatvedelmi">
-                  <label class="checkbox">
-                    <input type="checkbox" id="adatvedelem" />
-                  </label>
-                  <p>Elolvastam és elfogadom az <br />adatvédelmi nyilatkozatot</p>
+                  <div>
+                    <label class="checkbox">
+                      <input type="checkbox" id="adatvedelem" />
+                    </label>
+                    <p>
+                      Elolvastam és elfogadom az <br />adatvédelmi nyilatkozatot
+                    </p>
+                  </div>
+                  <p id="adatvedelmiError" class="error">Hiba</p>
                 </div>
-                <button>
+                <button type="submit">
                   <p>Küldés</p>
                   <img src="/assets/images/icons/send-icon.svg" />
                 </button>
@@ -186,7 +227,6 @@
             </div>
           </div>
         </main>
-      </div>
       -->
     </section>
 
@@ -202,8 +242,9 @@
               <img src="/assets/images/logo-white.svg" />
             </a>
             <p>
-              Az álláshírdetési platformok számos előnnyel járnak az állást keresők és munkaadók számára. Ezek a
-              platformok gyors és kényelmes módját.
+              Az álláshírdetési platformok számos előnnyel járnak az állást
+              keresők és munkaadók számára. Ezek a platformok gyors és kényelmes
+              módját.
             </p>
           </div>
           <div class="nav">

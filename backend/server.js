@@ -30,9 +30,21 @@ const sendPages = require("./routes/sendPages.js");
 router.get("/", sendPages.sendHomePage);
 router.get("/home", sendPages.redirectHomePage);
 router.get("/contact", sendPages.sendContactPage);
-router.get("/controlPanel/company", validateToken, sendPages.sendcontrolPanelCompanyPage);
-router.get("/controlPanel/advertisements", validateToken, sendPages.sendcontrolPanelAdvertisementsPage);
-router.get("/controlPanel/advertisement/edit/:id", validateToken, sendPages.sendcontrolPanelEditAdvertisementPage);
+router.get(
+  "/controlPanel/company",
+  validateToken,
+  sendPages.sendcontrolPanelCompanyPage
+);
+router.get(
+  "/controlPanel/advertisements",
+  validateToken,
+  sendPages.sendcontrolPanelAdvertisementsPage
+);
+router.get(
+  "/controlPanel/advertisement/edit/:id",
+  validateToken,
+  sendPages.sendcontrolPanelEditAdvertisementPage
+);
 router.get("/advertisement/view/:id", sendPages.sendAdvertisementViewPage);
 router.get("/register", sendPages.sendRegisterPage);
 router.get("/login", sendPages.sendLoginPage);
@@ -44,7 +56,11 @@ const { getAllAdvertisements } = require("./routes/getAllAdvertisements.js");
 app.get("/advertisement/getAllAdvertisements", getAllAdvertisements);
 
 const { editVerification } = require("./routes/editVerification.js");
-app.get("/advertisement/edit-verification/:id", validateToken, editVerification);
+app.get(
+  "/advertisement/edit-verification/:id",
+  validateToken,
+  editVerification
+);
 
 const { getAllCategories } = require("./routes/getAllCategories.js");
 app.get("/advertisement/allCategories", getAllCategories);
@@ -61,26 +77,57 @@ app.get("/advertisement/calculateWageRanges", calculateWageRanges);
 const { createAdvertisement } = require("./routes/createAdvertisement.js");
 app.post("/advertisement/create-new", validateToken, createAdvertisement);
 
-const { saveValidation, saveAdvertisement } = require("./routes/saveAdvertisement.js");
-app.post("/advertisement/save/:id", validateToken, saveValidation, saveAdvertisement);
+const {
+  saveValidation,
+  saveAdvertisement,
+} = require("./routes/saveAdvertisement.js");
+app.post(
+  "/advertisement/save/:id",
+  validateToken,
+  saveValidation,
+  saveAdvertisement
+);
 
 const { deleteAdvertisement } = require("./routes/deleteAdvertisement.js");
 app.post("/advertisement/delete/:id", validateToken, deleteAdvertisement);
 
-const { getByCompanyAdvertisement } = require("./routes/getByCompanyAdvertisement.js");
-app.get("/advertisement/getByCompanyAdvertisement", validateToken, getByCompanyAdvertisement);
+const {
+  getByCompanyAdvertisement,
+} = require("./routes/getByCompanyAdvertisement.js");
+app.get(
+  "/advertisement/getByCompanyAdvertisement",
+  validateToken,
+  getByCompanyAdvertisement
+);
 
 const registerAuth = require("./routes/registerAuth.js");
-app.post("/auth/register", upload.single("companyLogo"), registerAuth.registerValidation, registerAuth.registerUser);
+app.post(
+  "/auth/register",
+  upload.single("companyLogo"),
+  registerAuth.registerValidation,
+  registerAuth.registerUser
+);
 
 const loginAuth = require("./routes/loginAuth.js");
 app.post("/auth/login", loginAuth.loginValidation, loginAuth.loginUser);
 app.get("/auth/logged-in", validateToken, loginAuth.loggedinUser);
 app.get("/auth/logout", validateToken, loginAuth.logoutUser);
 
+const contactForm = require("./routes/contactForm.js");
+app.post(
+  "/contactForm",
+  validateToken,
+  contactForm.formValidation,
+  contactForm.sendForm
+);
+
 const { getCompany, registeredCompany } = require("./routes/getCompany.js");
 app.get("/controlPanel/company/info", validateToken, getCompany);
-app.get("/controlPanel/company/registered-company", validateToken, registeredCompany);
+app.get(
+  "/controlPanel/company/registered-company",
+  validateToken,
+  registeredCompany
+);
 
 //Szerver
 

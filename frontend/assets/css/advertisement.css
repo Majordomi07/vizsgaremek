@@ -267,7 +267,7 @@ input[type="file"] {
   display: flex;
   flex-direction: column;
 
-  margin-bottom: 30px;
+  margin-bottom: 20px;
 }
 
 .post .container main .right .contact-form form .motivationLetter p {
@@ -315,7 +315,16 @@ input[type="file"] {
   justify-content: center;
 }
 
-.post .container main .right .contact-form form .motivationLetter .file label input[type="file"] {
+.post
+  .container
+  main
+  .right
+  .contact-form
+  form
+  .motivationLetter
+  .file
+  label
+  input[type="file"] {
   opacity: 0;
   display: none;
 }
@@ -323,7 +332,11 @@ input[type="file"] {
 .post .container main .right .contact-form form .adatvedelmi {
   margin-bottom: 20px;
   display: flex;
-  align-items: center;
+  flex-direction: column;
+}
+
+.post .container main .right .contact-form form .adatvedelmi div {
+  display: flex;
   gap: 10px;
 }
 
@@ -366,6 +379,26 @@ input[type="file"] {
   font-family: "Sailec Medium";
   margin: 0;
   padding: 0;
+}
+
+.error {
+  color: #f44336 !important;
+  font-size: 15px !important;
+  font-family: "Inter" !important;
+  margin-top: 5px !important;
+  text-align: left !important;
+}
+
+#messageError {
+  margin: 0;
+}
+
+#mlError {
+  margin: 0;
+}
+
+#cvError {
+  margin: 0;
 }
 
 /* -------------------------------------------------------------------------- */
@@ -492,12 +525,19 @@ footer {
   }
 
   .post .container main .right .contact-form form .cv .file label,
-  .post .container main .right .contact-form form .motivationLetter .file label {
+  .post
+    .container
+    main
+    .right
+    .contact-form
+    form
+    .motivationLetter
+    .file
+    label {
     font-size: 12px;
   }
 
   .post .container main .right .contact-form form .adatvedelmi {
-    gap: 6px;
     margin-top: 10px;
   }
 
@@ -525,5 +565,9 @@ footer {
 
   footer {
     margin-top: 50px;
+  }
+
+  .error {
+    font-size: 10px !important;
   }
 }

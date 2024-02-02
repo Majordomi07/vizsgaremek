@@ -12,7 +12,9 @@ document.addEventListener("DOMContentLoaded", () => {
     .then((data) => {
       advertisementAppear(data);
     })
-    .catch((error) => console.error("Hiba a fetch kérés során:", error));
+    .catch((error) => {
+      console.error("Hiba a fetch kérés során:", error);
+    });
 });
 
 function advertisementAppear(data) {
@@ -117,6 +119,7 @@ function advertisementAppear(data) {
   contactFormHeading.textContent = "Kapcsolatfelvétel";
 
   const form = document.createElement("form");
+  form.id = "contactForm";
 
   const messageDiv = document.createElement("div");
   messageDiv.className = "message";
@@ -126,11 +129,18 @@ function advertisementAppear(data) {
 
   const messageTextarea = document.createElement("textarea");
   messageTextarea.name = "message";
+  messageTextarea.id = "message";
   messageTextarea.placeholder = "Üzenet";
   messageTextarea.rows = "6";
 
   messageDiv.appendChild(messageLabel);
   messageDiv.appendChild(messageTextarea);
+  const errorMessage = document.createElement("p");
+  errorMessage.textContent = "";
+  errorMessage.className = "error";
+  errorMessage.id = "messageError";
+  messageDiv.appendChild(errorMessage);
+  form.appendChild(messageDiv);
 
   const cvDiv = document.createElement("div");
   cvDiv.className = "cv";
@@ -149,17 +159,24 @@ function advertisementAppear(data) {
   cvInputLabel.htmlFor = "cvInput";
   cvInputLabel.textContent = "Tallózás";
 
-  const cvInput = document.createElement("input");
-  cvInput.type = "file";
-  cvInput.id = "cvInput";
-  cvInput.accept = "application/pdf";
+  const cvInputElement = document.createElement("input");
+  cvInputElement.type = "file";
+  cvInputElement.id = "cvInput";
+  cvInputElement.name = "cvInput";
+  cvInputElement.accept = "application/pdf";
 
   cvFileDiv.appendChild(cvFileNameParagraph);
   cvFileDiv.appendChild(cvInputLabel);
-  cvFileDiv.appendChild(cvInput);
+  cvFileDiv.appendChild(cvInputElement);
 
   cvDiv.appendChild(cvLabel);
   cvDiv.appendChild(cvFileDiv);
+  const cvError = document.createElement("p");
+  cvError.textContent = "";
+  cvError.className = "error";
+  cvError.id = "cvError";
+  cvDiv.appendChild(cvError);
+  form.appendChild(cvDiv);
 
   const mlDiv = document.createElement("div");
   mlDiv.className = "motivationLetter";
@@ -178,34 +195,57 @@ function advertisementAppear(data) {
   mlInputLabel.htmlFor = "mlInput";
   mlInputLabel.textContent = "Tallózás";
 
-  const mlInput = document.createElement("input");
-  mlInput.type = "file";
-  mlInput.id = "mlInput";
-  mlInput.accept = "application/pdf";
+  const mlInputElement = document.createElement("input");
+  mlInputElement.type = "file";
+  mlInputElement.id = "mlInput";
+  mlInputElement.name = "mlInput";
+  mlInputElement.accept = "application/pdf";
 
   mlFileDiv.appendChild(mlFileNameParagraph);
   mlFileDiv.appendChild(mlInputLabel);
-  mlFileDiv.appendChild(mlInput);
+  mlFileDiv.appendChild(mlInputElement);
 
   mlDiv.appendChild(mlLabel);
   mlDiv.appendChild(mlFileDiv);
+  const mlError = document.createElement("p");
+  mlError.textContent = "";
+  mlError.className = "error";
+  mlError.id = "mlError";
+  mlDiv.appendChild(mlError);
+  form.appendChild(mlDiv);
 
   const adatvedelmiDiv = document.createElement("div");
   adatvedelmiDiv.className = "adatvedelmi";
 
+  // Külön div az adatvédelmi input és az első p számára
+  const adatvedelmiInputDiv = document.createElement("div");
+
   const checkboxLabel = document.createElement("label");
   checkboxLabel.className = "checkbox";
 
-  const adatvedelemInput = document.createElement("input");
-  adatvedelemInput.type = "checkbox";
-  adatvedelemInput.id = "adatvedelem";
+  const adatvedelmiInput = document.createElement("input");
+  adatvedelmiInput.type = "checkbox";
+  adatvedelmiInput.id = "adatvedelmi";
+  adatvedelmiInput.name = "adatvedelmi";
 
-  const adatvedelemParagraph = document.createElement("p");
-  adatvedelemParagraph.textContent = "Elolvastam és elfogadom az adatvédelmi nyilatkozatot";
+  const adatvedelmiParagraph = document.createElement("p");
+  adatvedelmiParagraph.textContent =
+    "Elolvastam és elfogadom az adatvédelmi nyilatkozatot";
 
-  checkboxLabel.appendChild(adatvedelemInput);
-  adatvedelmiDiv.appendChild(checkboxLabel);
-  adatvedelmiDiv.appendChild(adatvedelemParagraph);
+  checkboxLabel.appendChild(adatvedelmiInput);
+  adatvedelmiInputDiv.appendChild(checkboxLabel);
+  adatvedelmiInputDiv.appendChild(adatvedelmiParagraph);
+
+  const adatvedelmiError = document.createElement("p");
+  adatvedelmiError.textContent = "";
+  adatvedelmiError.className = "error";
+  adatvedelmiError.id = "adatvedelmiError";
+
+  // Hozzáadás az adatvédelmi div-hez
+  adatvedelmiDiv.appendChild(adatvedelmiInputDiv);
+  adatvedelmiDiv.appendChild(adatvedelmiError);
+
+  form.appendChild(adatvedelmiDiv);
 
   const sendButton = document.createElement("button");
 
@@ -217,11 +257,6 @@ function advertisementAppear(data) {
 
   sendButton.appendChild(sendButtonTextParagraph);
   sendButton.appendChild(sendButtonImage);
-
-  form.appendChild(messageDiv);
-  form.appendChild(cvDiv);
-  form.appendChild(mlDiv);
-  form.appendChild(adatvedelmiDiv);
   form.appendChild(sendButton);
 
   rightDiv.appendChild(companyDiv);
@@ -267,5 +302,63 @@ function advertisementAppear(data) {
         document.querySelector(".contact-form").style.display = "none";
       }
     })
-    .catch((error) => console.error("Hiba a fetch kérés során:", error));
+    .catch((error) => {
+      console.error("Hiba a fetch kérés során:", error);
+    });
 }
+
+/* -------------------------------------------------------------------------- */
+/*                                Contact form                                */
+/* -------------------------------------------------------------------------- */
+
+document.addEventListener("DOMContentLoaded", () => {
+  setTimeout(function () {
+    const contactForm = document.getElementById("contactForm");
+
+    contactForm.addEventListener("submit", async (event) => {
+      event.preventDefault();
+
+      clearErrors();
+
+      const message = document.getElementById("message").value;
+      const cvFile = document.getElementById("cvInput").files[0];
+      const mlFile = document.getElementById("mlInput").files[0];
+      const policy = document.getElementById("adatvedelmi").checked;
+
+      const response = await fetch("/contactForm", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ message, cvFile, mlFile, policy }),
+      });
+
+      const data = await response.json();
+
+      if (response.ok) {
+        console.log("jo minden" + data);
+      } else {
+        console.log("baj");
+        displayErrors(data.error);
+      }
+    });
+
+    function clearErrors() {
+      const errorElements = document.querySelectorAll("#contactForm .error");
+      errorElements.forEach((element) => {
+        element.textContent = "";
+      });
+    }
+
+    const displayErrors = (errors) => {
+      if (Array.isArray(errors)) {
+        errors.forEach((error) => {
+          const errorField = document.getElementById(`${error.path}Error`);
+          if (errorField) {
+            errorField.textContent = error.msg;
+          }
+        });
+      }
+    };
+  }, 100);
+});
