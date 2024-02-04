@@ -315,16 +315,7 @@ input[type="file"] {
   justify-content: center;
 }
 
-.post
-  .container
-  main
-  .right
-  .contact-form
-  form
-  .motivationLetter
-  .file
-  label
-  input[type="file"] {
+.post .container main .right .contact-form form .motivationLetter .file label input[type="file"] {
   opacity: 0;
   display: none;
 }
@@ -519,15 +510,7 @@ footer {
   }
 
   .post .container main .right .contact-form form .cv .file label,
-  .post
-    .container
-    main
-    .right
-    .contact-form
-    form
-    .motivationLetter
-    .file
-    label {
+  .post .container main .right .contact-form form .motivationLetter .file label {
     font-size: 12px;
   }
 

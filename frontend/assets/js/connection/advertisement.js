@@ -230,8 +230,7 @@ function advertisementAppear(data) {
   adatvedelmiInput.name = "adatvedelmi";
 
   const adatvedelmiParagraph = document.createElement("p");
-  adatvedelmiParagraph.textContent =
-    "Elolvastam és elfogadom az adatvédelmi nyilatkozatot";
+  adatvedelmiParagraph.textContent = "Elolvastam és elfogadom az adatvédelmi nyilatkozatot";
 
   checkboxLabel.appendChild(adatvedelmiInput);
   adatvedelmiInputDiv.appendChild(checkboxLabel);
@@ -323,10 +322,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
       const formData = new FormData();
       formData.append("message", document.getElementById("message").value);
-      formData.append(
-        "adatvedelmi",
-        document.getElementById("adatvedelmi").checked
-      );
+      formData.append("adatvedelmi", document.getElementById("adatvedelmi").checked);
 
       const cvFile = document.getElementById("cvInput").files[0];
       const mlFile = document.getElementById("mlInput").files[0];
@@ -347,9 +343,11 @@ document.addEventListener("DOMContentLoaded", () => {
       const data = await response.json();
 
       if (response.ok) {
-        console.log("Minden rendben", data);
+        console.log("itt vagyok");
+        contactForm.reset();
+        popupsuccessfulContact();
       } else {
-        console.log("Hiba történt", data.error);
+        console.log("itt vagyok");
         displayErrors(data.error);
       }
     });
