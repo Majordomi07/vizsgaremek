@@ -138,9 +138,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         if (response.ok) {
           try {
-            const response = await fetch(
-              "/controlPanel/company/registered-company"
-            );
+            const response = await fetch("/controlPanel/company/registered-company");
             const data = await response.json();
 
             if (data.userExists) {

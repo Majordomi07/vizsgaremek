@@ -230,8 +230,7 @@ function advertisementAppear(data) {
   adatvedelmiInput.name = "adatvedelmi";
 
   const adatvedelmiParagraph = document.createElement("p");
-  adatvedelmiParagraph.textContent =
-    "Elolvastam és elfogadom az adatvédelmi nyilatkozatot";
+  adatvedelmiParagraph.textContent = "Elolvastam és elfogadom az adatvédelmi nyilatkozatot";
 
   checkboxLabel.appendChild(adatvedelmiInput);
   adatvedelmiInputDiv.appendChild(checkboxLabel);
@@ -323,10 +322,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
       const formData = new FormData();
       formData.append("message", document.getElementById("message").value);
-      formData.append(
-        "adatvedelmi",
-        document.getElementById("adatvedelmi").checked
-      );
+      formData.append("adatvedelmi", document.getElementById("adatvedelmi").checked);
 
       const cvFile = document.getElementById("cvInput").files[0];
       const mlFile = document.getElementById("mlInput").files[0];
@@ -339,19 +335,27 @@ document.addEventListener("DOMContentLoaded", () => {
         formData.append("mlFile", mlFile);
       }
 
-      const response = await fetch("/contactForm", {
+      const currentPath = window.location.pathname;
+      const idIndex = currentPath.lastIndexOf("/") + 1;
+      const advertisementID = currentPath.substring(idIndex);
+
+      const response = await fetch("/contactForm/" + advertisementID, {
         method: "POST",
         body: formData,
       });
 
       const data = await response.json();
 
-      if (response.ok) {
+      if (response.status == 200) {
         contactForm.reset();
         resetFileUpload();
         popupsuccessfulContact();
-      } else {
+      } else if (response.status == 400) {
         displayErrors(data.error);
+      } else if (response.status == 500) {
+        contactForm.reset();
+        resetFileUpload();
+        popupcontactError();
       }
     });
 

@@ -39,30 +39,51 @@ const sendForm = async (req, res) => {
 
   const { message } = req.body;
 
-  var transporter = nodemailer.createTransport({
-    service: "gmail",
-    auth: {
-      user: "ujmelokft@gmail.com",
-      pass: "keyx xpvg magg yroh",
-    },
-  });
+  let advertisementID = req.params.id;
+  let userID = req.user.userID;
+  let cv = req.files.cvFile[0].filename;
+  let ml = req.files.mlFile[0].filename;
 
-  var mailOptions = {
-    from: "ujmelokft@gmail.com",
-    to: "majordomi07@gmail.com",
-    subject: "Sending Email using Node.js",
-    text: "Kabd be a faszt " + message,
-  };
+  let query = "SELECT * FROM applications WHERE userID = ? AND advertisementID = ?";
+  db.query(query, [userID, advertisementID], (err, results) => {
+    if (results.length == 0) {
+      query = "INSERT INTO applications (userID, advertisementID, cv, motivation_letter) VALUES (?, ?, ?, ?)";
+      db.query(query, [userID, advertisementID, cv, ml]);
 
-  transporter.sendMail(mailOptions, function (error, info) {
-    if (error) {
-      console.log(error);
+      var transporter = nodemailer.createTransport({
+        service: "gmail",
+        auth: {
+          user: "ujmelokft@gmail.com",
+          pass: "keyx xpvg magg yroh",
+        },
+      });
+
+      var mailOptions = {
+        from: "ujmelokft@gmail.com",
+        to: "majordomi07@gmail.com",
+        subject: "Új jelentkezés",
+        text: "Új ember jelentkezett a meghírdetett állásodra!",
+        attachments: [
+          {
+            filename: cv,
+            path: "../frontend/assets/uploads/cv/" + cv,
+            contentType: "application/pdf",
+          },
+          {
+            filename: ml,
+            path: "../frontend/assets/uploads/ml/" + ml,
+            contentType: "application/pdf",
+          },
+        ],
+      };
+
+      transporter.sendMail(mailOptions);
+
+      return res.status(200).json({ message: "Sikeres form küldés" });
     } else {
-      console.log("Email sent: " + info.response);
+      return res.status(500).json({ message: "Már jelentkeztél erre az állásra." });
     }
   });
-
-  res.json({ message: "Sikeres form küldés." });
 };
 
 module.exports = {
