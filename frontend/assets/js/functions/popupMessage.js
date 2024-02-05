@@ -138,7 +138,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
         if (response.ok) {
           try {
-            const response = await fetch("/controlPanel/company/registered-company");
+            const response = await fetch(
+              "/controlPanel/company/registered-company"
+            );
             const data = await response.json();
 
             if (data.userExists) {
@@ -242,44 +244,40 @@ document.addEventListener("DOMContentLoaded", () => {
 
 /* --------------------------- Successful contact --------------------------- */
 
-document.addEventListener("DOMContentLoaded", () => {
-  function slideInsuccessfulContact() {
-    const popup = document.getElementById("successfulContact");
-    popup.classList.add("show");
-  }
+function slideInsuccessfulContact() {
+  const popup = document.getElementById("successfulContact");
+  popup.classList.add("show");
+}
 
-  function slideOutsuccessfulContact() {
-    const popup = document.getElementById("successfulContact");
-    popup.classList.remove("show");
-  }
+function slideOutsuccessfulContact() {
+  const popup = document.getElementById("successfulContact");
+  popup.classList.remove("show");
+}
 
-  function popupsuccessfulContact() {
-    slideInsuccessfulContact();
+function popupsuccessfulContact() {
+  slideInsuccessfulContact();
 
-    setTimeout(() => {
-      slideOutsuccessfulContact();
-    }, 5000);
-  }
-});
+  setTimeout(() => {
+    slideOutsuccessfulContact();
+  }, 5000);
+}
 
 /* --------------------------- Successful contact --------------------------- */
 
-document.addEventListener("DOMContentLoaded", () => {
-  function slideIncontactError() {
-    const popup = document.getElementById("contactError");
-    popup.classList.add("show");
-  }
+function slideIncontactError() {
+  const popup = document.getElementById("contactError");
+  popup.classList.add("show");
+}
 
-  function slideOutcontactError() {
-    const popup = document.getElementById("contactError");
-    popup.classList.remove("show");
-  }
+function slideOutcontactError() {
+  const popup = document.getElementById("contactError");
+  popup.classList.remove("show");
+}
 
-  function popupcontactError() {
-    slideIncontactError();
+function popupcontactError() {
+  slideIncontactError();
 
-    setTimeout(() => {
-      slideOutcontactError();
-    }, 5000);
-  }
-});
+  setTimeout(() => {
+    slideOutcontactError();
+  }, 5000);
+}

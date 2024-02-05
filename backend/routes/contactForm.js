@@ -2,6 +2,7 @@ const { check, validationResult } = require("express-validator");
 const bcrypt = require("bcrypt");
 const mysql = require("mysql");
 const db = require("../db.js");
+const nodemailer = require("nodemailer");
 const { createTokens, validateToken } = require("../jwt.js");
 
 const formValidation = [
@@ -37,6 +38,31 @@ const sendForm = async (req, res) => {
   }
 
   const { message } = req.body;
+
+  var transporter = nodemailer.createTransport({
+    service: "gmail",
+    auth: {
+      user: "ujmelokft@gmail.com",
+      pass: "keyx xpvg magg yroh",
+    },
+  });
+
+  var mailOptions = {
+    from: "ujmelokft@gmail.com",
+    to: "majordomi07@gmail.com",
+    subject: "Sending Email using Node.js",
+    text: "Kabd be a faszt " + message,
+  };
+
+  transporter.sendMail(mailOptions, function (error, info) {
+    if (error) {
+      console.log(error);
+    } else {
+      console.log("Email sent: " + info.response);
+    }
+  });
+
+  res.json({ message: "Sikeres form küldés." });
 };
 
 module.exports = {

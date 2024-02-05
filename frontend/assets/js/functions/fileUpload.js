@@ -21,3 +21,13 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }, 1000);
 });
+
+function resetFileUpload() {
+  let cvFileName = document.getElementById("cvFileName");
+  let mlFileName = document.getElementById("mlFileName");
+
+  cvFileName.innerText = "Nincs kiválasztva";
+  cvFileName.style.color = "#8d8d8d";
+  mlFileName.innerText = "Nincs kiválasztva";
+  mlFileName.style.color = "#8d8d8d";
+}
