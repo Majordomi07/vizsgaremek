@@ -1,0 +1,5 @@
+- introduction input
+- advertisement input validation
+- kidob ha lejárt a token
+- uploads -> logo mappa
+- motivation_letter -> ml

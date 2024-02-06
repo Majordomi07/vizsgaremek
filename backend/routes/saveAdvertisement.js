@@ -26,14 +26,18 @@ const saveAdvertisement = async (req, res) => {
 
   const query =
     "UPDATE advertisement SET title=?, general=?, categoryID=?, requirement=?, benefit=?, location=?, wage=? WHERE advertisementID = ?";
-  db.query(query, [title, general, category, requirement, benefit, location, wage, advertisementID], (err, result) => {
-    if (err) {
-      console.error("Hiba az adatok mentése közben:", err);
-      res.status(500).json({ error: "Hiba az adatok mentése közben: " + err.message });
-    } else {
-      res.json({ message: "Sikeres editálás." });
+  db.query(
+    query,
+    [title, general, category, requirement, benefit, location, wage, advertisementID],
+    (err, result) => {
+      if (err) {
+        console.error("Hiba az adatok mentése közben:", err);
+        res.status(500).json({ error: "Hiba az adatok mentése közben: " + err.message });
+      } else {
+        res.json({ message: "Sikeres editálás." });
+      }
     }
-  });
+  );
 };
 
 module.exports = {
