@@ -108,7 +108,7 @@ const sendForm = async (req, res) => {
           </tr>
           </table>
           <p>
-          Az önéletrajzot, illetve a motivációs levélet csatolmányként elküldtük önnek. Minden információt megtalál
+          Az önéletrajzot, illetve a motivációs levelet csatolmányként elküldtük önnek. Minden információt megtalál
           a honlapon az álláshírdetésének "jelentkezők" opciójában.
           </p>
           <p>
