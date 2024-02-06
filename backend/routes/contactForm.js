@@ -46,40 +46,89 @@ const sendForm = async (req, res) => {
 
   let query = "SELECT * FROM applications WHERE userID = ? AND advertisementID = ?";
   db.query(query, [userID, advertisementID], (err, results) => {
-    if (results.length == 0) {
+    if (results.length > 0) {
       query = "INSERT INTO applications (userID, advertisementID, cv, motivation_letter) VALUES (?, ?, ?, ?)";
       db.query(query, [userID, advertisementID, cv, ml]);
 
-      var transporter = nodemailer.createTransport({
-        service: "gmail",
-        auth: {
-          user: "ujmelokft@gmail.com",
-          pass: "keyx xpvg magg yroh",
-        },
+      query =
+        "SELECT firstName, lastName, email, title FROM users INNER JOIN applications on applications.userID = users.userID INNER JOIN advertisement on advertisement.advertisementID = applications.advertisementID WHERE applications.userID = ? AND applications.advertisementID = ?";
+      db.query(query, [userID, advertisementID], (err, results) => {
+        var transporter = nodemailer.createTransport({
+          service: "gmail",
+          auth: {
+            user: "ujmelokft@gmail.com",
+            pass: "keyx xpvg magg yroh",
+          },
+        });
+
+        var mailOptions = {
+          from: "ujmelokft@gmail.com",
+          to: "majordomi07@gmail.com",
+          subject: `Új jelentkezés | ${advertisementID} - ${userID}`,
+          attachments: [
+            {
+              filename: cv,
+              path: "../frontend/assets/uploads/cv/" + cv,
+              contentType: "application/pdf",
+            },
+            {
+              filename: ml,
+              path: "../frontend/assets/uploads/ml/" + ml,
+              contentType: "application/pdf",
+            },
+          ],
+          html: `<!DOCTYPE html>
+          <html lang="hu">
+          <head>
+          <meta charset="UTF-8" />
+          <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+          </head>
+          <body>
+          <header style="background: linear-gradient(90deg, #008baa 0%, #004e68 100%)">
+          <div class="container">
+          <img src="https://i.imgur.com/Vu8ghjM.png" style="height: 30px;"/>
+          </div>
+          </header>
+          <main>
+          <div class="box">
+          <p style="margin-top: 15px">Kedves ${results[0].lastName} ${results[0].firstName},</p>
+          <p>
+          Cégének egyik álláshírdetésére egy új jelentkezés érkezett a jelentkezés pontos információit alább
+          találja.
+          </p>
+          <table>
+          <tr>
+          <td><strong>Álláshírdetés címe:</strong></td>
+          <td>${results[0].title}</td>
+          </tr>
+          <tr>
+          <td><strong>Jelentkező neve:</strong></td>
+          <td>${results[0].lastName} ${results[0].firstName}</td>
+          </tr>
+          <tr>
+          <td><strong>Jelentkező üzenete:</strong></td>
+          <td>${message}</td>
+          </tr>
+          </table>
+          <p>
+          Az önéletrajzot, illetve a motivációs levélet csatolmányként elküldtük önnek. Minden információt megtalál
+          a honlapon az álláshírdetésének "jelentkezők" opciójában.
+          </p>
+          <p>
+          Üdvözlettel, <br />
+          újmeló csapata
+          </p>
+          </div>
+          </main>
+          </body>
+          </html>
+          `,
+        };
+
+        transporter.sendMail(mailOptions);
+
+        return res.status(200).json({ message: "Sikeres form küldés" });
       });
-
-      var mailOptions = {
-        from: "ujmelokft@gmail.com",
-        to: "majordomi07@gmail.com",
-        subject: "Új jelentkezés",
-        text: "Új ember jelentkezett a meghírdetett állásodra!",
-        attachments: [
-          {
-            filename: cv,
-            path: "../frontend/assets/uploads/cv/" + cv,
-            contentType: "application/pdf",
-          },
-          {
-            filename: ml,
-            path: "../frontend/assets/uploads/ml/" + ml,
-            contentType: "application/pdf",
-          },
-        ],
-      };
-
-      transporter.sendMail(mailOptions);
-
-      return res.status(200).json({ message: "Sikeres form küldés" });
     } else {
       return res.status(500).json({ message: "Már jelentkeztél erre az állásra." });
     }
