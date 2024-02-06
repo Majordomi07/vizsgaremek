@@ -1,9 +1,6 @@
 const { check, validationResult } = require("express-validator");
-const bcrypt = require("bcrypt");
-const mysql = require("mysql");
 const db = require("../db.js");
 const nodemailer = require("nodemailer");
-const { createTokens, validateToken } = require("../jwt.js");
 
 const formValidation = [
   check("message").notEmpty().withMessage("Az üzenet mező nem lehet üres."),

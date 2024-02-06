@@ -153,6 +153,9 @@ function createPostElement(advertisement) {
   // .applicants rész létrehozása
   const applicantsButton = document.createElement("button");
   applicantsButton.classList.add("applicants");
+  applicantsButton.onclick = function () {
+    window.location.href = "/controlPanel/advertisement/applicants/" + advertisement.advertisementID;
+  };
 
   const applicantsPElement = document.createElement("p");
   applicantsPElement.textContent = "Jelentkezők";

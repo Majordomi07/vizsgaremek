@@ -38,7 +38,16 @@ router.get("/home", sendPages.redirectHomePage);
 router.get("/contact", sendPages.sendContactPage);
 router.get("/controlPanel/company", validateToken, sendPages.sendcontrolPanelCompanyPage);
 router.get("/controlPanel/advertisements", validateToken, sendPages.sendcontrolPanelAdvertisementsPage);
-router.get("/controlPanel/advertisement/edit/:id", validateToken, sendPages.sendcontrolPanelEditAdvertisementPage);
+router.get(
+  "/controlPanel/advertisement/edit/:id",
+  validateToken,
+  sendPages.sendcontrolPanelEditAdvertisementPage
+);
+router.get(
+  "/controlPanel/advertisement/applicants/:id",
+  validateToken,
+  sendPages.sendcontrolPanelAdvertisementApplicantsPage
+);
 router.get("/advertisement/view/:id", sendPages.sendAdvertisementViewPage);
 router.get("/register", sendPages.sendRegisterPage);
 router.get("/login", sendPages.sendLoginPage);
@@ -48,6 +57,9 @@ app.get("/advertisement/api/:id", getAdvertisement);
 
 const { getAllAdvertisements } = require("./routes/getAllAdvertisements.js");
 app.get("/advertisement/getAllAdvertisements", getAllAdvertisements);
+
+const { getApplicants } = require("./routes/getApplicants.js");
+app.get("/advertisement/getApplicants/:id", getApplicants);
 
 const { editVerification } = require("./routes/editVerification.js");
 app.get("/advertisement/edit-verification/:id", validateToken, editVerification);
@@ -77,7 +89,12 @@ const { getByCompanyAdvertisement } = require("./routes/getByCompanyAdvertisemen
 app.get("/advertisement/getByCompanyAdvertisement", validateToken, getByCompanyAdvertisement);
 
 const registerAuth = require("./routes/registerAuth.js");
-app.post("/auth/register", upload.single("companyLogo"), registerAuth.registerValidation, registerAuth.registerUser);
+app.post(
+  "/auth/register",
+  upload.single("companyLogo"),
+  registerAuth.registerValidation,
+  registerAuth.registerUser
+);
 
 const loginAuth = require("./routes/loginAuth.js");
 app.post("/auth/login", loginAuth.loginValidation, loginAuth.loginUser);

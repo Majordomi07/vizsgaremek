@@ -21,8 +21,11 @@ const sendcontrolPanelAdvertisementsPage = (req, res) => {
 };
 
 const sendcontrolPanelEditAdvertisementPage = (req, res) => {
-  console.log("szia");
   res.sendFile(path.join(__dirname, "../../frontend/views/controlPanel/advertisement-edit.html"));
+};
+
+const sendcontrolPanelAdvertisementApplicantsPage = (req, res) => {
+  res.sendFile(path.join(__dirname, "../../frontend/views/controlPanel/applicants.html"));
 };
 
 const sendAdvertisementViewPage = (req, res) => {
@@ -44,6 +47,7 @@ module.exports = {
   sendcontrolPanelCompanyPage,
   sendcontrolPanelAdvertisementsPage,
   sendcontrolPanelEditAdvertisementPage,
+  sendcontrolPanelAdvertisementApplicantsPage,
   sendAdvertisementViewPage,
   sendRegisterPage,
   sendLoginPage,
