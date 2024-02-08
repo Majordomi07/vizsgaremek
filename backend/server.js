@@ -70,8 +70,11 @@ app.get("/advertisement/allCategories", getAllCategories);
 const { getUsedCategories } = require("./routes/getUsedCategories.js");
 app.get("/advertisement/usedCategories", getUsedCategories);
 
-const { getLocations } = require("./routes/getLocations.js");
-app.get("/advertisement/locations", getLocations);
+const { getAllLocations } = require("./routes/getAllLocations.js");
+app.get("/advertisement/allLocations", getAllLocations);
+
+const { getUsedLocations } = require("./routes/getUsedLocations.js");
+app.get("/advertisement/usedLocations", getUsedLocations);
 
 const { calculateWageRanges } = require("./routes/calculateWageRanges.js");
 app.get("/advertisement/calculateWageRanges", calculateWageRanges);

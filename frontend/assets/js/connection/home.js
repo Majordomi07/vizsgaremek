@@ -27,7 +27,7 @@ document.addEventListener("DOMContentLoaded", () => {
 document.addEventListener("DOMContentLoaded", () => {
   const locationSelects = document.querySelectorAll("#locationFilter");
 
-  fetch("/advertisement/locations")
+  fetch("/advertisement/usedlocations")
     .then((response) => response.json())
     .then((data) => {
       locationSelects.forEach((locationSelect) => {
@@ -161,7 +161,7 @@ document.addEventListener("DOMContentLoaded", function () {
     text.appendChild(title);
 
     const description = document.createElement("p");
-    description.innerText = item.general;
+    description.innerText = item.introduction;
     text.appendChild(description);
 
     const logo = document.createElement("div");
@@ -260,7 +260,13 @@ document.addEventListener("DOMContentLoaded", function () {
       .map((inputField) => inputField.value)
       .find((value) => value !== "Legújabb");
 
-    loadData(currentPage, keywordFilterInput.value, selectedLocationValue, selectedCategoryValue, selectedOrderValue);
+    loadData(
+      currentPage,
+      keywordFilterInput.value,
+      selectedLocationValue,
+      selectedCategoryValue,
+      selectedOrderValue
+    );
   }
 
   function handleFilterChange() {
@@ -281,7 +287,13 @@ document.addEventListener("DOMContentLoaded", function () {
     hasMoreData = true;
     showMoreButton.style.display = "block";
     dataContainer.innerHTML = "";
-    loadData(currentPage, keywordFilterInput.value, selectedLocationValue, selectedCategoryValue, selectedOrderValue);
+    loadData(
+      currentPage,
+      keywordFilterInput.value,
+      selectedLocationValue,
+      selectedCategoryValue,
+      selectedOrderValue
+    );
   }
 
   keywordFilterInput.addEventListener("input", handleFilterChange);

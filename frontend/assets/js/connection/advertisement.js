@@ -27,7 +27,7 @@ function advertisementAppear(data) {
   heading.textContent = data[0].title;
 
   const paragraph = document.createElement("p");
-  paragraph.textContent = data[0].general;
+  paragraph.textContent = data[0].introduction;
 
   const main = document.createElement("main");
 

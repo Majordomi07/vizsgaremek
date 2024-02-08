@@ -57,6 +57,26 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 /* -------------------------------------------------------------------------- */
+/*                             Location feltöltés                             */
+/* -------------------------------------------------------------------------- */
+
+document.addEventListener("DOMContentLoaded", () => {
+  const locationSelects = document.getElementById("location");
+
+  fetch("/advertisement/allLocations")
+    .then((response) => response.json())
+    .then((data) => {
+      data.locations.forEach((location) => {
+        const option = document.createElement("option");
+        option.value = location;
+        option.text = location;
+        locationSelects.appendChild(option);
+      });
+    })
+    .catch((error) => console.error("Hiba a fetch során:", error));
+});
+
+/* -------------------------------------------------------------------------- */
 /*                                 Load inputs                                */
 /* -------------------------------------------------------------------------- */
 
@@ -69,6 +89,7 @@ document.addEventListener("DOMContentLoaded", () => {
     .then((response) => response.json())
     .then((data) => {
       const titleElement = document.getElementById("title");
+      const introductionElement = document.getElementById("introduction");
       const generalElement = document.getElementById("general");
       const categoryElement = document.getElementById("category");
       const wageElement = document.getElementById("wage");
@@ -77,6 +98,7 @@ document.addEventListener("DOMContentLoaded", () => {
       const benefitElement = document.getElementById("benefit");
 
       titleElement.value = data[0].title;
+      introductionElement.value = data[0].introduction;
       generalElement.value = data[0].general;
 
       var options = categoryElement.options;
@@ -89,7 +111,16 @@ document.addEventListener("DOMContentLoaded", () => {
       }
 
       wageElement.value = data[0].wage;
-      locationElement.value = data[0].location;
+
+      var options = locationElement.options;
+
+      for (var i = 0; i < options.length; i++) {
+        if (options[i].value === data[0].location) {
+          locationElement.selectedIndex = i;
+          break;
+        }
+      }
+
       requirementElement.value = data[0].requirement;
       benefitElement.value = data[0].benefit;
     })
@@ -112,10 +143,11 @@ saveButton.addEventListener("click", async (event) => {
   clearErrors();
 
   const title = document.getElementById("title").value;
+  const introduction = document.getElementById("introduction").value;
   const general = document.getElementById("general").value;
   const category = document.getElementById("category").selectedIndex + 1;
   const wage = document.getElementById("wage").value;
-  const location = document.getElementById("location").value;
+  const location = document.getElementById("location").selectedIndex + 1;
   const requirement = document.getElementById("requirement").value;
   const benefit = document.getElementById("benefit").value;
 
@@ -124,7 +156,7 @@ saveButton.addEventListener("click", async (event) => {
     headers: {
       "Content-Type": "application/json",
     },
-    body: JSON.stringify({ title, general, category, wage, location, requirement, benefit }),
+    body: JSON.stringify({ title, introduction, general, category, wage, location, requirement, benefit }),
   });
 
   const data = await response.json();

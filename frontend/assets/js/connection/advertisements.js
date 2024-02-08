@@ -77,7 +77,7 @@ function createPostElement(advertisement) {
   titleElement.textContent = advertisement.title;
 
   const descriptionElement = document.createElement("p");
-  descriptionElement.textContent = advertisement.general;
+  descriptionElement.textContent = advertisement.introduction;
 
   textElement.appendChild(titleElement);
   textElement.appendChild(descriptionElement);

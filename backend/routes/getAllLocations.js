@@ -1,8 +1,8 @@
 const db = require("../db.js");
 
-const getLocations = (req, res) => {
+const getAllLocations = (req, res) => {
   const query = `
-    SELECT DISTINCT location FROM advertisement;
+    SELECT location FROM locations;
   `;
 
   db.query(query, (error, results) => {
@@ -16,4 +16,4 @@ const getLocations = (req, res) => {
   });
 };
 
-module.exports = { getLocations };
+module.exports = { getAllLocations };

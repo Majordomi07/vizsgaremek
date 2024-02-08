@@ -1,13 +1,22 @@
 const { check, validationResult } = require("express-validator");
 const db = require("../db.js");
-
-// Advertisement validáció
-
 const saveValidation = [
   check("title").notEmpty().withMessage("Az cím mező nem lehet üres."),
-  check("general").notEmpty().withMessage("Az általános információk mező nem lehet üres."),
-  check("wage").notEmpty().withMessage("Az órabér mező nem lehet üres."),
-  check("location").notEmpty().withMessage("A település mező nem lehet üres."),
+  check("introduction")
+    .notEmpty()
+    .withMessage("Az ismertető mező nem lehet üres.")
+    .isLength({ min: 100, max: 350 })
+    .withMessage("Az ismertető mező minimum 100 karakter, maximum 350 karakter lehet."),
+  check("general")
+    .notEmpty()
+    .withMessage("Az általános információk mező nem lehet üres.")
+    .isLength({ min: 100, max: 350 })
+    .withMessage("Az általános információ mező minimum 100 karakter, maximum 350 karakter lehet."),
+  check("wage")
+    .notEmpty()
+    .withMessage("Az órabér mező nem lehet üres.")
+    .isInt({ min: 1000, max: 10000 })
+    .withMessage("Az órabérnek 1000 és 10000 között kell lennie."),
   check("requirement").notEmpty().withMessage("A követelmények mező nem lehet üres."),
   check("benefit").notEmpty().withMessage("A juttatások mező nem lehet üres."),
 ];
@@ -21,14 +30,14 @@ const saveAdvertisement = async (req, res) => {
     return res.status(400).json({ error: errors.array() });
   }
 
-  const { title, general, category, wage, location, requirement, benefit } = req.body;
+  const { title, introduction, general, category, wage, location, requirement, benefit } = req.body;
   const advertisementID = req.params.id;
 
   const query =
-    "UPDATE advertisement SET title=?, general=?, categoryID=?, requirement=?, benefit=?, location=?, wage=? WHERE advertisementID = ?";
+    "UPDATE advertisement SET title=?, introduction=?, general=?, categoryID=?, requirement=?, benefit=?, locationID=?, wage=? WHERE advertisementID = ?";
   db.query(
     query,
-    [title, general, category, requirement, benefit, location, wage, advertisementID],
+    [title, introduction, general, category, requirement, benefit, location, wage, advertisementID],
     (err, result) => {
       if (err) {
         console.error("Hiba az adatok mentése közben:", err);

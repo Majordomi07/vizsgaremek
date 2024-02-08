@@ -10,7 +10,7 @@ const getAllAdvertisements = (req, res) => {
   }
 
   let countQuery =
-    "SELECT COUNT(*) AS totalCount FROM advertisement INNER JOIN category on category.categoryID = advertisement.categoryID INNER JOIN companies on companies.companiesID = advertisement.companiesID";
+    "SELECT COUNT(*) AS totalCount FROM advertisement INNER JOIN category on category.categoryID = advertisement.categoryID INNER JOIN companies on companies.companiesID = advertisement.companiesID INNER JOIN locations ON locations.locationID = advertisement.locationID";
 
   const filters = [];
 
@@ -31,7 +31,7 @@ const getAllAdvertisements = (req, res) => {
     const totalCount = countResults[0].totalCount;
 
     let query =
-      "SELECT * FROM advertisement INNER JOIN category on category.categoryID = advertisement.categoryID INNER JOIN companies on companies.companiesID = advertisement.companiesID";
+      "SELECT * FROM advertisement INNER JOIN category on category.categoryID = advertisement.categoryID INNER JOIN companies on companies.companiesID = advertisement.companiesID INNER JOIN locations ON locations.locationID = advertisement.locationID";
 
     if (filters.length > 0) {
       query += " WHERE " + filters.join(" AND ");
