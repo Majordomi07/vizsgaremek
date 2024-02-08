@@ -10,8 +10,8 @@ const saveValidation = [
   check("general")
     .notEmpty()
     .withMessage("Az általános információk mező nem lehet üres.")
-    .isLength({ min: 100, max: 350 })
-    .withMessage("Az általános információ mező minimum 100 karakter, maximum 350 karakter lehet."),
+    .isLength({ min: 100 })
+    .withMessage("Az általános információ mezőnek minimum 100 karaktert tartalmaznia kell."),
   check("wage")
     .notEmpty()
     .withMessage("Az órabér mező nem lehet üres.")

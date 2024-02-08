@@ -28,7 +28,7 @@ document.addEventListener("DOMContentLoaded", () => {
         companyInfo.appendChild(tag);
 
         tag = document.createElement("img");
-        tag.src = "../assets/images/uploads/logos/" + info.logo;
+        tag.src = "../assets/uploads/logo/" + info.logo;
         companyInfo.appendChild(tag);
 
         tag = document.createElement("h4");

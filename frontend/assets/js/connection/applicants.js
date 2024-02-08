@@ -78,7 +78,7 @@ function createApplicantElement(applicant) {
   mlButton.classList.add("ml");
   mlButton.innerHTML = `<p>Motivációs levél</p><img src="/assets/images/icons/download-icon.svg" />`;
   mlButton.onclick = function () {
-    window.open("http://localhost:3000/assets/uploads/ml/" + applicant.motivation_letter, "_blank");
+    window.open("http://localhost:3000/assets/uploads/ml/" + applicant.ml, "_blank");
   };
   buttonsDiv.appendChild(mlButton);
 

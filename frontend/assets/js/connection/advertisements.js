@@ -87,7 +87,7 @@ function createPostElement(advertisement) {
   logoElement.classList.add("logo");
 
   const logoImageElement = document.createElement("img");
-  logoImageElement.src = `/assets/images/uploads/logos/${advertisement.logo}`;
+  logoImageElement.src = `/assets/uploads/logo/${advertisement.logo}`;
   logoElement.appendChild(logoImageElement);
 
   topElement.appendChild(textElement);

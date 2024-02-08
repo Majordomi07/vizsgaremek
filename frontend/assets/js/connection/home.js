@@ -168,7 +168,7 @@ document.addEventListener("DOMContentLoaded", function () {
     logo.classList.add("logo");
 
     const logoImage = document.createElement("img");
-    logoImage.src = "/assets/images/uploads/logos/" + item.logo;
+    logoImage.src = "/assets/uploads/logo/" + item.logo;
     logo.appendChild(logoImage);
 
     top.appendChild(text);
@@ -260,13 +260,7 @@ document.addEventListener("DOMContentLoaded", function () {
       .map((inputField) => inputField.value)
       .find((value) => value !== "Legújabb");
 
-    loadData(
-      currentPage,
-      keywordFilterInput.value,
-      selectedLocationValue,
-      selectedCategoryValue,
-      selectedOrderValue
-    );
+    loadData(currentPage, keywordFilterInput.value, selectedLocationValue, selectedCategoryValue, selectedOrderValue);
   }
 
   function handleFilterChange() {
@@ -287,13 +281,7 @@ document.addEventListener("DOMContentLoaded", function () {
     hasMoreData = true;
     showMoreButton.style.display = "block";
     dataContainer.innerHTML = "";
-    loadData(
-      currentPage,
-      keywordFilterInput.value,
-      selectedLocationValue,
-      selectedCategoryValue,
-      selectedOrderValue
-    );
+    loadData(currentPage, keywordFilterInput.value, selectedLocationValue, selectedCategoryValue, selectedOrderValue);
   }
 
   keywordFilterInput.addEventListener("input", handleFilterChange);

@@ -104,7 +104,7 @@ function advertisementAppear(data) {
   companyHeading.textContent = "Céginformáció";
 
   const companyLogo = document.createElement("img");
-  companyLogo.src = "/assets/images/uploads/logos/" + data[0].logo;
+  companyLogo.src = "/assets/uploads/logo/" + data[0].logo;
 
   const companyNameHeading = document.createElement("h4");
   companyNameHeading.textContent = data[0].name;

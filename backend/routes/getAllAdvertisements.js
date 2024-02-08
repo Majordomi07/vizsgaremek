@@ -14,7 +14,10 @@ const getAllAdvertisements = (req, res) => {
 
   const filters = [];
 
-  if (keywordFilter) filters.push(`title LIKE '%${keywordFilter}%'`);
+  if (keywordFilter)
+    filters.push(
+      `title LIKE '%${keywordFilter}%' OR introduction LIKE '%${keywordFilter}%' OR general LIKE '%${keywordFilter}%' OR benefit LIKE '%${keywordFilter}%' OR requirement LIKE '%${keywordFilter}%'`
+    );
   if (locationFilter) filters.push(`location = '${locationFilter}'`);
   if (categoryFilter) filters.push(`category = '${categoryFilter}'`);
   if (wageFilter) {

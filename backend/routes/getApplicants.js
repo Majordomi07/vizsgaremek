@@ -4,7 +4,7 @@ const getApplicants = (req, res) => {
   const advertisementID = req.params.id;
 
   let query =
-    "SELECT firstName, lastName, email, cv, motivation_letter FROM applications INNER JOIN users ON users.userID = applications.userID WHERE advertisementID = ?";
+    "SELECT firstName, lastName, email, cv, ml FROM applications INNER JOIN users ON users.userID = applications.userID WHERE advertisementID = ?";
   db.query(query, [advertisementID], (err, results) => {
     if (err) {
       console.error("Hiba történt az adatbázis lekérdezése során:", err);
