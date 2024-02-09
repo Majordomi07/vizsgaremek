@@ -1,2 +1,2 @@
-- kidob ha lejárt a token
-- filter reset button
+- 4 találat show more
+- validation upload

@@ -32,7 +32,7 @@ CREATE TABLE category (
 CREATE TABLE advertisement (
   advertisementID INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
   companiesID INT,
-  title VARCHAR(20),
+  title VARCHAR(35),
   introduction TEXT,
   general TEXT,
   requirement TEXT,

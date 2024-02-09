@@ -95,9 +95,6 @@ document.addEventListener("DOMContentLoaded", function () {
   let hasMoreData = true;
 
   function loadData(page, keywordFilter, locationFilter, categoryFilter, orderFilter) {
-    if (!hasMoreData) {
-      return;
-    }
     const wageFilter = updateRanges();
 
     const filterParams = [];
@@ -121,8 +118,10 @@ document.addEventListener("DOMContentLoaded", function () {
       .then((data) => {
         if (data.results && data.totalCount !== undefined) {
           renderData(data.results);
-          hasMoreData = data.results.length >= 4;
-          if (!hasMoreData) {
+          if ((page - 1) * 4 + data.results.length < data.totalCount) {
+            hasMoreData = true;
+          } else {
+            hasMoreData = false;
             showMoreButton.style.display = "none";
           }
           document.getElementById("results").textContent = data.totalCount;

@@ -2,7 +2,7 @@ const db = require("../db.js");
 
 const getUsedLocations = (req, res) => {
   const query = `
-    SELECT location FROM advertisement INNER JOIN locations on locations.locationID = advertisement.locationID;
+    SELECT DISTINCT location FROM advertisement INNER JOIN locations on locations.locationID = advertisement.locationID;
   `;
 
   db.query(query, (error, results) => {
