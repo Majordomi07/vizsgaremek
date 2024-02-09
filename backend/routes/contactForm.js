@@ -44,7 +44,7 @@ const sendForm = async (req, res) => {
   let query = "SELECT * FROM applications WHERE userID = ? AND advertisementID = ?";
   db.query(query, [userID, advertisementID], (err, results) => {
     if (results.length == 0) {
-      query = "INSERT INTO applications (userID, advertisementID, cv, motivation_letter) VALUES (?, ?, ?, ?)";
+      query = "INSERT INTO applications (userID, advertisementID, cv, ml) VALUES (?, ?, ?, ?)";
       db.query(query, [userID, advertisementID, cv, ml]);
 
       query =
