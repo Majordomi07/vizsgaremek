@@ -406,6 +406,31 @@
   display: none;
 }
 
+.posts .content main .topbar .filterReset {
+  flex: 1;
+}
+
+.posts .content main .topbar .filterReset button {
+  width: 100%;
+  height: 45px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  justify-content: center;
+  border-radius: 10px;
+  border: none;
+  box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.4);
+  background: linear-gradient(45deg, #00b4db 0%, #0083b0 100%);
+}
+
+.posts .content main .topbar .filterReset button p {
+  margin: 0;
+  font-size: 15px;
+  font-family: "Sailec Medium";
+  color: white;
+  font-weight: 400;
+}
+
 .posts .content main .result p {
   font-family: "Inter";
   text-align: left;
@@ -658,6 +683,7 @@
 
   .posts .content main form .topbar .category,
   .posts .content main form .topbar .order,
+  .posts .content main .topbar .filterReset,
   .posts .content main form .topbar .submit {
     display: none;
   }
@@ -897,6 +923,37 @@
     opacity: 1;
     -webkit-transform: scale(1);
     transform: scale(1);
+  }
+
+  .posts .content .responsive-filter .filterReset {
+    margin-top: 20px;
+  }
+
+  .posts .content .responsive-filter .filterReset button {
+    width: 40%;
+    height: 28px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    justify-content: center;
+    border-radius: 5px;
+    border: none;
+    box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.4);
+    background: linear-gradient(45deg, #00b4db 0%, #0083b0 100%);
+  }
+
+  .posts .content .responsive-filter .filterReset button p {
+    margin: 0;
+    font-size: 11px;
+    font-family: "Sailec Medium";
+    color: white;
+    font-weight: 400;
+    width: auto;
+  }
+
+  .posts .content .responsive-filter .filterReset button img {
+    height: 10px;
+    width: 10px;
   }
 
   .posts .content .responsive-filter.closed {

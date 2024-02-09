@@ -108,8 +108,8 @@
           </div>
           <h2>#újmeló</h2>
           <p>
-            Fedezze fel az álmai munkáját a mi platformunkon! Kínáljuk a legfrissebb állásajánlatokat minden területen,
-            hogy segítsünk Önnek elindítani vagy felpörgetni karrierjét.
+            Fedezze fel az álmai munkáját a mi platformunkon! Kínáljuk a legfrissebb állásajánlatokat minden
+            területen, hogy segítsünk Önnek elindítani vagy felpörgetni karrierjét.
           </p>
           <a href="#posts">Kezdj bele a keresésbe</a>
         </div>
@@ -127,9 +127,9 @@
       <section class="posts" id="posts">
         <h2>Álláshírdetések</h2>
         <p>
-          Lépjen be a jövőjébe és böngéssze át a friss és sokszínu munkalehetoségeket, amelyeket vállalkozások és
-          szervezetek kínálnak, vagy hozza létre saját álláshirdetését a szakmai élet legkiválóbb tehetségeinek
-          eléréséhez.
+          Lépjen be a jövőjébe és böngéssze át a friss és sokszínu munkalehetoségeket, amelyeket vállalkozások
+          és szervezetek kínálnak, vagy hozza létre saját álláshirdetését a szakmai élet legkiválóbb
+          tehetségeinek eléréséhez.
         </p>
         <div class="content">
           <aside>
@@ -159,7 +159,7 @@
             </div>
           </aside>
           <main>
-            <form>
+            <form id="topbar">
               <div class="topbar">
                 <div class="search">
                   <input type="text" placeholder="Kulcsszó kereső" id="keywordFilter" />
@@ -179,6 +179,12 @@
                   <button onclick="responsiveFilter()">
                     <p>Szűrő</p>
                     <img src="/assets/images/icons/filter.svg" />
+                  </button>
+                </div>
+                <div class="filterReset">
+                  <button id="resetFilter">
+                    <p>Szűrők visszaállítása</p>
+                    <img src="/assets/images/icons/reset.svg" />
                   </button>
                 </div>
               </div>
@@ -231,6 +237,12 @@
                 <option value="Legtöbbet fizető">Legtöbbet fizető</option>
               </select>
             </div>
+            <div class="filterReset">
+              <button id="resetFilter">
+                <p>Szűrők visszaállítása</p>
+                <img src="/assets/images/icons/reset.svg" />
+              </button>
+            </div>
           </div>
         </div>
       </section>
@@ -248,8 +260,8 @@
               <img src="/assets/images/logo-white.svg" />
             </a>
             <p>
-              Az álláshírdetési platformok számos előnnyel járnak az állást keresők és munkaadók számára. Ezek a
-              platformok gyors és kényelmes módját.
+              Az álláshírdetési platformok számos előnnyel járnak az állást keresők és munkaadók számára. Ezek
+              a platformok gyors és kényelmes módját.
             </p>
           </div>
           <div class="nav">

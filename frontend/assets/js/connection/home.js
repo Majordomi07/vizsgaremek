@@ -260,7 +260,13 @@ document.addEventListener("DOMContentLoaded", function () {
       .map((inputField) => inputField.value)
       .find((value) => value !== "Legújabb");
 
-    loadData(currentPage, keywordFilterInput.value, selectedLocationValue, selectedCategoryValue, selectedOrderValue);
+    loadData(
+      currentPage,
+      keywordFilterInput.value,
+      selectedLocationValue,
+      selectedCategoryValue,
+      selectedOrderValue
+    );
   }
 
   function handleFilterChange() {
@@ -281,7 +287,13 @@ document.addEventListener("DOMContentLoaded", function () {
     hasMoreData = true;
     showMoreButton.style.display = "block";
     dataContainer.innerHTML = "";
-    loadData(currentPage, keywordFilterInput.value, selectedLocationValue, selectedCategoryValue, selectedOrderValue);
+    loadData(
+      currentPage,
+      keywordFilterInput.value,
+      selectedLocationValue,
+      selectedCategoryValue,
+      selectedOrderValue
+    );
   }
 
   keywordFilterInput.addEventListener("input", handleFilterChange);
@@ -304,6 +316,23 @@ document.addEventListener("DOMContentLoaded", function () {
         updateRanges();
         handleFilterChange();
       }
+    });
+  });
+
+  var resetFilterButtons = document.querySelectorAll("#resetFilter");
+  resetFilterButtons.forEach(function (resetFilter) {
+    resetFilter.addEventListener("click", function (event) {
+      event.preventDefault();
+      document.getElementById("topbar").reset();
+      document.getElementById("wageFilter").reset();
+      document.getElementById("wageFilter2").reset();
+      document.querySelectorAll("#locationFilter").forEach(function (locationFilter) {
+        locationFilter.selectedIndex = 0;
+      });
+      document.querySelectorAll("#categoryFilter").forEach(function (categoryFilter) {
+        categoryFilter.selectedIndex = 0;
+      });
+      handleFilterChange();
     });
   });
 
