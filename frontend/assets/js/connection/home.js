@@ -95,6 +95,8 @@ document.addEventListener("DOMContentLoaded", function () {
   let hasMoreData = true;
 
   function loadData(page, keywordFilter, locationFilter, categoryFilter, orderFilter) {
+    dataContainer.innerHTML = "";
+
     const wageFilter = updateRanges();
 
     const filterParams = [];
