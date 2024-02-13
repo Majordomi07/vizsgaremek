@@ -1,4 +1,5 @@
-const db = require("../db.js");
+const paths = require("../path.js");
+const db = require(paths.db);
 
 const getAllAdvertisements = (req, res) => {
   const { page = 1, keywordFilter, locationFilter, categoryFilter, wageFilter, orderFilter } = req.query;

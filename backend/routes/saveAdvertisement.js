@@ -1,5 +1,6 @@
 const { check, validationResult } = require("express-validator");
-const db = require("../db.js");
+const paths = require("../path.js");
+const db = require(paths.db);
 const saveValidation = [
   check("title").notEmpty().withMessage("Az cím mező nem lehet üres."),
   check("introduction")

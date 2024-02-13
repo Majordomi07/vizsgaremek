@@ -1,5 +1,6 @@
 const { check, validationResult } = require("express-validator");
-const db = require("../db.js");
+const paths = require("../path.js");
+const db = require(paths.db);
 const nodemailer = require("nodemailer");
 
 const formValidation = [
@@ -65,12 +66,12 @@ const sendForm = async (req, res) => {
           attachments: [
             {
               filename: cv,
-              path: "../frontend/assets/uploads/cv/" + cv,
+              path: paths.cvFile + "/" + cv,
               contentType: "application/pdf",
             },
             {
               filename: ml,
-              path: "../frontend/assets/uploads/ml/" + ml,
+              path: paths.mlFile + "/" + ml,
               contentType: "application/pdf",
             },
           ],

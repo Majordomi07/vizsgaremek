@@ -1,4 +1,5 @@
-const db = require("../db.js");
+const paths = require("../path.js");
+const db = require(paths.db);
 
 const getUsedLocations = (req, res) => {
   const query = `
