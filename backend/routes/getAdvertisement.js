@@ -1,4 +1,5 @@
-const db = require("../db.js");
+const paths = require("../path.js");
+const db = require(paths.db);
 
 const getAdvertisement = (req, res) => {
   const advertisementID = req.params.id;

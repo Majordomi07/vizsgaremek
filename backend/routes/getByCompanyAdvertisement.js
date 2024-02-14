@@ -1,4 +1,5 @@
-const db = require("../db.js");
+const paths = require("../path.js");
+const db = require(paths.db);
 
 const getByCompanyAdvertisement = async (req, res) => {
   const userID = req.user.userID;

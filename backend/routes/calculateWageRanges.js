@@ -1,4 +1,5 @@
-const db = require("../db.js");
+const paths = require("../path.js");
+const db = require(paths.db);
 
 const calculateWageRanges = (req, res) => {
   const query = "SELECT wage FROM advertisement";

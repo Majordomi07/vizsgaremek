@@ -1,8 +1,8 @@
 const { check, validationResult } = require("express-validator");
 const bcrypt = require("bcrypt");
-const mysql = require("mysql");
-const db = require("../db.js");
-const { createTokens, validateToken } = require("../jwt.js");
+const paths = require("../path.js");
+const db = require(paths.db);
+const { createTokens } = require(paths.jwtRoutes);
 
 // Validáció
 

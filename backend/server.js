@@ -1,10 +1,11 @@
 const express = require("express");
+const paths = require("./path.js");
 const path = require("path");
 const router = express.Router();
 const cookieParser = require("cookie-parser");
 const bodyParser = require("body-parser");
 const multer = require("multer");
-const { validateToken } = require("./jwt.js");
+const { validateToken } = require(paths.jwt);
 
 const app = express();
 
@@ -15,11 +16,11 @@ app.use(bodyParser.json());
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
     if (file.fieldname === "cvFile") {
-      cb(null, path.join(__dirname, "../frontend/assets/uploads/cv"));
+      cb(null, path.join(__dirname, paths.cvFile));
     } else if (file.fieldname === "mlFile") {
-      cb(null, path.join(__dirname, "../frontend/assets/uploads/ml"));
+      cb(null, path.join(__dirname, paths.mlFile));
     } else if (file.fieldname === "companyLogo") {
-      cb(null, path.join(__dirname, "../frontend/assets/uploads/logo"));
+      cb(null, path.join(__dirname, paths.companyLogo));
     }
   },
   filename: function (req, file, cb) {
@@ -29,10 +30,10 @@ const storage = multer.diskStorage({
 
 const upload = multer({ storage: storage });
 
-app.use(express.static(path.join(__dirname, "../frontend")));
+app.use(express.static(path.join(__dirname, paths.frontend)));
 app.use("/", router);
 
-const sendPages = require("./routes/sendPages.js");
+const sendPages = require(paths.sendPages);
 router.get("/", sendPages.sendHomePage);
 router.get("/home", sendPages.redirectHomePage);
 router.get("/contact", sendPages.sendContactPage);
@@ -52,46 +53,46 @@ router.get("/advertisement/view/:id", sendPages.sendAdvertisementViewPage);
 router.get("/register", sendPages.sendRegisterPage);
 router.get("/login", sendPages.sendLoginPage);
 
-const { getAdvertisement } = require("./routes/getAdvertisement.js");
+const { getAdvertisement } = require(paths.getAdvertisement);
 app.get("/advertisement/api/:id", getAdvertisement);
 
-const { getAllAdvertisements } = require("./routes/getAllAdvertisements.js");
+const { getAllAdvertisements } = require(paths.getAllAdvertisement);
 app.get("/advertisement/getAllAdvertisements", getAllAdvertisements);
 
-const { getApplicants } = require("./routes/getApplicants.js");
+const { getApplicants } = require(paths.getApplicants);
 app.get("/advertisement/getApplicants/:id", getApplicants);
 
-const { editVerification } = require("./routes/editVerification.js");
+const { editVerification } = require(paths.editVerification);
 app.get("/advertisement/edit-verification/:id", validateToken, editVerification);
 
-const { getAllCategories } = require("./routes/getAllCategories.js");
+const { getAllCategories } = require(paths.getAllCategories);
 app.get("/advertisement/allCategories", getAllCategories);
 
-const { getUsedCategories } = require("./routes/getUsedCategories.js");
+const { getUsedCategories } = require(paths.getUsedCategories);
 app.get("/advertisement/usedCategories", getUsedCategories);
 
-const { getAllLocations } = require("./routes/getAllLocations.js");
+const { getAllLocations } = require(paths.getAllLocations);
 app.get("/advertisement/allLocations", getAllLocations);
 
-const { getUsedLocations } = require("./routes/getUsedLocations.js");
+const { getUsedLocations } = require(paths.getUsedLocations);
 app.get("/advertisement/usedLocations", getUsedLocations);
 
-const { calculateWageRanges } = require("./routes/calculateWageRanges.js");
+const { calculateWageRanges } = require(paths.calculateWageRanges);
 app.get("/advertisement/calculateWageRanges", calculateWageRanges);
 
-const { createAdvertisement } = require("./routes/createAdvertisement.js");
+const { createAdvertisement } = require(paths.createAdvertisement);
 app.post("/advertisement/create-new", validateToken, createAdvertisement);
 
-const { saveValidation, saveAdvertisement } = require("./routes/saveAdvertisement.js");
+const { saveValidation, saveAdvertisement } = require(paths.saveAdvertisement);
 app.post("/advertisement/save/:id", validateToken, saveValidation, saveAdvertisement);
 
-const { deleteAdvertisement } = require("./routes/deleteAdvertisement.js");
+const { deleteAdvertisement } = require(paths.deleteAdvertisement);
 app.post("/advertisement/delete/:id", validateToken, deleteAdvertisement);
 
-const { getByCompanyAdvertisement } = require("./routes/getByCompanyAdvertisement.js");
+const { getByCompanyAdvertisement } = require(paths.getByCompanyAdvertisement);
 app.get("/advertisement/getByCompanyAdvertisement", validateToken, getByCompanyAdvertisement);
 
-const registerAuth = require("./routes/registerAuth.js");
+const registerAuth = require(paths.registerAuth);
 app.post(
   "/auth/register",
   upload.single("companyLogo"),
@@ -99,12 +100,12 @@ app.post(
   registerAuth.registerUser
 );
 
-const loginAuth = require("./routes/loginAuth.js");
+const loginAuth = require(paths.loginAuth);
 app.post("/auth/login", loginAuth.loginValidation, loginAuth.loginUser);
 app.get("/auth/logged-in", validateToken, loginAuth.loggedinUser);
 app.get("/auth/logout", validateToken, loginAuth.logoutUser);
 
-const contactForm = require("./routes/contactForm.js");
+const contactForm = require(paths.contactForm);
 app.post(
   "/contactForm/:id",
   upload.fields([
@@ -116,7 +117,7 @@ app.post(
   contactForm.sendForm
 );
 
-const { getCompany, registeredCompany } = require("./routes/getCompany.js");
+const { getCompany, registeredCompany } = require(paths.getCompany);
 app.get("/controlPanel/company/info", validateToken, getCompany);
 app.get("/controlPanel/company/registered-company", validateToken, registeredCompany);
 
