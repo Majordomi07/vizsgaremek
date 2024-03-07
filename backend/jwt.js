@@ -1,8 +1,10 @@
 const { sign, verify } = require("jsonwebtoken");
 require("dotenv").config();
 
+const { JWT } = process.env;
+
 const createTokens = (userID) => {
-  const accessToken = sign({ userID: userID }, "123");
+  const accessToken = sign({ userID: userID }, JWT);
   return accessToken;
 };
 
@@ -14,7 +16,7 @@ const validateToken = async (req, res, next) => {
   }
 
   try {
-    const validToken = await verify(accessToken, "123");
+    const validToken = await verify(accessToken, JWT);
     if (validToken) {
       req.authenticated = true;
       req.user = { userID: validToken.userID };

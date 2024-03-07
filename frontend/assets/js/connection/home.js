@@ -269,7 +269,6 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   function handleFilterChange() {
-    responsiveFilter();
     const selectedCategoryValue = Array.from(categoryFilterSelect)
       .map((inputField) => inputField.value)
       .find((value) => value !== "Bármelyik kategória");

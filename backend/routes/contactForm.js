@@ -89,7 +89,7 @@ const sendForm = async (req, res) => {
           </header>
           <main>
           <div class="box">
-          <p style="margin-top: 15px">Kedves ${results[0].lastName} ${results[0].firstName},</p>
+          <p style="margin-top: 15px">Kedves Felhasználónk!,</p>
           <p>
           Cégének egyik álláshírdetésére egy új jelentkezés érkezett a jelentkezés pontos információit alább
           találja.

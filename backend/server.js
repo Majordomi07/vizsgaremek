@@ -84,10 +84,10 @@ const { createAdvertisement } = require(paths.createAdvertisement);
 app.post("/advertisement/create-new", validateToken, createAdvertisement);
 
 const { saveValidation, saveAdvertisement } = require(paths.saveAdvertisement);
-app.post("/advertisement/save/:id", validateToken, saveValidation, saveAdvertisement);
+app.put("/advertisement/save/:id", validateToken, saveValidation, saveAdvertisement);
 
 const { deleteAdvertisement } = require(paths.deleteAdvertisement);
-app.post("/advertisement/delete/:id", validateToken, deleteAdvertisement);
+app.delete("/advertisement/delete/:id", validateToken, deleteAdvertisement);
 
 const { getByCompanyAdvertisement } = require(paths.getByCompanyAdvertisement);
 app.get("/advertisement/getByCompanyAdvertisement", validateToken, getByCompanyAdvertisement);

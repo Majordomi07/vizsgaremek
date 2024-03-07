@@ -152,7 +152,7 @@ saveButton.addEventListener("click", async (event) => {
   const benefit = document.getElementById("benefit").value;
 
   const response = await fetch("/advertisement/save/" + advertisementID, {
-    method: "POST",
+    method: "PUT",
     headers: {
       "Content-Type": "application/json",
     },
@@ -197,7 +197,7 @@ deleteButton.addEventListener("click", async (event) => {
   event.preventDefault();
 
   const response = await fetch("/advertisement/delete/" + advertisementID, {
-    method: "POST",
+    method: "DELETE",
   });
 
   const data = await response.json();
