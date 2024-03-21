@@ -7,7 +7,7 @@ A vizsgaremekem témája egy álláskeresési- hírdetési platform.
 ### 1. adatbázis beállítása:
 
 - XXAMP elindítása
-- backend\ujmelo.sql futtatása PhpMyAdmin-ban
+- backend\ujmelo.sql importálása PhpMyAdmin-ban
 
 ### 2. backend futtatása:
 
