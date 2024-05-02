@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="hu">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>újmeló | Regisztráció</title>
+    <link rel="stylesheet" href="/assets/css/global.css" />
+    <link rel="stylesheet" href="/assets/css/register.css" />
+  </head>
+  <body>
+    <!-- ----------------------------------------------------------------------- -->
+    <!--                                  Main                                   -->
+    <!-- ----------------------------------------------------------------------- -->
+
+    <main>
+      <div class="design">
+        <div class="logo">
+          <a href="/">
+            <img src="/assets/images/logo-white.svg" />
+          </a>
+        </div>
+        <div class="blob"></div>
+      </div>
+      <div class="form">
+        <a href="/">
+          <img src="/assets/images/logo.svg" />
+        </a>
+        <h2>Regisztráció</h2>
+        <form id="registerForm" enctype="multipart/form-data">
+          <div>
+            <label>Email cím</label>
+            <input type="text" placeholder="valaki@valami.com" id="email" name="email" />
+            <p id="emailError" class="error"></p>
+          </div>
+          <div>
+            <label>Jelszó</label>
+            <input type="password" placeholder="Jelszó" id="password" name="password" />
+            <p id="passwordError" class="error"></p>
+          </div>
+          <div>
+            <label>Jelszó újra</label>
+            <input type="password" placeholder="Jelszó" id="passwordAgain" name="passwordAgain" />
+            <p id="passwordAgainError" class="error"></p>
+          </div>
+          <div>
+            <label>Vezetéknév</label>
+            <input type="text" placeholder="Vezetéknév" id="lastname" name="lastname" />
+            <p id="lastnameError" class="error"></p>
+          </div>
+          <div>
+            <label>Keresztnév</label>
+            <input type="text" placeholder="Keresztnév" id="firstname" name="firstname" />
+            <p id="firstnameError" class="error"></p>
+          </div>
+          <div class="company-check">
+            <input type="checkbox" id="company" />
+            <label for="company">Cégként szeretnél regisztrálni?</label>
+          </div>
+          <div class="company">
+            <div>
+              <label>Cégnév</label>
+              <input type="text" placeholder="Cégnév" id="companyName" />
+              <p id="companyNameError" class="error"></p>
+            </div>
+            <div class="companyLogo">
+              <p>Céglogó</p>
+              <div class="file">
+                <p id="companyLogoFileName">Nincs kiválasztva</p>
+                <label for="companyLogo">
+                  Tallózás
+                  <input type="file" id="companyLogo" />
+                </label>
+              </div>
+              <p id="companyLogoError" class="error"></p>
+            </div>
+            <div>
+              <label>Cég leírás</label>
+              <textarea placeholder="Leírás" id="companyDescription"></textarea>
+              <p id="companyDescriptionError" class="error"></p>
+            </div>
+          </div>
+          <div class="policy-container">
+            <div class="policy-checkbox">
+              <input type="checkbox" id="policy" />
+              <label for="policy">Elolvastam és elfogadom az adatvédelmi nyilatkozatot.</label>
+            </div>
+            <div>
+              <p id="policyError" class="error"></p>
+            </div>
+          </div>
+          <div class="button">
+            <button type="submit">Regisztráció</button>
+          </div>
+        </form>
+      </div>
+    </main>
+
+    <script src="/assets/js/connection/register.js"></script>
+    <script src="/assets/js/functions/companyForm.js"></script>
+    <script src="/assets/js/functions/logoUpload.js"></script>
+  </body>
+</html>

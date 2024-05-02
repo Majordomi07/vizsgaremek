@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="hu">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>újmeló | Kapcsolat</title>
+    <link rel="stylesheet" href="/assets/css/global.css" />
+    <link rel="stylesheet" href="/assets/css/popup.css" />
+    <link rel="stylesheet" href="/assets/css/header.css" />
+    <link rel="stylesheet" href="/assets/css/contact.css" />
+    <link rel="stylesheet" href="/assets/css/footer.css" />
+  </head>
+  <body>
+    <!-- --------------------------- Popup messages ---------------------------- -->
+
+    <div class="popup error" id="controlPanelAuthError">
+      <div class="top">
+        <img src="/assets/images/icons/alert-triangle.svg" />
+        <h3>Kezelőfelület hiba</h3>
+      </div>
+      <div class="bottom">
+        <p>Bejelentkezés nélkül nem használhatod a kezelőfelületet.</p>
+      </div>
+    </div>
+
+    <div class="popup error" id="controlPanelCompanyError">
+      <div class="top">
+        <img src="/assets/images/icons/alert-triangle.svg" />
+        <h3>Kezelőfelület hiba</h3>
+      </div>
+      <div class="bottom">
+        <p>Nem cégként regisztráltál, így számodra nem elérhető a kezelőfelület.</p>
+      </div>
+    </div>
+
+    <!-- ----------------------------------------------------------------------- -->
+    <!--                                 Header                                  -->
+    <!-- ----------------------------------------------------------------------- -->
+
+    <!-- --------------------------- Desktop header ---------------------------- -->
+
+    <div class="container" id="headerScroll">
+      <header class="desktop">
+        <div class="brand">
+          <a href="/">
+            <img src="/assets/images/logo-white.svg" />
+          </a>
+        </div>
+        <nav>
+          <a href="/#posts">Álláshírdetések</a>
+          <a href="/contact">Kapcsolat</a>
+          <a class="controlPanel">Kezelőfelület</a>
+        </nav>
+        <div class="cta">
+          <a id="loginButton">Bejelentkezés</a>
+        </div>
+      </header>
+    </div>
+
+    <!-- -------------------------- Responsive header -------------------------- -->
+
+    <header class="responsive">
+      <div class="brand">
+        <a href="/">
+          <img src="/assets/images/logo-white.svg" />
+        </a>
+      </div>
+      <div class="bars" onclick="toggle()">
+        <i></i>
+      </div>
+      <nav id="nav">
+        <a href="/#posts">Álláshírdetések</a>
+        <a href="/contact">Kapcsolat</a>
+        <a class="controlPanel">Kezelőfelület</a>
+        <a id="loginButton">Bejelentkezés</a>
+      </nav>
+    </header>
+
+    <!-- ----------------------------------------------------------------------- -->
+    <!--                              Header-liner                               -->
+    <!-- ----------------------------------------------------------------------- -->
+
+    <div class="header-liner"></div>
+
+    <!-- ----------------------------------------------------------------------- -->
+    <!--                                 Contact                                 -->
+    <!-- ----------------------------------------------------------------------- -->
+
+    <section class="contact">
+      <div class="container">
+        <h2>Kapcsolat</h2>
+        <p>
+          Kérdéseid vagy észrevételeid vannak az oldalunkkal kapcsolatban? Szívesen fogadjuk visszajelzésedet, és mindig
+          elérhetőek vagyunk a segítségedre.
+        </p>
+        <div class="contact-box">
+          <h3>Telefonos ügyfélszolgálat</h3>
+          <p>
+            Ügyfélszolgálatunk munkaidőben elérhető, hogy válaszoljon a kérdéseidre és segítsen megoldani a
+            problémáidat. Köszönjük, hogy a XYZ Álláshirdetési Platformot választottad az álláskeresésed támogatására!
+          </p>
+          <p class="contact-info"><span>Elérhetőség: </span>+36/20 237 8840</p>
+        </div>
+        <div class="contact-box">
+          <h3>Online ügyfélszolgálat</h3>
+          <p>
+            A cégünk online emailes ügyfélszolgálata kiemelkedő figyelmet fordít ügyfeleink kéréseire és problémáira. Az
+            ügyfélszolgálati csapatunk elkötelezett abban, hogy gyors és hatékony válaszokat nyújtson minden beérkező
+            emailre.
+          </p>
+          <p class="contact-info"><span>Elérhetőség: </span>info@ujmelo.hu</p>
+        </div>
+        <div class="contact-box">
+          <h3>Személyes ügyfélszolgálat</h3>
+          <p>
+            Az irodában zajló jelenléti ügyfélszolgálatunk egy olyan hely, ahol ügyfeleink személyesen találkozhatnak
+            kiválóan felkészült és barátságos csapatunkkal. Ügyfélszolgálati munkatársaink mindig rendelkezésre.
+          </p>
+          <p class="contact-info"><span>Elérhetőség: </span>Budapest, Váci út 21, 1134</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ----------------------------------------------------------------------- -->
+    <!--                                 Footer                                  -->
+    <!-- ----------------------------------------------------------------------- -->
+
+    <footer>
+      <main>
+        <div class="container">
+          <div class="brand">
+            <a href="/">
+              <img src="/assets/images/logo-white.svg" />
+            </a>
+            <p>
+              Az álláshírdetési platformok számos előnnyel járnak az állást keresők és munkaadók számára. Ezek a
+              platformok gyors és kényelmes módját.
+            </p>
+          </div>
+          <div class="nav">
+            <h3>Linkek</h3>
+            <a href="/#posts">Álláshírdetések</a>
+            <a class="controlPanel">Kezelőfelület</a>
+            <a href="/contact">Kapcsolat</a>
+            <a id="loginButton">Bejelentkezés</a>
+          </div>
+        </div>
+      </main>
+      <div class="low">
+        <div class="container">
+          <p>A weboldalt készítette: Major Dominik</p>
+          <p>újmeló © | Minden jog fenntartva!</p>
+        </div>
+      </div>
+    </footer>
+
+    <script src="/assets/js/functions/popupMessage.js"></script>
+    <script src="/assets/js/functions/logoutButton.js"></script>
+    <script src="/assets/js/functions/headerScroll.js"></script>
+    <script src="/assets/js/functions/headerSwitch.js"></script>
+  </body>
+</html>

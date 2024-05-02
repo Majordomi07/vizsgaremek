@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="hu">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>újmeló | Álláskeresési platform</title>
+    <link rel="stylesheet" href="/assets/css/global.css" />
+    <link rel="stylesheet" href="/assets/css/popup.css" />
+    <link rel="stylesheet" href="/assets/css/header.css" />
+    <link rel="stylesheet" href="/assets/css/home.css" />
+    <link rel="stylesheet" href="/assets/css/footer.css" />
+  </head>
+  <body>
+    <!-- --------------------------- Popup messages ---------------------------- -->
+
+    <div class="popup success" id="successfulLogin">
+      <div class="top">
+        <img src="/assets/images/icons/check-circle.svg" />
+        <h3>Sikeres bejelentkezés</h3>
+      </div>
+      <div class="bottom">
+        <p>Sikeresen bejelentkeztél. Mostmár létrehozhatsz álláshírdetést, vagy jelentkezhetsz egyre.</p>
+      </div>
+    </div>
+
+    <div class="popup success" id="successfulLogout">
+      <div class="top">
+        <img src="/assets/images/icons/check-circle.svg" />
+        <h3>Sikeres kijelentkezés</h3>
+      </div>
+      <div class="bottom">
+        <p>Sikeresen kijelentkeztél.</p>
+      </div>
+    </div>
+
+    <div class="popup error" id="controlPanelAuthError">
+      <div class="top">
+        <img src="/assets/images/icons/alert-triangle.svg" />
+        <h3>Kezelőfelület hiba</h3>
+      </div>
+      <div class="bottom">
+        <p>Bejelentkezés nélkül nem használhatod a kezelőfelületet.</p>
+      </div>
+    </div>
+
+    <div class="popup error" id="controlPanelCompanyError">
+      <div class="top">
+        <img src="/assets/images/icons/alert-triangle.svg" />
+        <h3>Kezelőfelület hiba</h3>
+      </div>
+      <div class="bottom">
+        <p>Nem cégként regisztráltál, így számodra nem elérhető a kezelőfelület.</p>
+      </div>
+    </div>
+
+    <!-- ----------------------------------------------------------------------- -->
+    <!--                                 Header                                  -->
+    <!-- ----------------------------------------------------------------------- -->
+
+    <!-- --------------------------- Desktop header ---------------------------- -->
+
+    <div class="container" id="headerScroll">
+      <header class="desktop">
+        <div class="brand">
+          <a href="/">
+            <img src="/assets/images/logo-white.svg" />
+          </a>
+        </div>
+        <nav>
+          <a href="/#posts">Álláshírdetések</a>
+          <a href="/contact">Kapcsolat</a>
+          <a class="controlPanel">Kezelőfelület</a>
+        </nav>
+        <div class="cta">
+          <a id="loginButton">Bejelentkezés</a>
+        </div>
+      </header>
+    </div>
+
+    <!-- -------------------------- Responsive header -------------------------- -->
+
+    <header class="responsive">
+      <div class="brand">
+        <a href="/">
+          <img src="/assets/images/logo-white.svg" />
+        </a>
+      </div>
+      <div class="bars" onclick="toggle()">
+        <i></i>
+      </div>
+      <nav id="nav">
+        <a href="/#posts">Álláshírdetések</a>
+        <a href="/contact">Kapcsolat</a>
+        <a class="controlPanel">Kezelőfelület</a>
+        <a id="loginButton">Bejelentkezés</a>
+      </nav>
+    </header>
+
+    <!-- ----------------------------------------------------------------------- -->
+    <!--                                  Hero                                   -->
+    <!-- ----------------------------------------------------------------------- -->
+
+    <section class="hero">
+      <div class="container">
+        <div class="text">
+          <div id="typing-container">
+            <h1 id="typing"></h1>
+          </div>
+          <h2>#újmeló</h2>
+          <p>
+            Fedezze fel az álmai munkáját a mi platformunkon! Kínáljuk a legfrissebb állásajánlatokat minden
+            területen, hogy segítsünk Önnek elindítani vagy felpörgetni karrierjét.
+          </p>
+          <a href="#posts">Kezdj bele a keresésbe</a>
+        </div>
+        <div class="illustration">
+          <object type="image/svg+xml" data="/assets/images/illustration.svg"></object>
+        </div>
+      </div>
+    </section>
+
+    <!-- ----------------------------------------------------------------------- -->
+    <!--                                  Posts                                  -->
+    <!-- ----------------------------------------------------------------------- -->
+
+    <div class="container posts-container">
+      <section class="posts" id="posts">
+        <h2>Álláshírdetések</h2>
+        <p>
+          Fedezze fel a következő nagy lehetőséget! Böngésszen friss állásajánlatok között és találja meg
+          álmai munkáját. A legjobb állásajánlatok csak egy kattintásra vanna öntől.
+        </p>
+        <div class="content">
+          <aside>
+            <h3>Szűrők</h3>
+            <div class="wage">
+              <h4>Órabér</h4>
+              <form id="wageFilter" class="wage-form">
+                <p>
+                  <input type="radio" id="wage1" name="wage" class="radio" />
+                  <label for="wage1"></label>
+                </p>
+                <p>
+                  <input type="radio" id="wage2" name="wage" class="radio" />
+                  <label for="wage2"></label>
+                </p>
+                <p>
+                  <input type="radio" id="wage3" name="wage" class="radio" />
+                  <label for="wage3"></label>
+                </p>
+              </form>
+            </div>
+            <div class="location">
+              <h4>Település</h4>
+              <select id="locationFilter">
+                <option value="Bármely település" selected>Bármely település</option>
+              </select>
+            </div>
+          </aside>
+          <main>
+            <form id="topbar">
+              <div class="topbar">
+                <div class="search">
+                  <input type="text" placeholder="Kulcsszó kereső" id="keywordFilter" />
+                </div>
+                <div class="category">
+                  <select id="categoryFilter">
+                    <option value="Bármelyik kategória" selected>Bármelyik kategória</option>
+                  </select>
+                </div>
+                <div class="order">
+                  <select id="orderFilter">
+                    <option value="Legújabb">Legújabb</option>
+                    <option value="Legtöbbet fizető">Legtöbbet fizető</option>
+                  </select>
+                </div>
+                <div class="filter">
+                  <button onclick="responsiveFilter()">
+                    <p>Szűrő</p>
+                    <img src="/assets/images/icons/filter.svg" />
+                  </button>
+                </div>
+                <div class="filterReset">
+                  <button id="resetFilter">
+                    <p>Szűrők visszaállítása</p>
+                    <img src="/assets/images/icons/reset.svg" />
+                  </button>
+                </div>
+              </div>
+            </form>
+            <div class="result">
+              <p>Talált állások: <span id="results"></span></p>
+            </div>
+
+            <div id="advertisementsContainer"></div>
+
+            <div class="show-more" id="show-more">
+              <p>Mutass többet...</p>
+            </div>
+          </main>
+
+          <div class="responsive-filter closed">
+            <div class="location">
+              <h4>Település</h4>
+              <select id="locationFilter">
+                <option value="Bármely település" selected>Bármely település</option>
+              </select>
+            </div>
+            <div class="wage">
+              <h4>Órabér</h4>
+              <form id="wageFilter2" class="wage-form">
+                <p>
+                  <input type="radio" id="wage21" name="wage" class="radio" />
+                  <label for="wage21"></label>
+                </p>
+                <p>
+                  <input type="radio" id="wage22" name="wage" class="radio" />
+                  <label for="wage22"></label>
+                </p>
+                <p>
+                  <input type="radio" id="wage23" name="wage" class="radio" />
+                  <label for="wage23"></label>
+                </p>
+              </form>
+            </div>
+            <div class="category">
+              <h4>Kategória</h4>
+              <select id="categoryFilter">
+                <option value="Bármelyik kategória" selected>Bármelyik kategória</option>
+              </select>
+            </div>
+            <div class="order">
+              <h4>Rendezés</h4>
+              <select id="orderFilter">
+                <option value="Legújabb">Legújabb</option>
+                <option value="Legtöbbet fizető">Legtöbbet fizető</option>
+              </select>
+            </div>
+            <div class="filterReset">
+              <button id="resetFilter">
+                <p>Szűrők visszaállítása</p>
+                <img src="/assets/images/icons/reset.svg" />
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- ----------------------------------------------------------------------- -->
+    <!--                                 Footer                                  -->
+    <!-- ----------------------------------------------------------------------- -->
+
+    <footer>
+      <main>
+        <div class="container">
+          <div class="brand">
+            <a href="/">
+              <img src="/assets/images/logo-white.svg" />
+            </a>
+            <p>
+              Az álláshírdetési platformok számos előnnyel járnak az állást keresők és munkaadók számára. Ezek
+              a platformok gyors és kényelmes módját.
+            </p>
+          </div>
+          <div class="nav">
+            <h3>Linkek</h3>
+            <a href="/#posts">Álláshírdetések</a>
+            <a class="controlPanel">Kezelőfelület</a>
+            <a href="/contact">Kapcsolat</a>
+            <a id="loginButton">Bejelentkezés</a>
+          </div>
+        </div>
+      </main>
+      <div class="low">
+        <div class="container">
+          <p>A weboldalt készítette: Major Dominik</p>
+          <p>újmeló © | Minden jog fenntartva!</p>
+        </div>
+      </div>
+    </footer>
+
+    <script src="/assets/js/connection/home.js"></script>
+    <script src="/assets/js/functions/popupMessage.js"></script>
+    <script src="/assets/js/functions/logoutButton.js"></script>
+    <script src="/assets/js/functions/typeWriter.js"></script>
+    <script src="/assets/js/functions/headerScroll.js"></script>
+    <script src="/assets/js/functions/headerSwitch.js"></script>
+    <script src="/assets/js/functions/responsiveFilter.js"></script>
+  </body>
+</html>

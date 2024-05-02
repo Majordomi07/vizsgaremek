@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="hu">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>újmeló | Álláshírdetés szerkesztése</title>
+    <link rel="stylesheet" href="/assets/css/global.css" />
+    <link rel="stylesheet" href="/assets/css/header.css" />
+    <link rel="stylesheet" href="/assets/css/advertisement-edit.css" />
+    <link rel="stylesheet" href="/assets/css/footer.css" />
+  </head>
+  <body>
+    <!-- ----------------------------------------------------------------------- -->
+    <!--                                 Navbar                                  -->
+    <!-- ----------------------------------------------------------------------- -->
+
+    <aside>
+      <a href="/" class="brand">
+        <img src="/assets/images/logo-white.svg" />
+      </a>
+      <a href="/controlPanel/company">
+        <img src="/assets/images/icons/user-icon.svg" />
+        <p id="companyName"></p>
+      </a>
+      <a href="/controlPanel/advertisements">Álláshírdetések</a>
+    </aside>
+
+    <!-- ----------------------------------------------------------------------- -->
+    <!--                              Header-liner                               -->
+    <!-- ----------------------------------------------------------------------- -->
+
+    <div class="header-liner"></div>
+
+    <!-- ----------------------------------------------------------------------- -->
+    <!--                            Responsive header                            -->
+    <!-- ----------------------------------------------------------------------- -->
+
+    <header class="responsive">
+      <div class="brand">
+        <a href="/">
+          <img src="/assets/images/logo-white.svg" />
+        </a>
+      </div>
+      <div class="bars" onclick="toggle()">
+        <i></i>
+      </div>
+      <nav id="nav">
+        <a href="/controlPanel/company">
+          <img src="/assets/images/icons/user-icon.svg" />
+          <p id="companyName"></p>
+        </a>
+        <a href="/controlPanel/advertisements">Álláshírdetések</a>
+      </nav>
+    </header>
+
+    <!-- ----------------------------------------------------------------------- -->
+    <!--                                  Main                                   -->
+    <!-- ----------------------------------------------------------------------- -->
+
+    <main>
+      <h2>Álláshírdetés szerkesztése</h2>
+      <p>Itt szerkeszthetsz álláshírdetést</p>
+
+      <form>
+        <div>
+          <label>Álláshírdetés címe:</label>
+          <input type="text" placeholder="Cím" id="title" name="title" />
+          <p class="error" id="titleError"></p>
+        </div>
+        <div>
+          <label>Rövid ismertető:</label>
+          <textarea placeholder="Ismertető" id="introduction" name="introduction"></textarea>
+          <p class="error" id="introductionError"></p>
+        </div>
+        <div>
+          <label>Általános információk:</label>
+          <textarea placeholder="Rövid leírás" id="general" name="general"></textarea>
+          <p class="error" id="generalError"></p>
+        </div>
+        <div>
+          <label>Kategória:</label>
+          <select id="category"></select>
+        </div>
+        <div>
+          <label>Óradíj:</label>
+          <input type="number" placeholder="0 Ft" id="wage" name="wage" />
+          <p class="error" id="wageError"></p>
+        </div>
+        <div>
+          <label>Település:</label>
+          <select id="location"></select>
+          <p class="error" id="locationError"></p>
+        </div>
+        <div>
+          <label>Elvárások:</label>
+          <textarea placeholder="..." id="requirement" name="requirement"></textarea>
+          <p class="error" id="requirementError"></p>
+        </div>
+        <div>
+          <label>Juttatások:</label>
+          <textarea placeholder="..." id="benefit" name="benefit"></textarea>
+          <p class="error" id="benefitError"></p>
+        </div>
+        <div class="buttons">
+          <button class="delete" id="deleteAdvertisement">Törlés</button>
+          <button class="save" id="saveAdvertisement">Mentés</button>
+        </div>
+      </form>
+    </main>
+
+    <!-- ----------------------------------------------------------------------- -->
+    <!--                                 Footer                                  -->
+    <!-- ----------------------------------------------------------------------- -->
+
+    <footer>
+      <main>
+        <div class="container">
+          <div class="brand">
+            <a href="/">
+              <img src="/assets/images/logo-white.svg" />
+            </a>
+            <p>
+              Az álláshírdetési platformok számos előnnyel járnak az állást keresők és munkaadók számára. Ezek
+              a platformok gyors és kényelmes módját.
+            </p>
+          </div>
+        </div>
+      </main>
+      <div class="low">
+        <div class="container">
+          <p>A weboldalt készítette: Major Dominik</p>
+          <p>újmeló © | Minden jog fenntartva!</p>
+        </div>
+      </div>
+    </footer>
+
+    <script src="/assets/js/connection/editAdvertisement.js"></script>
+    <script src="/assets/js/functions/headerSwitch.js"></script>
+  </body>
+</html>

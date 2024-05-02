@@ -1,0 +1,227 @@
+/* -------------------------------------------------------------------------- */
+/*                                   Header                                   */
+/* -------------------------------------------------------------------------- */
+
+/* --------------------------------- Desktop -------------------------------- */
+
+#headerScroll {
+  transition: top 0.2s;
+  z-index: 3;
+}
+
+.desktop {
+  position: relative;
+  display: flex;
+  align-items: center;
+  z-index: 4;
+
+  margin-top: 30px;
+  height: 80px;
+  transition: padding-left 0.2s, padding-right 0.2s;
+}
+
+.desktop .brand {
+  width: 100%;
+
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.desktop .brand img {
+  height: 60px;
+  margin-bottom: -4px;
+}
+
+.desktop nav {
+  width: 100%;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  gap: 30px;
+}
+
+.desktop nav a {
+  color: white;
+  font-family: "Sailec Medium";
+  font-size: 17px;
+  text-decoration: none;
+
+  box-sizing: content-box;
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.desktop nav a::after {
+  content: "";
+  position: absolute;
+  width: 0%;
+  height: 3px;
+  display: block;
+  transition: all 0.3s ease;
+  top: 22px;
+}
+
+.desktop nav a:hover::after {
+  width: 100%;
+  background: linear-gradient(45deg, #3dc7e6 0%, #27c0f3 100%);
+}
+
+.desktop .cta {
+  width: 100%;
+
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.desktop .cta a {
+  color: white;
+  font-family: "Sailec Medium";
+  font-size: 17px;
+  text-decoration: none;
+
+  padding: 8px 40px;
+  border-radius: 10px;
+  background: linear-gradient(45deg, #00b4db 0%, #0083b0 100%);
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+
+  transition: 0.2s all;
+}
+
+.desktop .cta a:hover {
+  transform: scale(1.1);
+}
+
+/* ------------------------------- Responsive ------------------------------- */
+
+.responsive {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  z-index: 4;
+
+  padding-top: 15px;
+  z-index: 10;
+
+  padding: 15px 30px 0 30px;
+}
+
+.responsive .brand {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.responsive .brand img {
+  height: 35px;
+  padding: 0;
+  margin: 0;
+  margin-bottom: -4px;
+}
+
+.responsive .bars {
+  z-index: 4;
+  width: 40px;
+  height: 30px;
+
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.responsive .bars i {
+  width: 20px;
+  height: 2px;
+  background: white;
+  border-radius: 5px;
+  position: absolute;
+  top: 30.5px;
+}
+
+.responsive .bars i::before {
+  content: "";
+  width: 20px;
+  height: 2px;
+  background: white;
+  border-radius: 5px;
+  position: absolute;
+  bottom: 6px;
+}
+
+.responsive .bars i::after {
+  content: "";
+  width: 20px;
+  height: 2px;
+  background: white;
+  border-radius: 5px;
+  position: absolute;
+  top: 6px;
+}
+
+.responsive .bars.active i {
+  background: transparent;
+}
+
+.responsive .bars.active i::before {
+  rotate: 45deg;
+  top: 0px;
+}
+
+.responsive .bars.active i::after {
+  rotate: -45deg;
+  top: 0px;
+}
+
+.responsive nav {
+  position: fixed;
+  background: #218199;
+  height: 100vh;
+  top: 0;
+  right: 0;
+  width: 0;
+  right: -100px;
+  display: flex;
+  flex-direction: column;
+
+  padding: 70px 40px;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+
+  transition: 0.3s;
+}
+
+.responsive nav a {
+  color: white;
+  font-size: 16px;
+  font-family: "Sailec Medium";
+
+  text-decoration: none;
+
+  cursor: pointer;
+  margin-bottom: 20px;
+}
+
+/* -------------------------------------------------------------------------- */
+/*                                 Media Query                                */
+/* -------------------------------------------------------------------------- */
+
+@media only screen and (max-width: 1000px) {
+  .desktop {
+    display: none;
+  }
+  .responsive {
+    display: flex;
+  }
+}
+
+@media only screen and (min-width: 1000px) {
+  .desktop {
+    display: flex;
+  }
+  .responsive {
+    display: none;
+  }
+}

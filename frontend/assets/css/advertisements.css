@@ -1,0 +1,467 @@
+/* -------------------------------------------------------------------------- */
+/*                                   Navbar                                   */
+/* -------------------------------------------------------------------------- */
+
+body {
+  display: flex;
+  justify-content: center;
+
+  flex-direction: row;
+}
+
+aside {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 300px;
+  height: 100vh;
+  background: linear-gradient(180deg, #008baa 0%, #004e68 100%);
+  box-shadow: 3px 0px 4px rgba(0, 0, 0, 0.25);
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  padding: 30px;
+}
+
+aside .brand {
+  margin: 0;
+}
+
+aside .brand img {
+  width: 180px;
+  margin-bottom: 60px;
+}
+
+aside a {
+  text-decoration: none;
+  color: white;
+  font-family: "Sailec Medium";
+  font-size: 24px;
+  font-weight: 400;
+
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  margin-bottom: 30px;
+  font-weight: 400;
+}
+
+aside a img {
+  width: 20px;
+  margin: 0;
+}
+
+aside a p {
+  font-size: 19px;
+  font-weight: 400;
+}
+
+/* -------------------------------------------------------------------------- */
+/*                                   Header                                   */
+/* -------------------------------------------------------------------------- */
+
+.responsive nav a {
+  display: flex;
+  gap: 10px;
+}
+
+.responsive nav a img {
+  width: 15px;
+}
+
+/* -------------------------------------------------------------------------- */
+/*                                    Main                                    */
+/* -------------------------------------------------------------------------- */
+
+main {
+  width: 100%;
+  margin-left: 300px;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 50px;
+}
+
+main h2 {
+  font-family: "Sailec Bold";
+  font-size: 40px;
+  text-align: center;
+}
+
+main p {
+  font-family: "Inter";
+  font-size: 16px;
+  text-align: center;
+  margin-bottom: 70px;
+}
+
+main .new-advertisement {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 40px;
+
+  padding: 10px 25px;
+
+  border-radius: 10px;
+  border: none;
+  background: linear-gradient(45deg, #00b4db 0%, #0083b0 100%);
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+  transition: 0.2s all;
+}
+
+main .new-advertisement:hover {
+  transform: scale(1.05);
+}
+
+main .new-advertisement p {
+  color: white;
+  font-family: "Sailec Medium";
+  font-size: 17px;
+  margin: 0;
+}
+
+main .new-advertisement img {
+  height: 20px;
+}
+
+main .post {
+  background: white;
+  box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.25);
+  border-radius: 10px;
+
+  padding: 30px;
+  margin-bottom: 30px;
+}
+
+main .post .top {
+  display: flex;
+}
+
+main .post .top .text {
+  flex: 4;
+}
+
+main .post .top .text h3 {
+  color: #0083b0;
+  font-family: "Sailec Medium";
+  font-size: 21px;
+
+  margin-bottom: 15px;
+}
+
+main .post .top .text p {
+  color: var(--secondary-text-color);
+  font-family: "Inter";
+  text-align: left;
+  font-size: 16px;
+
+  margin: 0;
+  width: 100%;
+  margin-bottom: 30px;
+}
+
+main .post .top .logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 80px;
+  flex: 1;
+}
+
+main .post .top .logo img {
+  height: 100%;
+}
+
+main .post .bottom {
+  display: flex;
+}
+
+main .post .bottom .tags {
+  flex: 4;
+
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 20px;
+}
+
+main .post .bottom .tags .category p {
+  color: white;
+  font-family: "Sailec Medium";
+  font-size: 15px;
+
+  background: linear-gradient(45deg, #00b4db 0%, #0083b0 100%);
+  border-radius: 10px;
+
+  display: inline-block;
+
+  padding: 5px 20px;
+  margin: 0;
+}
+
+main .post .bottom .tags .widget {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+main .post .bottom .tags .widget .map {
+  display: flex;
+  align-items: center;
+  margin-bottom: 5px;
+}
+
+main .post .bottom .tags .widget .map img {
+  height: 20px;
+  margin-right: 10px;
+}
+
+main .post .bottom .tags .widget .map p {
+  color: var(--secondary-text-color);
+  font-family: "Inter";
+  text-align: left;
+  font-size: 14px;
+
+  margin: 0;
+  padding: 0;
+  background: none;
+}
+
+main .post .bottom .tags .widget .time {
+  display: flex;
+  align-items: center;
+}
+
+main .post .bottom .tags .widget .time img {
+  height: 20px;
+  margin-right: 10px;
+}
+
+main .post .bottom .tags .widget .time p {
+  color: var(--secondary-text-color);
+  font-family: "Inter";
+  text-align: left;
+  font-size: 14px;
+
+  margin: 0;
+  padding: 0;
+  background: none;
+}
+
+main .post .bottom .continue {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  flex: 1;
+}
+
+main .post .bottom .continue .applicants {
+  margin-right: 10px;
+}
+
+main .post .bottom .continue .applicants,
+main .post .bottom .continue .edit {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 25px;
+  transition: all 0.2s;
+
+  border-radius: 10px;
+  border: none;
+  background: linear-gradient(45deg, #00b4db 0%, #0083b0 100%);
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+}
+
+main .post .bottom .continue .applicants:hover,
+main .post .bottom .continue .edit:hover {
+  transform: scale(1.05);
+}
+
+main .post .bottom .continue .applicants p,
+main .post .bottom .continue .edit p {
+  color: white;
+  font-family: "Sailec Medium";
+  font-size: 18px;
+
+  margin: 0;
+  padding: 0;
+
+  margin-right: 10px;
+}
+
+main .post .bottom .continue .applicants img,
+main .post .bottom .continue .edit img {
+  margin-top: -2px;
+  height: 15px;
+}
+
+/* -------------------------------------------------------------------------- */
+/*                                   Footer                                   */
+/* -------------------------------------------------------------------------- */
+
+footer {
+  display: none;
+}
+
+/* -------------------------------------------------------------------------- */
+/*                                 Media Query                                */
+/* -------------------------------------------------------------------------- */
+
+@media only screen and (max-width: 1600px) {
+  main {
+    margin: 0;
+    margin-left: 300px;
+  }
+}
+
+@media only screen and (max-width: 1000px) {
+  body {
+    display: block;
+  }
+
+  .header-liner {
+    height: 65px;
+    background-color: green;
+    position: relative;
+    width: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(90deg, #008baa 0%, #004e68 100%);
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    z-index: 1;
+  }
+
+  .header-liner::before {
+    position: absolute;
+    content: "";
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, #057088 0%, #013242 100%);
+    opacity: 0;
+    animation: bg 5s ease-in-out infinite alternate-reverse;
+    z-index: 1;
+  }
+
+  .responsive {
+    margin-top: -65px;
+  }
+
+  aside {
+    display: none;
+  }
+
+  main {
+    margin: 0;
+    padding: 30px;
+    margin-top: -15px;
+  }
+
+  main h2 {
+    font-size: 24px;
+    margin: 30px 0 10px 0;
+  }
+
+  main p {
+    font-size: 11px;
+    margin-bottom: 40px;
+  }
+
+  main .new-advertisement {
+    padding: 8px 15px;
+    margin-bottom: 30px;
+  }
+
+  main .new-advertisement p {
+    font-size: 13px;
+  }
+
+  main .new-advertisement img {
+    height: 15px;
+  }
+
+  main .post {
+    padding: 20px;
+  }
+
+  main .post .top .text h3 {
+    font-size: 12px;
+    margin-bottom: 10px;
+  }
+
+  main .post .top .text p {
+    font-size: 10px;
+    width: 90%;
+    margin-bottom: 20px;
+  }
+
+  main .post .top .logo img {
+    height: 40px;
+  }
+
+  main .post .bottom .tags {
+    gap: 10px;
+  }
+
+  main .post .bottom .tags .category p {
+    font-size: 8px;
+    border-radius: 5px;
+  }
+
+  main .post .bottom .tags .widget .time img,
+  main .post .bottom .tags .widget .map img {
+    height: 10px;
+    margin-right: 5px;
+  }
+
+  main .post .bottom .tags .widget .time p,
+  main .post .bottom .tags .widget .map p {
+    font-size: 8px;
+  }
+
+  main .post .bottom .continue {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  main .post .bottom .continue .applicants {
+    margin-right: 0;
+  }
+
+  main .post .bottom .continue .applicants,
+  main .post .bottom .continue .edit {
+    border-radius: 5px;
+    padding: 5px 15px;
+    box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.25);
+  }
+
+  main .post .bottom .continue .applicants p,
+  main .post .bottom .continue .edit p {
+    font-size: 10px;
+    margin-right: 3px;
+  }
+
+  main .post .bottom .continue .applicants img,
+  main .post .bottom .continue .edit img {
+    height: 10px;
+  }
+
+  footer {
+    display: block;
+    margin-top: 10px;
+  }
+
+  footer main .container {
+    margin: 50px 0;
+  }
+
+  footer main {
+    padding: 0;
+  }
+}

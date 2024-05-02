@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="hu">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>újmeló | Jelentkezők</title>
+    <link rel="stylesheet" href="/assets/css/global.css" />
+    <link rel="stylesheet" href="/assets/css/header.css" />
+    <link rel="stylesheet" href="/assets/css/applicants.css" />
+    <link rel="stylesheet" href="/assets/css/footer.css" />
+  </head>
+  <body>
+    <!-- ----------------------------------------------------------------------- -->
+    <!--                                 Navbar                                  -->
+    <!-- ----------------------------------------------------------------------- -->
+
+    <aside>
+      <a href="/" class="brand">
+        <img src="/assets/images/logo-white.svg" />
+      </a>
+      <a href="/controlPanel/company">
+        <img src="/assets/images/icons/user-icon.svg" />
+        <p id="companyName"></p>
+      </a>
+      <a href="/controlPanel/advertisements">Álláshírdetések</a>
+    </aside>
+
+    <!-- ----------------------------------------------------------------------- -->
+    <!--                              Header-liner                               -->
+    <!-- ----------------------------------------------------------------------- -->
+
+    <div class="header-liner"></div>
+
+    <!-- ----------------------------------------------------------------------- -->
+    <!--                            Responsive header                            -->
+    <!-- ----------------------------------------------------------------------- -->
+
+    <header class="responsive">
+      <div class="brand">
+        <a href="/">
+          <img src="/assets/images/logo-white.svg" />
+        </a>
+      </div>
+      <div class="bars" onclick="toggle()">
+        <i></i>
+      </div>
+      <nav id="nav">
+        <a href="/controlPanel/company">
+          <img src="/assets/images/icons/user-icon.svg" />
+          <p id="companyName"></p>
+        </a>
+        <a href="/controlPanel/advertisements">Álláshírdetések</a>
+      </nav>
+    </header>
+
+    <!-- ----------------------------------------------------------------------- -->
+    <!--                                  Main                                   -->
+    <!-- ----------------------------------------------------------------------- -->
+
+    <main>
+      <h2>Jelentkezők</h2>
+      <p>Itt látható a posztra jelentkezők listája.</p>
+
+      <div class="applicants"></div>
+    </main>
+
+    <!-- ----------------------------------------------------------------------- -->
+    <!--                                 Footer                                  -->
+    <!-- ----------------------------------------------------------------------- -->
+
+    <footer>
+      <main>
+        <div class="container">
+          <div class="brand">
+            <a href="/">
+              <img src="/assets/images/logo-white.svg" />
+            </a>
+            <p>
+              Az álláshírdetési platformok számos előnnyel járnak az állást keresők és munkaadók számára. Ezek a
+              platformok gyors és kényelmes módját.
+            </p>
+          </div>
+        </div>
+      </main>
+      <div class="low">
+        <div class="container">
+          <p>A weboldalt készítette: Major Dominik</p>
+          <p>újmeló © | Minden jog fenntartva!</p>
+        </div>
+      </div>
+    </footer>
+
+    <script src="/assets/js/connection/applicants.js"></script>
+    <script src="/assets/js/functions/headerSwitch.js"></script>
+    <script src="/assets/js/functions/collapsible.js"></script>
+  </body>
+</html>

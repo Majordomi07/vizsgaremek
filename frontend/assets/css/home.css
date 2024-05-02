@@ -1,0 +1,963 @@
+/* -------------------------------------------------------------------------- */
+/*                                    Hero                                    */
+/* -------------------------------------------------------------------------- */
+
+.hero {
+  position: relative;
+  width: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(90deg, #008baa 0%, #004e68 100%);
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+  z-index: 1;
+
+  margin-top: -120px;
+  padding-top: 180px;
+}
+
+.hero::before {
+  position: absolute;
+  content: "";
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, #057088 0%, #013242 100%);
+  opacity: 0;
+  animation: bg 5s ease-in-out infinite alternate-reverse;
+  z-index: -1;
+
+  margin-top: -180px;
+}
+
+.hero .container {
+  display: flex;
+}
+
+.hero .container .text {
+  flex: 1;
+}
+
+.hero .container .text h1 {
+  color: white;
+  font-family: "Sailec Bold";
+  font-size: 60px;
+}
+
+#typing-container {
+  position: relative;
+  font-family: "Arial", sans-serif;
+  height: 80px;
+}
+
+#typing {
+  margin: 0;
+  animation: typing 1s steps(40) forwards;
+}
+
+@keyframes typing {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+.hero .container .text h2 {
+  color: #00b4db;
+  font-family: "Sailec Bold";
+  font-size: 50px;
+
+  margin-top: -10px;
+}
+
+.hero .container .text p {
+  color: white;
+  font-family: "Inter";
+  font-size: 16px;
+  width: 80%;
+
+  margin-top: 30px;
+}
+
+.hero .container .text a {
+  display: inline-block;
+  width: auto;
+  color: white;
+  font-family: "Sailec Medium";
+  font-size: 16px;
+  text-decoration: none;
+
+  padding: 10px 35px;
+  border-radius: 10px;
+
+  margin-top: 50px;
+  margin-bottom: 120px;
+
+  background: linear-gradient(45deg, #00b4db 0%, #0083b0 100%);
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.15);
+}
+
+.hero .container .text a:hover {
+  transform: scale(1.05);
+}
+
+.hero .container .illustration {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  flex: 1;
+
+  margin-top: -140px;
+}
+
+.hero .container .illustration object {
+  height: 370px;
+}
+
+@media only screen and (max-width: 1000px) {
+  .hero .container {
+    flex-direction: column;
+    padding-top: 65px;
+  }
+
+  .hero .container .text {
+    order: 2;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .hero .container .text h1 {
+    font-size: 36px;
+    text-align: center;
+  }
+
+  #typing-container {
+    height: 50px;
+  }
+
+  .hero .container .text h2 {
+    font-size: 35px;
+    text-align: center;
+  }
+
+  .hero .container .text p {
+    font-size: 11px;
+    text-align: center;
+
+    width: 100%;
+    margin-top: 20px;
+  }
+
+  .hero .container .text a {
+    font-size: 10px;
+    margin-bottom: 35px;
+    margin-top: 25px;
+  }
+
+  .hero .container .illustration {
+    order: 1;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding-top: 30px;
+    margin-bottom: 20px;
+  }
+
+  .hero .container .illustration object {
+    height: 120px;
+  }
+}
+
+/* -------------------------------------------------------------------------- */
+/*                                    Posts                                   */
+/* -------------------------------------------------------------------------- */
+
+.posts-container {
+  padding: 0 15px;
+}
+
+#posts {
+  scroll-margin-top: 120px;
+}
+
+.posts {
+  margin: 60px 0;
+  padding: 0 15px;
+  position: relative;
+}
+
+.posts h2 {
+  font-family: "Sailec Bold";
+  font-size: 40px;
+  text-align: center;
+
+  margin-bottom: 20px;
+}
+
+.posts p {
+  color: var(--secondary-text-color);
+  font-family: "Inter";
+  font-size: 16px;
+  text-align: center;
+
+  margin: 0 auto;
+  width: 70%;
+  margin-bottom: 70px;
+}
+
+.posts .content {
+  display: flex;
+  gap: 30px;
+}
+
+.posts .content aside {
+  float: left;
+  width: 25%;
+  height: 100%;
+  padding: 20px;
+
+  border-radius: 10px;
+  background: white;
+  box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.25);
+}
+
+.posts .content aside h3 {
+  font-family: "Inter";
+  font-size: 21px;
+  margin-top: 10px;
+}
+
+.posts .content aside .location h4,
+.posts .content aside .wage h4 {
+  font-family: "Inter";
+  font-size: 16px;
+  margin-top: 30px;
+  margin-bottom: 20px;
+}
+
+.posts .content aside .location p,
+.posts .content aside .wage p {
+  font-family: "Inter";
+  font-size: 15px;
+  text-align: left;
+  margin: 0;
+  padding: 0;
+  margin-bottom: 15px;
+}
+
+.posts .content aside .wage .radio:checked,
+.posts .content aside .wage .radio:not(:checked) {
+  position: absolute;
+  opacity: 0;
+}
+
+.posts .content aside .wage .radio:checked + label,
+.posts .content aside .wage .radio:not(:checked) + label {
+  position: relative;
+  padding-left: 28px;
+  cursor: pointer;
+  display: inline-block;
+}
+
+.posts .content aside .wage .radio:checked + label:before,
+.posts .content aside .wage .radio:not(:checked) + label:before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 18px;
+  height: 18px;
+  border: 1px solid #a3a3a3;
+  border-radius: 100%;
+  background: #fff;
+}
+
+.posts .content aside .wage .radio:checked + label:after,
+.posts .content aside .wage .radio:not(:checked) + label:after {
+  content: "";
+  width: 12px;
+  height: 12px;
+  background: linear-gradient(45deg, #00b4db 0%, #0083b0 100%);
+  position: absolute;
+  top: 4px;
+  left: 4px;
+  border-radius: 100%;
+  -webkit-transition: all 0.2s ease;
+  transition: all 0.2s ease;
+}
+
+.posts .content aside .wage .radio:not(:checked) + label:after {
+  opacity: 0;
+  -webkit-transform: scale(0);
+  transform: scale(0);
+}
+
+.posts .content aside .wage .radio:checked + label:after {
+  opacity: 1;
+  -webkit-transform: scale(1);
+  transform: scale(1);
+}
+
+.posts .content aside .location select {
+  font-family: "Inter";
+  font-size: 15px;
+
+  box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.25);
+  width: 80%;
+  height: 45px;
+  padding: 10px 15px;
+
+  border: none;
+  border-radius: 10px;
+  border-right: 10px solid transparent;
+}
+
+.posts .content aside .location select:focus {
+  outline: none;
+  box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.4);
+}
+
+.posts .content main {
+  width: 75%;
+}
+
+.posts .content main .topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 30px;
+  margin-bottom: 10px;
+}
+
+.posts .content main .topbar .search {
+  flex: 1;
+}
+
+.posts .content main .topbar .search input {
+  font-family: "Inter";
+  font-size: 15px;
+
+  border: none;
+  border-radius: 10px;
+  box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.25);
+  width: 100%;
+  height: 45px;
+  padding: 10px 20px;
+  transition: all 0.2s;
+}
+
+.posts .content main .topbar .search input:focus {
+  outline: none;
+  box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.4);
+}
+
+.posts .content main .topbar .category {
+  flex: 1;
+}
+
+.posts .content main .topbar .category select {
+  font-family: "Inter";
+  font-size: 15px;
+
+  box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.25);
+  width: 100%;
+  height: 45px;
+  padding: 10px 15px;
+
+  border: none;
+  border-radius: 10px;
+  border-right: 10px solid transparent;
+}
+
+.posts .content main .topbar .category select:focus {
+  outline: none;
+  box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.4);
+}
+
+.posts .content main .topbar .order {
+  flex: 1;
+}
+
+.posts .content main .topbar .order select {
+  font-family: "Inter";
+  font-size: 15px;
+
+  border: none;
+  border-radius: 10px;
+  border-right: 10px solid transparent;
+  box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.25);
+  width: 100%;
+  height: 45px;
+  padding: 10px 15px;
+}
+
+.posts .content main .topbar .order select:focus {
+  outline: none;
+  box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.4);
+}
+
+.posts .content main .topbar .filter {
+  display: none;
+}
+
+.posts .content main .topbar .filterReset {
+  flex: 1;
+}
+
+.posts .content main .topbar .filterReset button {
+  width: 100%;
+  height: 45px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  justify-content: center;
+  border-radius: 10px;
+  border: none;
+  box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.4);
+  background: linear-gradient(45deg, #00b4db 0%, #0083b0 100%);
+}
+
+.posts .content main .topbar .filterReset button p {
+  margin: 0;
+  font-size: 15px;
+  font-family: "Sailec Medium";
+  color: white;
+  font-weight: 400;
+}
+
+.posts .content main .result p {
+  font-family: "Inter";
+  text-align: left;
+  font-size: 16px;
+
+  margin: 0;
+  margin-bottom: 20px;
+}
+
+.posts .content main .result p span {
+  color: #0083b0;
+  font-family: "Sailec Medium";
+}
+
+.posts .content main .post {
+  background: white;
+  box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.25);
+  border-radius: 10px;
+
+  padding: 30px;
+  margin-bottom: 30px;
+}
+
+.posts .content main .post .top {
+  display: flex;
+}
+
+.posts .content main .post .top .text {
+  flex: 4;
+}
+
+.posts .content main .post .top .text h3 {
+  color: #0083b0;
+  font-family: "Sailec Medium";
+  font-size: 21px;
+
+  margin-bottom: 15px;
+}
+
+.posts .content main .post .top .text p {
+  color: var(--secondary-text-color);
+  font-family: "Inter";
+  text-align: left;
+  font-size: 16px;
+
+  margin: 0;
+  width: 100%;
+  margin-bottom: 30px;
+}
+
+.posts .content main .post .top .logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+  height: 80px;
+}
+
+.posts .content main .post .top .logo img {
+  height: 100%;
+}
+
+.posts .content main .post .bottom {
+  display: flex;
+}
+
+.posts .content main .post .bottom .tags {
+  flex: 4;
+
+  display: flex;
+  align-items: center;
+}
+
+.posts .content main .post .bottom .tags .category {
+  flex: 1;
+}
+
+.posts .content main .post .bottom .tags .category p {
+  color: white;
+  font-family: "Sailec Medium";
+  font-size: 15px;
+
+  background: linear-gradient(45deg, #00b4db 0%, #0083b0 100%);
+  border-radius: 10px;
+
+  padding: 5px 10px;
+  margin: 0;
+}
+
+.posts .content main .post .bottom .tags .widget {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+
+  flex: 2;
+}
+
+.posts .content main .post .bottom .tags .widget .map {
+  display: flex;
+  align-items: center;
+  margin-bottom: 5px;
+}
+
+.posts .content main .post .bottom .tags .widget .map img {
+  height: 20px;
+  margin-right: 10px;
+}
+
+.posts .content main .post .bottom .tags .widget .map p {
+  color: var(--secondary-text-color);
+  font-family: "Inter";
+  text-align: left;
+  font-size: 14px;
+
+  margin: 0;
+  padding: 0;
+  background: none;
+}
+
+.posts .content main .post .bottom .tags .widget .wage {
+  display: flex;
+  align-items: center;
+}
+
+.posts .content main .post .bottom .tags .widget .wage img {
+  height: 20px;
+  margin-right: 10px;
+}
+
+.posts .content main .post .bottom .tags .widget .wage p {
+  color: var(--secondary-text-color);
+  font-family: "Inter";
+  text-align: left;
+  font-size: 14px;
+
+  margin: 0;
+  padding: 0;
+  background: none;
+}
+
+.posts .content main .post .bottom .continue {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  flex: 1;
+}
+
+.posts .content main .post .bottom .continue button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 25px;
+
+  border-radius: 10px;
+  border: none;
+  background: linear-gradient(45deg, #00b4db 0%, #0083b0 100%);
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+  cursor: pointer;
+}
+
+.posts .content main .post .bottom .continue button p {
+  color: white;
+  font-family: "Sailec Medium";
+  font-size: 18px;
+
+  margin: 0;
+  padding: 0;
+
+  margin-right: 5px;
+}
+
+.posts .content main .post .bottom .continue button img {
+  height: 20px;
+}
+
+.posts .content main .arrange {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+}
+
+.posts .content main .arrange a {
+  color: var(--secondary-text-color);
+  font-family: "Inter";
+  font-size: 18px;
+  font-style: normal;
+  text-decoration: none;
+
+  margin: 0;
+  padding: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.posts .content main .arrange a img {
+  padding: 0;
+  margin: 0;
+
+  height: 24px;
+}
+
+/* -------------------------------------------------------------------------- */
+/*                                 Media Query                                */
+/* -------------------------------------------------------------------------- */
+
+@media only screen and (min-width: 1000px) {
+  .posts .content .responsive-filter {
+    display: none;
+  }
+}
+
+@media only screen and (max-width: 1000px) {
+  .posts {
+    margin-top: 30px;
+    overflow: hidden;
+    min-height: 600px;
+  }
+
+  .posts h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+  }
+
+  .posts p {
+    font-size: 11px;
+    width: 100%;
+    margin-bottom: 50px;
+  }
+
+  .posts .content {
+    position: relative;
+  }
+
+  .posts .content aside {
+    display: none;
+  }
+
+  .posts .content main {
+    width: 100%;
+  }
+
+  .posts .content main form .topbar {
+    gap: 10px;
+    margin-bottom: 10px;
+  }
+
+  .posts .content main form .topbar .category,
+  .posts .content main form .topbar .order,
+  .posts .content main .topbar .filterReset,
+  .posts .content main form .topbar .submit {
+    display: none;
+  }
+
+  .posts .content main form .topbar .search {
+    z-index: 3;
+  }
+
+  .posts .content main form .topbar .search input {
+    font-size: 9px;
+    padding: 10px;
+    height: 24px;
+    border-radius: 5px;
+  }
+
+  .posts .content main form .topbar .filter {
+    display: flex !important;
+    width: 50%;
+    z-index: 3;
+  }
+
+  .posts .content main form .topbar .filter button {
+    display: flex;
+    width: 100%;
+
+    text-align: center;
+
+    display: inline-block;
+    border: none;
+    border-radius: 5px;
+    background: linear-gradient(45deg, #00b4db 0%, #0083b0 100%);
+    box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.25);
+    padding: 10px 40px;
+    height: 24px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    transition: 0.2s all;
+  }
+
+  .posts .content main form .topbar .filter button p {
+    color: white;
+    font-family: "Sailec Medium";
+    font-size: 11px;
+
+    margin: 0;
+    width: auto;
+    margin-right: 6px;
+  }
+
+  .posts .content main form .topbar .filter button img {
+    height: 10px;
+  }
+
+  .posts .content main .result p {
+    font-size: 10px;
+  }
+
+  .posts .content main .post {
+    padding: 20px;
+  }
+
+  .posts .content main .post .top .text h3 {
+    font-size: 12px;
+    margin-bottom: 10px;
+  }
+
+  .posts .content main .post .top .text p {
+    font-size: 10px;
+    width: 90%;
+    margin-bottom: 20px;
+  }
+
+  .posts .content main .post .top .logo {
+    height: 40px;
+  }
+
+  .posts .content main .post .bottom .tags {
+    gap: 20px;
+  }
+
+  .posts .content main .post .bottom .tags .category p {
+    font-size: 8px;
+    border-radius: 5px;
+  }
+
+  .posts .content main .post .bottom .tags .widget .wage img,
+  .posts .content main .post .bottom .tags .widget .map img {
+    height: 10px;
+    margin-right: 5px;
+  }
+
+  .posts .content main .post .bottom .tags .widget .wage p,
+  .posts .content main .post .bottom .tags .widget .map p {
+    font-size: 8px;
+  }
+
+  .posts .content main .post .bottom .continue button {
+    border-radius: 5px;
+    padding: 5px 15px;
+    box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.25);
+  }
+
+  .posts .content main .post .bottom .continue button p {
+    font-size: 10px;
+    margin-right: 3px;
+  }
+
+  .posts .content main .post .bottom .continue button img {
+    height: 15px;
+  }
+
+  .posts .content main .arrange a {
+    font-size: 13px;
+  }
+
+  .posts .content main .arrange a img {
+    height: 15px;
+  }
+
+  .posts .content .responsive-filter {
+    display: block;
+    position: absolute;
+    top: -20px;
+    right: -30px;
+    left: -15px;
+
+    padding-left: 15px;
+    padding-top: 70px;
+    padding-bottom: 30px;
+
+    background: white;
+    box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.25);
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+
+    transition: 0.3s;
+  }
+
+  .posts .content .responsive-filter .location h4,
+  .posts .content .responsive-filter .wage h4,
+  .posts .content .responsive-filter .category h4,
+  .posts .content .responsive-filter .order h4 {
+    font-family: "Sailec Medium";
+    font-size: 12px;
+  }
+
+  .posts .content .responsive-filter .category select {
+    margin-bottom: 15px;
+  }
+
+  .posts .content .responsive-filter .location select {
+    margin-bottom: 15px;
+  }
+
+  .posts .content .responsive-filter .location select,
+  .posts .content .responsive-filter .category select,
+  .posts .content .responsive-filter .order select {
+    font-family: "Inter";
+    font-size: 10px;
+
+    border: none;
+    box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.25);
+    border-radius: 5px;
+    padding: 0 10px;
+    height: 28px;
+    width: 40%;
+
+    margin-top: 10px;
+  }
+
+  .posts .content .responsive-filter .wage form {
+    margin-top: 10px;
+  }
+
+  .posts .content .responsive-filter .wage p {
+    font-family: "Inter";
+    font-size: 12px;
+    text-align: left;
+    margin: 0;
+    padding: 0;
+    margin-bottom: 15px;
+  }
+
+  .posts .content .responsive-filter .wage .radio:checked,
+  .posts .content .responsive-filter .wage .radio:not(:checked) {
+    position: absolute;
+    opacity: 0;
+  }
+
+  .posts .content .responsive-filter .wage .radio:checked + label,
+  .posts .content .responsive-filter .wage .radio:not(:checked) + label {
+    position: relative;
+    padding-left: 28px;
+    cursor: pointer;
+    display: inline-block;
+  }
+
+  .posts .content .responsive-filter .wage .radio:checked + label:before,
+  .posts .content .responsive-filter .wage .radio:not(:checked) + label:before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 16px;
+    height: 16px;
+    border: 1px solid #a3a3a3;
+    border-radius: 100%;
+    background: #fff;
+    margin-top: -1px;
+  }
+
+  .posts .content .responsive-filter .wage .radio:checked + label:after,
+  .posts .content .responsive-filter .wage .radio:not(:checked) + label:after {
+    content: "";
+    width: 10px;
+    height: 10px;
+    background: linear-gradient(45deg, #00b4db 0%, #0083b0 100%);
+    position: absolute;
+    top: 4px;
+    left: 4px;
+    border-radius: 100%;
+    -webkit-transition: all 0.2s ease;
+    transition: all 0.2s ease;
+    margin-top: -1px;
+  }
+
+  .posts .content .responsive-filter .wage .radio:not(:checked) + label:after {
+    opacity: 0;
+    -webkit-transform: scale(0);
+    transform: scale(0);
+  }
+
+  .posts .content .responsive-filter .wage .radio:checked + label:after {
+    opacity: 1;
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  }
+
+  .posts .content .responsive-filter .filterReset {
+    margin-top: 20px;
+  }
+
+  .posts .content .responsive-filter .filterReset button {
+    width: 40%;
+    height: 28px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    justify-content: center;
+    border-radius: 5px;
+    border: none;
+    box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.4);
+    background: linear-gradient(45deg, #00b4db 0%, #0083b0 100%);
+  }
+
+  .posts .content .responsive-filter .filterReset button p {
+    margin: 0;
+    font-size: 11px;
+    font-family: "Sailec Medium";
+    color: white;
+    font-weight: 400;
+    width: auto;
+  }
+
+  .posts .content .responsive-filter .filterReset button img {
+    height: 10px;
+    width: 10px;
+  }
+
+  .posts .content .responsive-filter.closed {
+    right: calc(-100% + 34px);
+    left: calc(100% + 34px);
+  }
+}

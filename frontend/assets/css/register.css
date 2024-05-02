@@ -1,0 +1,419 @@
+/* -------------------------------------------------------------------------- */
+/*                                  Register                                  */
+/* -------------------------------------------------------------------------- */
+
+body {
+  overflow: hidden;
+  height: 100vh;
+  width: 100vw;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+main {
+  width: 1160px;
+  height: 700px;
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.25);
+
+  display: flex;
+}
+
+main .design,
+main .form {
+  width: 50%;
+  height: 100%;
+}
+
+main .design {
+  background: linear-gradient(90deg, #008baa 0%, #004e68 100%);
+  z-index: 1;
+  position: relative;
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+}
+
+main .design::before {
+  position: absolute;
+  content: "";
+  width: calc(1160px / 2);
+  height: calc(700px);
+  background: linear-gradient(90deg, #057088 0%, #013242 100%);
+  opacity: 0;
+  animation: bg 5s ease-in-out infinite alternate-reverse;
+  z-index: 0;
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+}
+
+@keyframes bg {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+main .design .logo {
+  position: relative;
+  z-index: 1;
+  padding: 40px;
+}
+
+main .design .blob {
+  background-image: url(../images/blob.svg);
+  position: relative;
+  z-index: 1;
+  height: 100%;
+  width: 100%;
+  background-repeat: no-repeat;
+  animation: rotating 60s infinite linear;
+  opacity: 0.2;
+}
+
+@keyframes rotating {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+main .form {
+  position: relative;
+  padding: 20px;
+  z-index: 2;
+  height: 100%;
+  padding: 20px 40px 20px 20px;
+}
+
+main .form h2 {
+  color: var(--title-text-color);
+  font-family: "Sailec Bold";
+  font-size: 40px;
+  padding: 20px;
+
+  margin-bottom: 30px;
+}
+
+main .form img {
+  display: none;
+}
+
+main .form form {
+  overflow-y: scroll;
+  height: 500px;
+  padding: 0 20px 0 20px;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #d9d9d9;
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 5px;
+  background: linear-gradient(90deg, #00b4db 0%, #0083b0 100%);
+}
+
+main .form form div {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+}
+
+main .form form div label {
+  color: var(--secondary-text-color);
+  font-size: 21px;
+  font-family: "Sailec Medium";
+  margin-bottom: 5px;
+}
+
+main .form form div textarea,
+main .form form div input {
+  border: 0;
+  border-radius: 10px;
+  box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.25);
+  padding: 10px 15px;
+  font-size: 14px;
+  font-family: "Inter";
+}
+
+main .form form div textarea:focus,
+main .form form div input:focus {
+  outline: none;
+  box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.4);
+}
+
+main .form form div textarea {
+  max-width: 100%;
+}
+
+.error {
+  color: #f44336;
+  font-size: 15px;
+  font-family: "Inter";
+  margin-top: 5px;
+}
+
+main .form form .company-check {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+main .form form .company-check input {
+  margin: 0;
+  height: 20px;
+  width: 20px;
+}
+
+main .form form .company-check label {
+  color: var(--secondary-text-color);
+  font-family: "Sailec Medium";
+  font-size: 15px;
+  margin: 0;
+}
+
+main .form form .company {
+  display: none;
+}
+
+main .form form .company .companyLogo {
+  display: flex;
+  flex-direction: column;
+
+  margin-bottom: 20px;
+}
+
+main .form form .company .companyLogo p {
+  color: var(--secondary-text-color);
+  font-family: "Sailec Medium";
+  font-size: 21px;
+  font-weight: 400;
+  margin: 0;
+  margin-bottom: 5px;
+  text-align: left;
+}
+
+main .form form .company .companyLogo .error {
+  color: #f44336;
+  font-size: 15px;
+  font-family: "Inter";
+  margin-top: 5px;
+}
+
+main .form form .company .companyLogo .file {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: 15px;
+  margin-bottom: 0;
+}
+
+main .form form .company .companyLogo .file p {
+  color: #8d8d8d;
+  font-family: "Inter";
+  font-size: 14px;
+  box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.25);
+  border-radius: 10px;
+  padding: 10px 15px;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100%;
+}
+
+main .form form .company .companyLogo .file label {
+  color: white;
+  font-size: 15px;
+  font-family: "Sailec Medium";
+  cursor: pointer;
+  background: linear-gradient(45deg, #00b4db 0%, #0083b0 100%);
+  box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.25);
+  border-radius: 10px;
+  padding: 0px 40px 0px 40px;
+  margin-bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+main .form form .company .companyLogo .file label input[type="file"] {
+  opacity: 0;
+  display: none;
+}
+
+main .form form .policy-container {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 0;
+}
+
+main .form form .policy-container .policy-checkbox {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 0;
+}
+
+main .form form .policy-container input {
+  margin: 0;
+  height: 20px;
+  width: 20px;
+}
+
+main .form form .policy-container label {
+  color: var(--secondary-text-color);
+  font-family: "Sailec Medium";
+  font-size: 15px;
+  width: 60%;
+  margin: 0;
+}
+
+main .form form .button {
+  width: 100%;
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 10px;
+}
+
+main .form form .button button {
+  display: block;
+  border-radius: 10px;
+  background: linear-gradient(90deg, #00b4db 0%, #0083b0 100%);
+  box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.25);
+  color: white;
+  font-family: "Sailec Medium";
+  font-size: 19px;
+  border: none;
+  padding: 10px 30px;
+  margin-top: 20px;
+  cursor: pointer;
+}
+
+@media only screen and (max-width: 1160px) {
+  body {
+    background: linear-gradient(90deg, #008baa 0%, #004e68 100%);
+    padding: 30px;
+    height: auto;
+    width: auto;
+    overflow: visible;
+    min-height: 100vh;
+  }
+
+  main .design {
+    display: none;
+  }
+
+  main {
+    width: 100%;
+    height: 100%;
+  }
+
+  main .form {
+    width: 100%;
+    padding: 0;
+    margin: 0;
+  }
+
+  main .form h2 {
+    font-size: 24px;
+    text-align: left;
+    margin-bottom: 0;
+    width: 100%;
+  }
+
+  main .form {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+  }
+
+  main .form img {
+    display: block;
+    padding-top: 30px;
+  }
+
+  main .form form {
+    overflow-y: visible;
+    height: 100%;
+    width: 100%;
+  }
+
+  main .form form div label {
+    font-size: 15px;
+  }
+
+  main .form form div input,
+  main .form form div textarea {
+    font-size: 12px;
+  }
+
+  .error {
+    font-size: 10px;
+  }
+
+  main .form form .company-check input {
+    height: 15px;
+    width: 15px;
+  }
+
+  main .form form .company-check label {
+    font-size: 11px;
+  }
+
+  main .form form .company .companyLogo p {
+    font-size: 15px;
+  }
+
+  main .form form .company .companyLogo .error {
+    font-size: 10px;
+  }
+
+  main .form form .company .companyLogo .file p {
+    font-size: 12px;
+    height: 35px;
+  }
+
+  main .form form .company .companyLogo .file label {
+    font-size: 16px;
+    padding: 10px 20px;
+    height: 35px;
+  }
+
+  main .form form .policy-container input {
+    height: 15px;
+    width: 15px;
+  }
+
+  main .form form .policy-container label {
+    font-size: 11px;
+  }
+
+  main .form form .button {
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+  }
+
+  main .form form .button button {
+    text-align: center;
+    font-size: 16px;
+    margin-bottom: 30px;
+  }
+}
